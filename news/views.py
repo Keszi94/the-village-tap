@@ -5,6 +5,6 @@ from .models import Article
 # Create your views here.
 
 class ArticleList(generic.ListView):
-    queryset = Article.objects.all()
+    queryset = Article.objects.filter(status=2)
     template_name = "article_list.html"
 
