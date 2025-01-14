@@ -29,7 +29,18 @@ class Article(models.Model):
         help_text="Optional: list any and all resources used in the article.")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    is_published = models.BooleanField(default=False, help_text="Approved to post")
+
+    # Status Field
+    DRAFT = 1
+    PUBLISHED = 2
+    ARCHIVED = 3
+    STATUS_CHOICES = [
+        (DRAFT, 'Draft'),
+        (PUBLISHED, 'Published'),
+        (ARCHIVED, 'Archived'),
+    ]
+    status = models.IntegerField(choices=STATUS_CHOICES, default=DRAFT)
+
 
     class Meta:
         ordering = ['created_on']
