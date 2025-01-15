@@ -11,12 +11,23 @@ class Thread(models.Model):
     Represents a thread in the forum
     """
     title = models.CharField(max_length=150, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="threads")
-    content = models.TextField(help_text="The main content of the thread.")
+    description = models.TextField()
     related_article_url = models.URLField(max_length=250, blank=True, null=True, help_text="Optional: Paste the link to a related article.")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    approved = models.BooleanField(default=False)
+    # Status Field
+    PENDING = 1
+    APPROVED = 2
+    REJECTED = 3
+    STATUS_CHOICES = [
+        (PENDING, 'Pending'),
+        (APPROVED, 'Approved'),
+        (REJECTED, 'Rejected'),
+    ]
+    status = models.IntegerField(choices=STATUS_CHOICES, default=PENDING)
+
 
     class Meta:
         ordering = ['-created_on']
