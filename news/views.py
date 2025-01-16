@@ -7,5 +7,5 @@ from .models import Article
 class ArticleList(generic.ListView):
     queryset = Article.objects.filter(status=2)
     template_name = "news/index.html"
-    paginate_by = 12
+    paginate_by = 6
 

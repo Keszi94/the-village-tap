@@ -7,11 +7,26 @@
           "slug": "wedding-announcement-sarah-and-liam",
           "author": 1,
           "category": "wedding",
-          "excerpt": "We are thrilled to announce the wedding of Sarah and Liam, joining together in love and celebration.",
+          "blurb": "We are thrilled to announce the wedding of Sarah and Liam, joining together in love and celebration.",
           "content": "<p><b>Love in the Air!</b></p><p>Sarah and Liam are excited to announce that they are getting married on Saturday, June 14th, at the St. Mary’s Church in the heart of our village. Their families, along with close friends, will gather to celebrate the joyous occasion.</p><p><b>Details of the Big Day:</b></p><p>The ceremony will start at 2 PM, followed by a reception at the Village Hall at 4 PM. Everyone in the village is invited to celebrate with them and join in the festivities. We look forward to a wonderful evening of music, dancing, and good company.</p><p><b>About the Couple:</b></p><p>Sarah and Liam have been living in the village for the past 5 years and are well-loved by everyone in the community. Their wedding day will mark the beginning of an exciting new chapter in their lives.</p>",
           "created_on": "2025-01-13T10:00:00Z",
           "updated_on": "2025-01-13T10:00:00Z",
-          "status": 1
+          "status": 2
+        }
+      },
+      {
+        "model": "news.article",
+        "pk": null,
+        "fields": {
+          "title": "Local Chef Wins Prestigious National Culinary Award",
+          "slug": "local-chef-wins-prestigious-national-culinary-award",
+          "author": 1,
+          "category": "achievements",
+          "blurb": "We are proud to announce that local chef, Brian Flaherty, has won the prestigious 'Chef of the Year' award at the National Culinary Awards.",
+          "content": "<p><b>Chef Brian's Achievement</b></p><p>Brian Flaherty, a local chef at The Green Oak Restaurant, has been awarded 'Chef of the Year' at the National Culinary Awards. This award is a testament to his dedication, talent, and passion for cooking. His signature dishes, which feature fresh, locally sourced ingredients, have garnered praise from critics and food lovers alike.</p><p><b>Brian's Journey</b></p><p>Brian’s culinary journey began in the village, where he learned his craft from his grandmother. Over the years, he honed his skills at prestigious restaurants and traveled the world, but he always returned to his roots. In 2015, he opened The Green Oak, which quickly became a beloved spot for locals and tourists alike.</p><p><b>Recognition of Excellence</b></p><p>Brian's win is a proud moment for the village, highlighting the skill and creativity that our local community fosters. We are all incredibly proud of his achievement and wish him continued success in his culinary endeavors.</p>",
+          "created_on": "2025-01-15T10:40:00Z",
+          "updated_on": "2025-01-15T10:40:00Z",
+          "status": 2
         }
       },
       {
@@ -20,13 +35,13 @@
         "fields": {
           "title": "In Memory of Nora Kelly",
           "slug": "in-memory-of-nora-kelly",
-          "author": 1,
+          "author": 2,
           "category": "obituaries",
-          "excerpt": "With heavy hearts, we announce the passing of Nora Kelly, a beloved member of our village.",
+          "blurb": "With heavy hearts, we announce the passing of Nora Kelly, a beloved member of our village.",
           "content": "<p><b>We Say Goodbye to a Friend</b></p><p>It is with deep sadness that we inform the community of the passing of Nora Kelly, who passed away peacefully in her home on January 10th, 2025, at the age of 82.</p><p><b>Life in the Village:</b></p><p>Nora was a lifelong resident of our village and was known for her kindness, generosity, and tireless support of local charities. She was a dedicated volunteer at the village's senior center, and her presence will be missed by all who knew her.</p><p><b>Funeral Arrangements:</b></p><p>A service will be held at St. Peter’s Church on January 15th at 11 AM. Family and friends are invited to pay their respects and celebrate Nora’s life.</p>",
           "created_on": "2025-01-13T14:00:00Z",
           "updated_on": "2025-01-13T14:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -35,13 +50,13 @@
         "fields": {
           "title": "Traffic Alert: Main Street Construction",
           "slug": "traffic-alert-main-street-construction",
-          "author": 1,
+          "author": 2,
           "category": "traffic",
-          "excerpt": "Be aware of ongoing roadworks on Main Street. Here's how to navigate around it.",
+          "blurb": "Be aware of ongoing roadworks on Main Street. Here's how to navigate around it.",
           "content": "<p><b>What's Happening?</b></p><p>The ongoing roadworks on Main Street are expected to last until the end of February 2025. The construction team is working on repaving and upgrading the utilities along the street.</p><p><b>How to Get Around:</b></p><p>There will be detours in place, with signs directing traffic to alternate routes. Expect delays during peak hours, and please avoid using Main Street if possible to help reduce congestion.</p><p><b>Construction Hours:</b></p><p>Work is scheduled to take place between 8 AM and 4 PM each day. Please plan accordingly and be mindful of construction crews.</p>",
           "created_on": "2025-01-13T16:00:00Z",
           "updated_on": "2025-01-13T16:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -50,13 +65,13 @@
         "fields": {
           "title": "Village Spring Festival Announced",
           "slug": "village-spring-festival-announced",
-          "author": 1,
+          "author": 2,
           "category": "news",
-          "excerpt": "The annual Village Spring Festival is back! Mark your calendars for this fun-filled event.",
+          "blurb": "The annual Village Spring Festival is back! Mark your calendars for this fun-filled event.",
           "content": "<p><b>Get Ready for the Village Spring Festival</b></p><p>It’s that time of year again! The highly anticipated Village Spring Festival will be taking place on May 5th, 2025. This year’s festival promises to be bigger and better than ever, with something for everyone—live music, food stalls, games, and more.</p><p><b>Event Highlights</b></p><p>The festival will kick off at 11 AM with the annual parade, featuring local schools, businesses, and community groups. Afterward, visitors can enjoy delicious food from local vendors, including organic produce, homemade pastries, and international cuisine.</p><p><b>Family-Friendly Fun</b></p><p>In addition to food and entertainment, there will be plenty of activities for the whole family to enjoy, including face painting, arts and crafts, and a bouncy castle for the kids. Local bands will be performing throughout the day, and there will be a special guest performance by the village choir in the evening.</p><p><b>Get Involved</b></p><p>Organizers are still looking for volunteers to help out during the festival. If you’d like to get involved, please contact the village hall for more details. We can’t wait to see you all there!</p>",
           "created_on": "2025-01-14T10:00:00Z",
           "updated_on": "2025-01-14T10:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -67,11 +82,41 @@
           "slug": "history-of-the-old-mill",
           "author": 1,
           "category": "history",
-          "excerpt": "Discover the fascinating history of the Old Mill, a staple of our village for over 150 years.",
+          "blurb": "Discover the fascinating history of the Old Mill, a staple of our village for over 150 years.",
           "content": "<p><b>A Glimpse into the Past</b></p><p>The Old Mill, originally built in 1872, has served the village for over a century, playing a key role in its development. It was first established as a grain mill, offering services to farmers who needed their crops ground into flour.</p><p><b>Mill's Transformation Over Time</b></p><p>Through the years, the Old Mill has been repurposed several times, from a local gathering spot to a community center. Today, it stands as a historical site, attracting visitors who want to learn more about the village's industrial past.</p>",
           "created_on": "2025-01-13T18:00:00Z",
           "updated_on": "2025-01-13T18:00:00Z",
-          "status": 1
+          "status": 2
+        }
+      },
+      {
+        "model": "news.article",
+        "pk": null,
+        "fields": {
+          "title": "Local Artist Opens New Gallery in the Village",
+          "slug": "local-artist-opens-new-gallery-in-village",
+          "author": 1,
+          "category": "news",
+          "blurb": "Local artist Sarah O’Connor has opened her very own art gallery, showcasing her work and that of other local talents.",
+          "content": "<p><b>New Art Gallery in the Village</b></p><p>We are excited to announce the opening of the Village Art Gallery, created by local artist Sarah O’Connor. Located on Main Street, the gallery features Sarah’s beautiful landscape paintings as well as work from other local artists in the area.</p><p><b>A Space for Creativity</b></p><p>The gallery aims to provide a platform for local artists to showcase their work to the community. In addition to the artwork, there will be regular workshops and events for all ages. Whether you’re an aspiring artist or just appreciate fine art, there will be something for you to enjoy.</p><p><b>Opening Reception</b></p><p>The official opening will take place on Saturday, February 1st, with an evening reception featuring drinks, appetizers, and live music. Everyone in the village is invited to join the celebration and support local talent!</p><p><b>Come Visit!</b></p><p>The gallery will be open from 10 AM to 6 PM every day, except Sundays. We encourage everyone to stop by and experience the vibrant art scene that’s blooming in our village!</p>",
+          "created_on": "2025-01-14T15:00:00Z",
+          "updated_on": "2025-01-14T15:00:00Z",
+          "status": 2
+        }
+      },
+      {
+        "model": "news.article",
+        "pk": null,
+        "fields": {
+          "title": "Roadworks in Nearest Town Affecting Traffic",
+          "slug": "roadworks-in-nearest-town-affecting-traffic",
+          "author": 2,
+          "category": "traffic",
+          "blurb": "Ongoing roadworks in the nearest town are causing delays, with diversions in place to help drivers avoid the area.",
+          "content": "<p><b>Important Traffic Updates: Roadworks in Nearest Town</b></p><p>Residents and commuters traveling to the nearest town may experience delays due to ongoing roadworks on High Street. The project, which began last week, is aimed at improving the road surface and upgrading drainage systems.</p><p><b>Expected Duration</b></p><p>The roadworks are expected to last for the next three weeks, with the work happening between 9 AM and 5 PM each day. While the project will improve road conditions in the long term, it is causing significant disruptions for drivers in the short term.</p><p><b>Detours and Diversions</b></p><p>In response to the roadworks, diversions have been put in place. Traffic heading into the town is being rerouted via Birch Road, and drivers are advised to avoid the area if possible. There will be temporary traffic lights set up to manage the flow of vehicles, and pedestrians may need to use alternative footpaths during certain hours.</p><p><b>Plan Ahead</b></p><p>If you have travel plans in the coming weeks, we strongly recommend checking local traffic updates and adjusting your route accordingly. The village council is working closely with local authorities to minimize disruption, but delays are still expected. Please be patient and plan your travel time accordingly.</p><p><b>Stay Informed</b></p><p>For the latest updates on the roadworks and any changes to traffic patterns, please follow local news outlets and social media channels. We appreciate your cooperation as the town works to improve the roads for everyone!</p>",
+          "created_on": "2025-01-14T18:00:00Z",
+          "updated_on": "2025-01-14T18:00:00Z",
+          "status": 2
         }
       },
       {
@@ -80,13 +125,13 @@
         "fields": {
           "title": "John O'Neill Wins Local Teacher of the Year Award",
           "slug": "john-oneill-wins-local-teacher-of-the-year-award",
-          "author": 1,
+          "author": 2,
           "category": "achievements",
-          "excerpt": "We are proud to announce that John O'Neill has been named Teacher of the Year for his dedication to the students and the village community.",
+          "blurb": "We are proud to announce that John O'Neill has been named Teacher of the Year for his dedication to the students and the village community.",
           "content": "<p><b>Honoring a Dedication to Education</b></p><p>John O'Neill, a teacher at our local school for the past 15 years, has been named Teacher of the Year. John is known for his creative teaching methods and his ability to inspire students, regardless of their academic background.</p><p><b>In the Classroom</b></p><p>John’s classes are known for being engaging and fun. His passion for teaching shines through in everything he does. Whether it’s guiding his students through complex problems or organizing extracurricular activities, John is always there to support them.</p><p><b>A Well-Deserved Recognition</b></p><p>The Teacher of the Year Award is a testament to John’s tireless commitment to education and his positive impact on the community. His students and colleagues alike are thrilled with this recognition.</p><p>We are proud to have John as a teacher in our village and look forward to the positive impact he will continue to have on future generations of students.</p>",
           "created_on": "2025-01-13T23:00:00Z",
           "updated_on": "2025-01-13T23:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -95,13 +140,13 @@
         "fields": {
           "title": "Village’s Annual Cleanup Day a Huge Success",
           "slug": "village-annual-cleanup-day-huge-success",
-          "author": 1,
+          "author": 2,
           "category": "news",
-          "excerpt": "The village’s Annual Cleanup Day was a huge success, with dozens of volunteers coming together to beautify our streets.",
+          "blurb": "The village’s Annual Cleanup Day was a huge success, with dozens of volunteers coming together to beautify our streets.",
           "content": "<p><b>Volunteers Come Together for Cleanup Day</b></p><p>This year’s Annual Cleanup Day was a fantastic success, with over 50 volunteers coming together to clean up public spaces and beautify our streets. The event, organized by the village council, was held on Saturday, January 10th, 2025.</p><p><b>What Was Done?</b></p><p>Volunteers worked in groups to clean up various areas of the village, picking up litter, trimming overgrown shrubs, and planting flowers in community spaces. The cleanup effort was concentrated around the village park, the main street, and the community center.</p><p><b>Positive Impact</b></p><p>The event was not only a great way to improve the village’s appearance, but it also brought the community closer together. People of all ages, from young children to seniors, worked side by side to help make our village a more beautiful place to live.</p><p><b>Looking Ahead</b></p><p>Thanks to everyone who participated, and we’re already looking forward to next year’s event. Together, we can keep our village clean, green, and a place we’re all proud to call home!</p>",
           "created_on": "2025-01-14T14:00:00Z",
           "updated_on": "2025-01-14T14:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -112,11 +157,11 @@
           "slug": "road-closures-village-square-maintenance",
           "author": 1,
           "category": "traffic",
-          "excerpt": "Scheduled road closures in the village square for maintenance work.",
+          "blurb": "Scheduled road closures in the village square for maintenance work.",
           "content": "<p><b>Closure Details:</b></p><p>Starting on January 20th, the village square will be closed to vehicles from 9 AM to 6 PM every weekday for maintenance work. Residents should expect temporary disruptions and detours around the area.</p><p><b>Why the Closure?</b></p><p>The closure is necessary to address ongoing structural issues with the roads and improve pedestrian safety. The work is expected to take three weeks, and we appreciate everyone's patience during this time.</p>",
           "created_on": "2025-01-13T17:00:00Z",
           "updated_on": "2025-01-13T17:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -125,13 +170,13 @@
         "fields": {
           "title": "The Story Behind St. John’s Church",
           "slug": "story-behind-st-johns-church",
-          "author": 1,
+          "author": 2,
           "category": "history",
-          "excerpt": "Uncover the rich history of St. John’s Church and its role in the village's spiritual life.",
+          "blurb": "Uncover the rich history of St. John’s Church and its role in the village's spiritual life.",
           "content": "<p><b>Founding of the Church</b></p><p>St. John’s Church was established in 1825 by the village's founding families. It quickly became the heart of the community, hosting not only religious services but also important social gatherings, such as weddings and celebrations.</p><p><b>The Church’s Legacy</b></p><p>Over the years, St. John’s Church has undergone renovations but remains a symbol of faith and unity for the community. It continues to serve as the spiritual home for many families in the village.</p>",
           "created_on": "2025-01-13T19:00:00Z",
           "updated_on": "2025-01-13T19:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -140,13 +185,43 @@
         "fields": {
           "title": "Remembering Patrick O'Connor",
           "slug": "remembering-patrick-oconnor",
-          "author": 1,
+          "author": 2,
           "category": "obituaries",
-          "excerpt": "We sadly announce the passing of Patrick O'Connor, a cherished member of our community.",
+          "blurb": "We sadly announce the passing of Patrick O'Connor, a cherished member of our community.",
           "content": "<p><b>Patrick O'Connor: A Life Well Lived</b></p><p>Patrick O'Connor, beloved father and grandfather, passed away on January 12th, 2025, at the age of 77. He was a well-known figure in our village, known for his work as a local farmer and for his dedication to community service.</p><p><b>His Contributions:</b></p><p>Patrick worked tirelessly for years to ensure our community had fresh produce, and his generosity extended to many local initiatives, including the community food bank. His legacy will live on in the hearts of everyone who knew him.</p><p>The funeral service will be held at St. Mary’s Church on January 16th at 2 PM.</p>",
           "created_on": "2025-01-13T15:00:00Z",
           "updated_on": "2025-01-13T15:00:00Z",
-          "status": 1
+          "status": 2
+        }
+      },
+      {
+        "model": "news.article",
+        "pk": null,
+        "fields": {
+          "title": "Village Sports Day to Feature New Activities and Challenges",
+          "slug": "village-sports-day-to-feature-new-activities-and-challenges",
+          "author": 2,
+          "category": "news",
+          "blurb": "Get ready for an action-packed day! The annual Village Sports Day is just around the corner, and this year, we’re adding new events and activities for all ages.",
+          "content": "<p><b>What’s New This Year?</b></p><p>The Village Sports Day, scheduled for February 5, 2025, is going to be bigger and better than ever! This year, we are introducing new events including a three-legged race, a sack race for adults, and a fun obstacle course for children. These new challenges will add a fresh and exciting twist to the day’s traditional activities.</p><p><b>Old Favorites Return</b></p><p>Of course, the classic events will still be part of the fun. The egg-and-spoon race, tug-of-war, and relay races will all be back by popular demand. There will also be a pie-eating contest and a bake sale, where villagers can show off their culinary skills.</p><p><b>Family-Friendly Fun</b></p><p>With activities for every age group, the Village Sports Day is a perfect event for families to enjoy together. Local food trucks will be serving a variety of delicious options, and live music will keep the atmosphere festive throughout the day.</p><p><b>Mark Your Calendar</b></p><p>Don’t miss out on the fun! The Village Sports Day will be held at the village field starting at 10 AM. Bring your competitive spirit and come join in the community fun!</p>",
+          "created_on": "2025-01-15T11:00:00Z",
+          "updated_on": "2025-01-15T11:00:00Z",
+          "status": 2
+        }
+      },
+      {
+        "model": "news.article",
+        "pk": null,
+        "fields": {
+          "title": "Farmers' Market Opening Soon: A New Chapter for the Village",
+          "slug": "farmers-market-opening-soon-a-new-chapter-for-the-village",
+          "author": 2,
+          "category": "news",
+          "blurb": "Exciting news for the village! Our new Farmers' Market will officially open next weekend, offering fresh, locally grown produce and handmade goods.",
+          "content": "<p><b>A Local Initiative</b></p><p>The highly anticipated Farmers' Market will open on Saturday, January 22, 2025, marking the beginning of a new chapter for the village. The market will feature a variety of local vendors, selling everything from fresh vegetables and fruits to handmade crafts and artisanal products. This initiative has been driven by the local community and is designed to support small businesses while providing villagers with high-quality, locally sourced goods.</p><p><b>What to Expect</b></p><p>The market will be open every Saturday morning from 8 AM to 12 PM at the village green. In addition to food and handmade goods, there will be live music and activities for children, making it a fun experience for the whole family. Local farmers, bakers, and craftspeople will have booths set up, offering fresh, seasonal produce, homemade bread, organic honey, and more.</p><p><b>Supporting Local</b></p><p>By shopping at the Farmers' Market, you’ll not only be supporting local businesses but also reducing the environmental impact of food transportation. We encourage everyone to visit and experience the best of what our village has to offer!</p>",
+          "created_on": "2025-01-15T10:50:00Z",
+          "updated_on": "2025-01-15T10:50:00Z",
+          "status": 2
         }
       },
       {
@@ -157,11 +232,11 @@
           "slug": "tom-and-kate-wedding-celebration",
           "author": 1,
           "category": "wedding",
-          "excerpt": "Join us in celebrating the wedding of Tom and Kate this summer.",
+          "blurb": "Join us in celebrating the wedding of Tom and Kate this summer.",
           "content": "<p><b>The Couple:</b></p><p>Tom and Kate are delighted to share that they will be tying the knot on July 7th, 2025. A simple ceremony will be held at the local church, followed by an intimate reception with their closest friends and family.</p><p><b>Invitations:</b></p><p>The wedding is by invitation only, but Tom and Kate welcome everyone in the village to join them at the reception later that evening, where food, music, and laughter will flow freely.</p><p>We wish the happy couple a lifetime of love and happiness!</p>",
           "created_on": "2025-01-13T12:00:00Z",
           "updated_on": "2025-01-13T12:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -170,13 +245,13 @@
         "fields": {
           "title": "Local Business Wins Sustainable Business Award",
           "slug": "local-business-wins-sustainable-business-award",
-          "author": 1,
+          "author": 2,
           "category": "achievements",
-          "excerpt": "The Green Leaf Café has been recognized for its sustainable practices and environmental consciousness, earning the Sustainable Business Award.",
+          "blurb": "The Green Leaf Café has been recognized for its sustainable practices and environmental consciousness, earning the Sustainable Business Award.",
           "content": "<p><b>Green Leaf Café Shines in Sustainability</b></p><p>The Green Leaf Café, a local favorite in the heart of our village, has won the prestigious Sustainable Business Award. This award is given to businesses that have demonstrated exceptional commitment to environmental sustainability and ethical practices.</p><p><b>What Makes Green Leaf Café Stand Out</b></p><p>The café, owned by Emma and Liam Green, has implemented numerous eco-friendly initiatives, such as using locally-sourced ingredients, reducing waste, and adopting energy-efficient technologies. Their commitment to sustainability has set an example for other businesses in the village to follow.</p><p><b>What’s Next?</b></p><p>Emma and Liam are thrilled with the recognition and plan to continue their efforts to create a greener, more sustainable future for the village. They hope to inspire other local businesses to take similar steps in reducing their environmental impact.</p>",
           "created_on": "2025-01-13T22:00:00Z",
           "updated_on": "2025-01-13T22:00:00Z",
-          "status": 1
+          "status": 2
         }
       },
       {
@@ -185,13 +260,28 @@
         "fields": {
           "title": "Local Girl Fiona Wins National Poetry Competition",
           "slug": "local-girl-fiona-wins-national-poetry-competition",
-          "author": 1,
+          "author": 2,
           "category": "achievements",
-          "excerpt": "Fiona, a young local poet, has won first place in the national poetry competition. We couldn't be more proud!",
+          "blurb": "Fiona, a young local poet, has won first place in the national poetry competition. We couldn't be more proud!",
           "content": "<p><b>Breaking News: A Young Star Emerges</b></p><p>Fiona, a 14-year-old student from our village, has won first place in the prestigious National Poetry Competition. Her poem, 'The Seasons of My Life', impressed the judges with its depth, creativity, and emotional resonance.</p><p><b>Fiona’s Journey</b></p><p>Fiona, a student at the local high school, has always had a passion for literature. She has been writing poetry since she was 9 years old, and her natural talent has only grown over the years. Her winning poem reflects her love of nature and the changing seasons, which is a theme that has inspired her throughout her writing career.</p><p><b>The Award</b></p><p>The award ceremony will be held at the National Theatre in Dublin next month. Fiona’s prize includes a cash award, a publication deal, and a scholarship to attend a prestigious writing workshop.</p><p><b>Community Support</b></p><p>The entire village is behind Fiona and we are looking forward to celebrating her success together. Fiona’s achievement is a true reflection of the talent within our community, and we couldn’t be prouder of her!</p>",
           "created_on": "2025-01-13T20:00:00Z",
           "updated_on": "2025-01-13T20:00:00Z",
-          "status": 1
+          "status": 2
+        }
+      },
+      {
+        "model": "news.article",
+        "pk": null,
+        "fields": {
+          "title": "Newlyweds, Anna and Liam, Tie the Knot!",
+          "slug": "newlyweds-anna-and-liam-tie-the-knot",
+          "author": 2,
+          "category": "wedding",
+          "blurb": "Join us in celebrating the union of Anna and Liam, who recently got married in a beautiful ceremony at the village church.",
+          "content": "<p><b>The Ceremony</b></p><p>On a sunny Saturday afternoon, Anna O'Connor and Liam O'Rourke said their vows in a heartfelt ceremony at St. Mary's Church. Surrounded by family, friends, and the entire village, the couple exchanged rings and promised to love and cherish each other for the rest of their lives.</p><p><b>The Reception</b></p><p>The newlyweds celebrated their marriage at the village hall, where guests enjoyed a delightful reception with speeches, dancing, and a delicious banquet. The evening was filled with joy, and the entire village was delighted to join in the celebration.</p><p><b>The Couple</b></p><p>Anna, a local teacher, and Liam, a plumber, have been together for six years and have always been a beloved part of the community. Their wedding marks a new chapter in their lives, and we wish them many years of happiness and love!</p>",
+          "created_on": "2025-01-15T10:00:00Z",
+          "updated_on": "2025-01-15T10:00:00Z",
+          "status": 2
         }
       },
       {
@@ -202,11 +292,26 @@
           "slug": "new-library-branch-opens-in-village",
           "author": 1,
           "category": "news",
-          "excerpt": "A new branch of the village library has opened, offering more books and resources for residents of all ages.",
+          "blurb": "A new branch of the village library has opened, offering more books and resources for residents of all ages.",
           "content": "<p><b>Library Branch Now Open!</b></p><p>We’re happy to announce that a new branch of the village library is officially open to the public! The new location, located in the heart of the village, offers a larger space with a wider variety of books and resources.</p><p><b>A Space for Everyone</b></p><p>The new library branch has something for everyone—whether you’re a student, a parent, or someone looking for a quiet place to read. The new space includes a children’s reading area, private study rooms, and a computer lab for research and learning.</p><p><b>New Programs and Events</b></p><p>In addition to the expanded collection, the library will be hosting a series of free workshops, book clubs, and author talks throughout the year. There will also be storytimes for younger children and tutoring services for students in need of extra help.</p><p><b>Library Card Access</b></p><p>Residents can apply for a library card at the new location, which will give them access to not only this branch but all library services in the village. Don’t forget to visit soon to check out the new space and all it has to offer!</p>",
           "created_on": "2025-01-14T13:00:00Z",
           "updated_on": "2025-01-14T13:00:00Z",
-          "status": 1
+          "status": 2
+        }
+      },
+      {
+        "model": "news.article",
+        "pk": null,
+        "fields": {
+          "title": "The Old Village Post Office: A Glimpse into the Past",
+          "slug": "the-old-village-post-office-a-glimpse-into-the-past",
+          "author": 1,
+          "category": "history",
+          "blurb": "The Old Village Post Office is one of the most cherished historical landmarks in the village. Let's explore its rich history and how it shaped our community.",
+          "content": "<p><b>The Beginning of the Post Office</b></p><p>The Old Village Post Office was established in the late 1800s and served as the heart of communication for villagers. Before the advent of telephones and the internet, the post office was where residents could connect with the outside world. It was a bustling hub, where locals would pick up their letters, parcels, and news from nearby towns.</p><p><b>Role in the Community</b></p><p>Beyond its role as a postal service, the post office was a social gathering spot where villagers would chat about the latest happenings. It played a significant role in the daily lives of residents, and many fond memories are associated with it.</p><p><b>Preserving the Legacy</b></p><p>Although the post office was closed in the late 1990s, its legacy lives on in the village’s history. The building still stands today, preserved as part of the village's heritage. A plaque has been placed on the building, commemorating its significance to the community.</p>",
+          "created_on": "2025-01-15T10:30:00Z",
+          "updated_on": "2025-01-15T10:30:00Z",
+          "status": 2
         }
       }
 ]
