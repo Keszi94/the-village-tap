@@ -66,6 +66,11 @@ This platform provides an intuitive experience for site users to read articles, 
 ### Milestones and User Stories
 
 #### Milestone 1 - Initial Setup
+- 1: Install and configure Django along with necessary libraries in the IDE to start development
+- 2: Set up project and apps with the required structure and configurations
+- 3: Deploy the project to Heroku with for early testing
+- 4: Create an instance of a cloud-based PostgreSQL database and connect it to the project
+- 5: Create a random secret_key and add it to the env.py file
 #### Milestone 2 - Main Site Pages
 #### Milestone 3 - Forum Access
 #### Milestone 4 - CRUD Functionality
