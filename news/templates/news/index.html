@@ -18,7 +18,7 @@
                                     <p class="author">Author: {{ article.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="article-link">
+                            <a href="{% url 'article_detail' article.slug %}" class="article-link">
                                 <h2 class="card-title">{{ article.title }}</h2>
                             </a>
                             <div class="article-blurb">

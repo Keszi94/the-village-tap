@@ -50,7 +50,11 @@ class Comment(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return f"Comment by {self.author.username} on {self.thread.title}"   
+        return f"Comment by {self.author.username} on {self.thread.title}"
+
+    # checks if a comment has a parent which would make it a reply
+    def is_reply(self):
+        return self.parent is not None    
 
 
 
