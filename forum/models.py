@@ -28,12 +28,31 @@ class Thread(models.Model):
     ]
     status = models.IntegerField(choices=STATUS_CHOICES, default=PENDING)
 
-
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
         return f"{self.title} | created by {self.author}"
+
+
+class Comment(models.Model):
+    thread = models.ForeignKey('forum.Thread', on_delete=models.CASCADE, related_name='comment')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    content = models.TextField()
+    created_on = models.DateField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    # Indicates if a comment has been reported for a review
+    reported = models.BooleanField(default=False)
+    # Allows replies to comments
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return f"Comment by {self.author.username} on {self.thread.title}"   
+
+
 
 
         
