@@ -17,7 +17,7 @@
             <ul class="list-group">
                 {% for thread in threads %}
                 <li class="list-group-item">
-                    <h4><a href="{% url 'thread_detail' thread.slug %}">{{ thread.title }}</a></h4>
+                    <h4><a href="{% url 'threads_page' thread.slug %}">{{ thread.title }}</a></h4>
                     <p>Created by {{ thread.author.username }} on {{ thread.created_on|date:"F j, Y" }}</p>
                     <p>{{ thread.description|truncatewords:20 }}</p>
                 </li>
