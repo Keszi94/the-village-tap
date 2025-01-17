@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="container mt-4">
     <h1>{{ thread.title }}</h1>
     <p><strong>Author:</strong> {{ thread.author }}</p>
@@ -9,40 +10,41 @@
     <p>{{ thread.description }}</p>
 
     {% if thread.related_article_url %}
-        <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank">{{ thread.related_article_url }}</a></p>
+    <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank">{{ thread.related_article_url }}</a></p>
     {% endif %}
 
     <hr>
 
     <h3>Comments</h3>
     {% if thread.comment.all %}
-        {% for comment in thread.comment.all %}
-            <div class="comment">
-                <p><strong>{{ comment.author.username }}</strong> said on {{ comment.created_on|date:"F j, Y, g:i a" }}:</p>
-                <p>{{ comment.content }}</p>
-                {% if comment.is_reply %}
-                    <div class="reply ml-4">
-                        <p><em>Reply to:</em> {{ comment.parent.content }}</p>
-                    </div>
-                {% endif %}
-            </div>
-            <hr>
-        {% endfor %}
+    {% for comment in thread.comment.all %}
+    <div class="comment">
+        <p><strong>{{ comment.author.username }}</strong> said on {{ comment.created_on|date:"F j, Y, g:i a" }}:</p>
+        <p>{{ comment.content }}</p>
+        {% if comment.is_reply %}
+        <div class="reply ml-4">
+            <p><em>Reply to:</em> {{ comment.parent.content }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <hr>
+    {% endfor %}
     {% else %}
-        <p>No comments yet. Be the first to comment!</p>
+    <p>No comments yet. Be the first to comment!</p>
     {% endif %}
 
     <hr>
 
     {% if user.is_authenticated %}
-        <h3>Leave a Comment</h3>
-        <form method="post">
-            {% csrf_token %}
-            <textarea name="content" class="form-control" rows="3" placeholder="Write your comment here..."></textarea>
-            <button type="submit" class="btn btn-primary mt-2">Submit</button>
-        </form>
+    <h3>Leave a Comment</h3>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="content" class="form-control" rows="3" placeholder="Write your comment here..."></textarea>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
     {% else %}
-        <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
+    <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
     {% endif %}
 </div>
+
 {% endblock %}
