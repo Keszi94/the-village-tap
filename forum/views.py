@@ -33,3 +33,8 @@ def threads_page(request):
         'threads': threads,
         'form': form,
     })
+
+
+def thread_detail(request, slug):
+    thread = Thread.objects.get(slug=slug)
+    return render(request, 'forum/thread_detail.html', {'thread': thread})    
