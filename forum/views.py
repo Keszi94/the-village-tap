@@ -15,6 +15,10 @@ def threads_page(request):
             if form.is_valid():
                 thread = form.save(commit=False)
                 thread.author = request.user # sets the author as the user logged in
+                if request.user.is_superuser:
+                    thread.status = Thread.APPROVED
+                else:
+                        thread.status = Thread.PENDING
                 thread.save()
                 return redirect('threads_page') # redirects the user to the same page after submission
         else:
