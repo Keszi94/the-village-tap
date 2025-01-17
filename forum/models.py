@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 from news.models import Article
 
 
@@ -33,6 +34,11 @@ class Thread(models.Model):
 
     def __str__(self):
         return f"{self.title} | created by {self.author}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug: # generates the slug if it's not already set
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs) # calls on the parent class's safe method    
 
 
 class Comment(models.Model):
