@@ -9,7 +9,7 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for article in article_list %}
+                {% for article in articles %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
@@ -28,7 +28,7 @@
                             <hr />
                             <p class="card-text text-muted h6">{{ article.created_on}}
                             </p>
-                            <button type="button" class="btn btn-info">{{ article.category }}</button>
+                            <a type="button" class="btn btn-info" href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
                         </div>
                     </div>
                 </div>
