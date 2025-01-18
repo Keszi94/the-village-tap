@@ -16,9 +16,11 @@
     <div class="container mt-5">
         <h1 class="mb-4">Conversations Happening In The Snug</h1>
 
+        {% if user.is_authenticated %}
         <!-- List of existing threads -->
         <div class="mt-4">
             <h2>All Threads</h2>
+            {% if threads %}
             <ul class="list-group">
                 {% for thread in threads %}
                 <li class="list-group-item">
@@ -28,6 +30,7 @@
                 </li>
                 {% endfor %}
             </ul>
+            {% else %}
         </div>
     </div>
 
@@ -42,9 +45,8 @@
         </form>
     </div>
     {% else %}
-    <p><a href="{% url 'login' %}">Log in</a> to create a thread.</p>
+    <p><a href="{% url 'account_login' %}">Log in</a> to view, create and comment on threads in the Snug.</p>
     {% endif %}
 </body>
-
-
 </html>
+{% endblock %}
