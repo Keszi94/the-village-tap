@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-    <!-- List of existing threads -->
     <div class="container mt-5">
         <h1 class="mb-4">Conversations Happening In The Snug</h1>
 
@@ -31,22 +29,25 @@
                 {% endfor %}
             </ul>
             {% else %}
+            <p>No threads found. Be the first to start a conversation!</p>
+            {% endif %}
         </div>
-    </div>
 
-    <!-- Form for creating a new thread -->
-    {% if user.is_authenticated %}
-    <div class="mb-4">
-        <h2>Create a New Thread</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Create Thread</button>
-        </form>
+        <!-- Form for creating a new thread -->
+        <div class="mb-4">
+            <h2>Create a New Thread</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Create Thread</button>
+            </form>
+        </div>
+        {% else %}
+        <!-- Message for unauthenticated users -->
+        <p><a href="{% url 'account_login' %}">Log in</a> to view, create, and comment on threads in the Snug.</p>
+        {% endif %}
     </div>
-    {% else %}
-    <p><a href="{% url 'account_login' %}">Log in</a> to view, create and comment on threads in the Snug.</p>
-    {% endif %}
 </body>
 </html>
+
 {% endblock %}
