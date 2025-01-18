@@ -51,12 +51,12 @@
                             Categories
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">General News</a></li>
-                            <li><a class="dropdown-item" href="#">Traffic</a></li>
-                            <li><a class="dropdown-item" href="#">Obituaries</a></li>
-                            <li><a class="dropdown-item" href="#">Wedding Announcements</a></li>
-                            <li><a class="dropdown-item" href="#">Village History</a></li>
-                            <li><a class="dropdown-item" href="#">Village Achievements</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'news' %}">General News</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'traffic' %}">Traffic</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'obituaries' %}">Obituaries</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'wedding' %}">Wedding Announcements</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'history' %}">Village History</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'achievements' %}">Village Achievements</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -77,9 +77,6 @@
                             href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
-                    <!-- <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Suugest your News Story</a>
-              </li> -->
                 </ul>
             </div>
         </div>
