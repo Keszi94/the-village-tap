@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Article
+from .models import CATEGORY_CHOICES
 
 # Create your views here.
 
@@ -9,7 +10,7 @@ def article_list(request, category=None):
         # Filter articles by their status (2, Approved) and match the category
         articles = Article.objects.filter(status=2, category=category).order_by('-created_on')
         # Get the category name to display in the template
-        category_title = dict(Article.CATEGORY_CHOICES).get(category, 'Unkwown category')
+        category_title = dict(CATEGORY_CHOICES).get(category, 'Unkwown category')
     else:
         articles = Article.objects.filter(status=2).order_by('-created_on')
         category_title = None
