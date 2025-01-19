@@ -62,6 +62,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'threads_page' %}">The Snug</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'create_article' %}">Add New Article</a>
+                    </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"

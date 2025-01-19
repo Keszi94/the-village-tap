@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Article
 from .models import CATEGORY_CHOICES
+from .forms import ArticleCreationForm
+from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
 
@@ -50,4 +52,23 @@ def articles_by_category(request, category):
     return render(request, 'news/article_list', {
         'articles': articles, # Pass the filtered articles to the template
     })    
+
+
+# Decorator: restricts the acces to superusers only
+@user_passes_test(lambda u: u.is_superuser)
+def create_article(request):
+    if request.method == 'POST':
+        form = ArticleCreationForm(request.POST)
+        # Auto-generating the slug
+        article.slug = article.title.lower().replace(' ', '-')
+        # Assign current superuser as the author
+        article.author = request.user
+        article.save()
+        # Redirects to home after submission
+        return redirect('home')
+    else:
+        form = ArticleCreationForm()
+
+    return render(request, 'news/create_article.html', {'form': form})        
+
 
