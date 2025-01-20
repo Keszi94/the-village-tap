@@ -62,9 +62,11 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/forum/' %}active{% endif %}" href="{% url 'threads_page' %}">The Snug</a>
                     </li>
+                    {% if user.is_authenticated and user.is_superuser %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/forum/' %}active{% endif %}" href="{% url 'create_article' %}">Add New Article</a>
                     </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
