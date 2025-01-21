@@ -14,8 +14,11 @@ for (let button of editButtons) {
     button.addEventListener("click", function(e) {
         let threadTitle = e.target.getAttribute("data-title");
         let threadDescription = e.target.getAttribute("data-description");
+        let threadRelatedArticle = e.target.getAttribute("data-related");
+        
         document.getElementById("id_title").value = threadTitle;
         document.getElementById("id_description").value = threadDescription;
+        document.getElementById("id_related_article").value = threadRelatedArticle;
 
         // Toggle the visibility of the edit form
         if (editForm.style.display === "none") {

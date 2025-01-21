@@ -19,7 +19,8 @@
     {% if user.is_authenticated and thread.author == user %}
     <!-- Edit button for logged-in user/creator of the thread -->
     <button class="btn btn-primary btn-edit" id="editButton" data-slug="{{ thread.slug }}"
-        data-title="{{ thread.title }}" data-description="{{ thread.description }}">
+        data-title="{{ thread.title }}" data-description="{{ thread.description }}"
+        data-related="{{ thread.related_article_url }}">
         Edit Thread
     </button>
     <!-- Edit form (only visible to the author of the thread) -->
@@ -32,6 +33,11 @@
         <div class="mb-3">
             <label for="id_description" class="form-label">Description</label>
             <textarea class="form-control" id="id_description" name="description">{{ thread.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="id_related_article" class="form-label">Related Article</label>
+            <input type="text" class="form-control" id="id_related_article" name="related_article_url"
+                value="{{ thread.related_article_url }}">
         </div>
         <button type="submit" class="btn btn-success">Save Changes</button>
     </form>

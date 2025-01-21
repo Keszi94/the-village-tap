@@ -46,7 +46,8 @@ def edit_thread(request, slug):
 
     if request.method == 'POST':
         thread.title = request.POST.get('title')
-        thrread.description = request.POST.get('description')
+        thread.description = request.POST.get('description')
+        thread.related_article_url = request.POST.get('related_article_url')
         thread.save()
         return redirect('thread_detail', slug=slug)
 
