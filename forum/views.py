@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseForbidden
+from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Thread, Comment
 from .forms import ThreadCreationForm
+
 
 
 # Create your views here.
@@ -42,6 +44,9 @@ def thread_detail(request, slug):
 
 
 def edit_thread(request, slug):
+    """
+    View to edit threads
+    """
     thread = get_object_or_404(Thread, slug=slug, author=request.user)
 
     if request.method == 'POST':
@@ -51,5 +56,21 @@ def edit_thread(request, slug):
         thread.save()
         return redirect('thread_detail', slug=slug)
 
-    return redirect('thread_detail', slug=slug)        
+    return redirect('thread_detail', slug=slug)
+
+
+def delete_thread(request, slug):
+    """
+    View to delete threads
+    """
+    if request.method == 'POST':
+        thread = get_object_or_404(Thread, slug=slug, author=request.user)
+
+        thread.delete()
+        messages.success(request, 'Thread has been deleted successfully!')
+
+        return redirect('threads_page')
+
+    else:
+        return HttpResponseRedirect('/')    
     

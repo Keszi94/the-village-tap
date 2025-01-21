@@ -17,14 +17,16 @@
         </a></p>
     {% endif %}
 
-    <!-- Edit button for logged in user/creator of the thread -->
+    <!-- Edit and Delete button for logged in user/creator of the thread -->
     {% if user.is_authenticated and thread.author == user %}
-    <!-- Edit button for logged-in user/creator of the thread -->
+
     <button class="btn btn-primary btn-edit" id="editButton" data-slug="{{ thread.slug }}"
         data-title="{{ thread.title }}" data-description="{{ thread.description }}"
         data-related="{{ thread.related_article_url }}">
         Edit Thread
     </button>
+    <button class="btn btn-delete btn-danger" data-slug="{{ thread.slug }}">Delete Thread</button>
+
     <!-- Edit form (only visible to the author of the thread) -->
     <form id="editForm" method="POST" style="display: none;" action="{% url 'edit_thread' thread.slug %}">
         {% csrf_token %}
@@ -43,6 +45,30 @@
         </div>
         <button type="submit" class="btn btn-success">Save Changes</button>
     </form>
+
+    <!-- Delete confirmation modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Thread?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this thread? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <!-- Delete form (hidden slug) -->
+                    <form method="POST" id="deleteForm" action="{% url 'delete_thread' slug=thread.slug %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="slug" id="deleteSlug">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     {% endif %}
 
     <hr>
