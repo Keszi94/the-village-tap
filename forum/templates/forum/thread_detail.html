@@ -17,9 +17,13 @@
 
     <!-- Edit button for logged in user/creator of the thread -->
     {% if user.is_authenticated and thread.author == user %}
-    <button class="btn btn-primary btn-edit" data-slug="{{ thread.slug }}">Edit Thread</button>
+    <!-- Edit button for logged-in user/creator of the thread -->
+    <button class="btn btn-primary btn-edit" id="editButton" data-slug="{{ thread.slug }}"
+        data-title="{{ thread.title }}" data-description="{{ thread.description }}">
+        Edit Thread
+    </button>
     <!-- Edit form (only visible to the author of the thread) -->
-    <form id="editForm" method="POST">
+    <form id="editForm" method="POST" style="display: none;">
         {% csrf_token %}
         <div class="mb-3">
             <label for="id_title" class="form-label">Title</label>
