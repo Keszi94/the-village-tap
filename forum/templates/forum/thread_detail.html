@@ -24,7 +24,7 @@
         Edit Thread
     </button>
     <!-- Edit form (only visible to the author of the thread) -->
-    <form id="editForm" method="POST" style="display: none;">
+    <form id="editForm" method="POST" style="display: none;" action="{% url 'edit_thread' thread.slug %}">
         {% csrf_token %}
         <div class="mb-3">
             <label for="id_title" class="form-label">Title</label>
