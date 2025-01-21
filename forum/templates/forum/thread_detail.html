@@ -11,8 +11,10 @@
     <p>{{ thread.description }}</p>
 
     {% if thread.related_article_url %}
-    <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank">{{
-            thread.related_article_url }}</a></p>
+    <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank"
+            rel="noopener noreferrer">
+            {{ thread.related_article_url }}
+        </a></p>
     {% endif %}
 
     <!-- Edit button for logged in user/creator of the thread -->
