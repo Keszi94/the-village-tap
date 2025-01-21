@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -10,7 +11,26 @@
     <p>{{ thread.description }}</p>
 
     {% if thread.related_article_url %}
-    <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank">{{ thread.related_article_url }}</a></p>
+    <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank">{{
+            thread.related_article_url }}</a></p>
+    {% endif %}
+
+    <!-- Edit button for logged in user/creator of the thread -->
+    {% if user.is_authenticated and thread.author == user %}
+    <button class="btn btn-primary btn-edit" data-slug="{{ thread.slug }}">Edit Thread</button>
+    <!-- Edit form (only visible to the author of the thread) -->
+    <form id="editForm" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="id_title" name="title" value="{{ thread.title }}">
+        </div>
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Description</label>
+            <textarea class="form-control" id="id_description" name="description">{{ thread.description }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
     {% endif %}
 
     <hr>
@@ -47,4 +67,8 @@
     {% endif %}
 </div>
 
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/threads.js' %}"></script>
 {% endblock %}

@@ -51,20 +51,28 @@
                             Categories
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'news' %}">General News</a></li>
-                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'traffic' %}">Traffic</a></li>
-                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'obituaries' %}">Obituaries</a></li>
-                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'wedding' %}">Wedding Announcements</a></li>
-                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'history' %}">Village History</a></li>
-                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'achievements' %}">Village Achievements</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'news' %}">General News</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'traffic' %}">Traffic</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="{% url 'articles_by_category' 'obituaries' %}">Obituaries</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'wedding' %}">Wedding
+                                    Announcements</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'history' %}">Village
+                                    History</a></li>
+                            <li><a class="dropdown-item" href="{% url 'articles_by_category' 'achievements' %}">Village
+                                    Achievements</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/forum/' %}active{% endif %}" href="{% url 'threads_page' %}">The Snug</a>
+                        <a class="nav-link {% if request.path == '/forum/' %}active{% endif %}"
+                            href="{% url 'threads_page' %}">The Snug</a>
                     </li>
                     {% if user.is_authenticated and user.is_superuser %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/forum/' %}active{% endif %}" href="{% url 'create_article' %}">Add New Article</a>
+                        <a class="nav-link {% if request.path == '/forum/' %}active{% endif %}"
+                            href="{% url 'create_article' %}">Add New Article</a>
                     </li>
                     {% endif %}
                     {% if user.is_authenticated %}
@@ -113,6 +121,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
         </script>
+
+    {% block extras %}
+    {% endblock %}
 </body>
 
 </html>

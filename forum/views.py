@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from .models import Thread, Comment
 from .forms import ThreadCreationForm
@@ -38,4 +39,16 @@ def threads_page(request):
 def thread_detail(request, slug):
     thread = Thread.objects.get(slug=slug)
     return render(request, 'forum/thread_detail.html', {'thread': thread})
+
+
+def edit_thread(request, slug):
+    thread = get_object_or_404(Thread, slug=slug, author=request.user)
+
+    if request.method == 'POST':
+        thread.title = request.POST.get('title')
+        thrread.description = request.POST.get('description')
+        thread.save()
+        return redirect('thread_detail', slug=slug)
+
+    return redirect('thread_detail', slug=slug)        
     
