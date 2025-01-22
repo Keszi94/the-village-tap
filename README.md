@@ -70,10 +70,33 @@ This platform provides an intuitive experience for site users to read articles, 
 - 3: Deploy the project to Heroku with for early testing
 - 4: Create an instance of a cloud-based PostgreSQL database and connect it to the project
 - 5: Create a random secret_key and add it to the env.py file
+- 6: Create and Setup The Forum App
+
 #### Milestone 2 - Main Site Pages
+- 1: Site Admin User Story: Add and manage news stories (back-end)
+- 2: Site Admin User Story: Assign Categories to Articles
+- 3: Site User User Story: View a news article
+- 4: Site User User Story: View the Homepage
+- 5: Site User User Story: News Categories
+
 #### Milestone 3 - Forum Access
+- 1: Site User User Story: Account Registration
+- 2: Site User User Story: View "The Snug" forum page
+
 #### Milestone 4 - CRUD Functionality
+- 1: Site Admin User Story: Make the text area for news editing intuitive
+- 2: Site Admin User Story: Thread Creation From Front-end
+- 3: Site Admin User Story: Creating new articles from the main page
+- 4: Site User User Story: Thread Creation
+- 5: Site User User Story: Threads edit and deletion
+- 6: Site User User Story: Commenting in "The Snug" Forum
+- 7: Site User User Story: Edit and Delete Comments
+
 #### Milestone 5 - Additional
+- 1: Dev: Automatically Created Forum Threads for New Articles
+- 2: Site Admin User Story: Review & Handle News Suggestions
+- 3: Site Admin User Story: Add New Category If Needed
+- 4: Site User User Story: News Suggestions
 
 
 ## Scope
