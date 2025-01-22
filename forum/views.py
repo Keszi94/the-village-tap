@@ -119,4 +119,21 @@ def comment_edit(request, slug, comment_id):
         'form': form,
         'edit_comment': comment,  # Passes the comment being edited
     })
+
+
+def delete_comment(request, slug, comment_id):
+    # Get the comment by its ID
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    # Check if the user is authorized to delete this comment (owner or admin)
+    if request.user == comment.author or request.user.is_staff:
+        # Delete the comment
+        comment.delete()
+        messages.success(request, "Your comment was deleted successfully.")
+    else:
+        # Unauthorized user trying to delete
+        messages.error(request, "You are not authorized to delete this comment.")
+
+    # After deletion, redirect to the thread detail page
+    return redirect('thread_detail', slug=slug)    
          

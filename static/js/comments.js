@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Handling Edit Button 
     const editButtons = document.getElementsByClassName("comment-edit-btn");
     
     for (let button of editButtons) {
@@ -22,4 +23,28 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+
+    // Handling Delete Button 
+    const deleteButtons = document.getElementsByClassName("comment-delete-btn");
+    
+    for (let button of deleteButtons) {
+        button.addEventListener("click", function (e) {
+            let commentId = e.target.getAttribute("data-id");
+
+            // Gets the modal form and updates the action attribute
+            const deleteCommentForm = document.getElementById("deleteCommentForm");
+            if (deleteCommentForm) {
+                const threadSlug = document.getElementById("threadSlug").value;
+                deleteCommentForm.action = `/forum/delete_comment/${threadSlug}/${commentId}/`;
+            } else {
+                console.error("Delete form not found in the modal.");
+            }
+
+            // Show the delete modal 
+            const deleteModal = new bootstrap.Modal(document.getElementById("deleteCommentModal"));
+            deleteModal.show();
+        });
+    }
 });
+

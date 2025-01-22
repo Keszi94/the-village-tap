@@ -12,6 +12,8 @@ urlpatterns = [
     # Comment CRUD paths:
     # 1. Edit comment
     path('<slug:slug>/edit_comment/<int:comment_id>/', views.comment_edit, name='comment_edit'),
+    # 2 Delete comment
+    path('delete_comment/<slug:slug>/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     
     # Individual threads
     path('<slug:slug>/', views.thread_detail, name='thread_detail'),
