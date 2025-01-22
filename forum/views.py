@@ -95,5 +95,28 @@ def delete_thread(request, slug):
 
     else:
         return HttpResponseRedirect('/')    
-    
 
+
+def comment_edit(request, slug, comment_id):
+    # Get the thread and comment objects
+    thread = get_object_or_404(Thread, slug=slug)
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    # Handles the form submission
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            # After saving the form, redirect back to the thread_detail page
+            return redirect('thread_detail', slug=slug)
+    else:
+        form = CommentForm(instance=comment)
+
+    # If the form is not submitted or is invalid, render the thread_detail page with the form
+    return render(request, 'forum/thread_detail.html', {
+        'thread': thread,
+        'comments': thread.comments.all(),
+        'form': form,
+        'edit_comment': comment,  # Passes the comment being edited
+    })
+         

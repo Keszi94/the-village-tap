@@ -27,7 +27,9 @@
     </button>
     <button class="btn btn-delete btn-danger" data-slug="{{ thread.slug }}">Delete Thread</button>
 
-    <!-- Edit form (only visible to the author of the thread) -->
+    <hr>
+
+    <!-- Thread edit form (only visible to the author of the thread) -->
     <form id="editForm" method="POST" style="display: none;" action="{% url 'edit_thread' thread.slug %}">
         {% csrf_token %}
         <div class="mb-3">
@@ -73,30 +75,42 @@
 
     <hr>
 </div>
+
 <div>
+    <input type="hidden" id="threadSlug" value="{{ thread.slug }}">
     <h3>Comments</h3>
-    
+
     {% if comments %}
     {% for comment in comments %}
 
-    <div class="comment mb-4">
+    <div class="comment mb-4" id="comment-{{ comment.id }}">
         <strong>{{ comment.author.username }}</strong> commented on {{ comment.created_on }}:
-        <p>{{ comment.content }}</p>
-        
-        <!-- Edit and Delete button for logged in user/creator of the comment -->
+        <p id="comment{{ comment.id }}">{{ comment.content }}</p>
+
+        <!-- Edit and Delete button for logged-in user/creator of the comment -->
         {% if user.is_authenticated and comment.author == user %}
-        <button class="btn btn-primary btn-edit" id="editButtonComment" data-content="{{ comment.content }}">
-            Edit Comment
-        </button>
-        <button class="btn btn-delete btn-danger" data-content="{{ comment.content }}">Delete Comment</button>
+        <button class="btn btn-sm btn-primary comment-edit-btn" data-id="{{ comment.id }}"
+            data-content="{{ comment.content }}">Edit</button>
+        <button class="btn btn-sm btn-danger comment-delete-btn" data-id="{{ comment.id }}">Delete</button>
         {% endif %}
     </div>
 
+    <!-- Comment edit form (only visible when the edit button is clicked) -->
+    <form id="comment-edit-form-{{ comment.id }}" method="POST" style="display: none;"
+        action="{% url 'comment_edit' thread.slug comment.id %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="comment-id_content-{{ comment.id }}" class="form-label">Edit Comment</label>
+            <textarea name="content" id="comment-id_content-{{ comment.id }}" class="form-control"
+                rows="3">{{ comment.content }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-sm btn-success" id="comment-submit-button-{{ comment.id }}">Save
+            Changes</button>
+    </form>
+
     {% endfor %}
     {% else %}
-
     <p>No comments yet. Be the first to comment!</p>
-
     {% endif %}
 
     <hr>
@@ -113,8 +127,11 @@
     {% endif %}
 </div>
 
+
+
 {% endblock %}
 
 {% block extras %}
 <script src="{% static 'js/threads.js' %}"></script>
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
