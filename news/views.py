@@ -65,6 +65,8 @@ def create_article(request):
             article.slug = article.title.lower().replace(' ', '-')
             # Assign current superuser as the author
             article.author = request.user
+            # Set the article status to published
+            article.status = Article.PUBLISHED
             article.save()
             # Redirects to home after submission
             return redirect('home')

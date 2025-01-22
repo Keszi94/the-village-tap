@@ -11,7 +11,7 @@ class ArticleCreationForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
             # using 'rows': to control the height of the text areas
-            'blurb': forms.TextInput(attrs={'class': 'form-control', 'rows': 2}),
+            'blurb': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
             'content': SummernoteWidget(attrs={'class': 'form-control', 'rows': 5}),
             'sources': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'status': forms.Textarea(attrs={'class': 'form-control'}),
