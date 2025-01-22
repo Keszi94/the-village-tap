@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Article
 from .models import CATEGORY_CHOICES
@@ -59,13 +59,15 @@ def articles_by_category(request, category):
 def create_article(request):
     if request.method == 'POST':
         form = ArticleCreationForm(request.POST)
-        # Auto-generating the slug
-        article.slug = article.title.lower().replace(' ', '-')
-        # Assign current superuser as the author
-        article.author = request.user
-        article.save()
-        # Redirects to home after submission
-        return redirect('home')
+        if form.is_valid():
+            article = form.save(commit=False)
+            # Auto-generating the slug
+            article.slug = article.title.lower().replace(' ', '-')
+            # Assign current superuser as the author
+            article.author = request.user
+            article.save()
+            # Redirects to home after submission
+            return redirect('home')
     else:
         form = ArticleCreationForm()
 

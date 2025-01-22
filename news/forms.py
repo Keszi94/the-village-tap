@@ -6,7 +6,7 @@ from django_summernote.widgets import SummernoteWidget
 class ArticleCreationForm(forms.ModelForm):
     class Meta:
         model = Article
-        exclude = ['slug', 'created_on', 'status']
+        exclude = ['slug', 'created_on', 'status', 'author']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
@@ -16,3 +16,13 @@ class ArticleCreationForm(forms.ModelForm):
             'sources': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'status': forms.Textarea(attrs={'class': 'form-control'}),
         }
+
+    # Get the logged in superuser's name for the author
+    def __init__(self, *args, **kwargs):
+        user = kwargs.get('user', None)
+        super(ArticleCreationForm, self).__init__(*args, **kwargs)
+
+        if user:
+            self.fields['author'].initial = user
+
+
