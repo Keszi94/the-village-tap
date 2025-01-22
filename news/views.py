@@ -59,8 +59,11 @@ def articles_by_category(request, category):
     })
 
 
-# Decorator: restricts the acces to superusers only
-@user_passes_test(lambda u: u.is_superuser)
+def is_superuser(user):
+    return user.is_superuser
+
+
+@user_passes_test(is_superuser, login_url='/accounts/login/')
 def create_article(request):
     if request.method == 'POST':
         form = ArticleCreationForm(request.POST)
