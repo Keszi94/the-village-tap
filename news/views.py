@@ -7,19 +7,23 @@ from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
 
+
 def article_list(request, category=None):
     if category:
         # Filter articles by their status (2, Approved) and match the category
-        articles = Article.objects.filter(status=2, category=category).order_by('-created_on')
+        articles = Article.objects.filter(
+            status=2,
+            category=category).order_by('-created_on')
         # Get the category name to display in the template
-        category_title = dict(CATEGORY_CHOICES).get(category, 'Unkwown category')
+        category_title = dict(CATEGORY_CHOICES).get(
+             category, 'Unkwown category')
     else:
         articles = Article.objects.filter(status=2).order_by('-created_on')
         category_title = None
 
     return render(request, 'news/index.html', {
-    'articles': articles,
-    'category': category_title,
+     'articles': articles,
+     'category': category_title,
     })
 
 
@@ -48,10 +52,11 @@ def article_detail(request, slug):
 
 
 def articles_by_category(request, category):
-    articles = Article.objects.filter(category=category).order_by('-created_on')
+    articles = Article.objects.filter(
+         category=category).order_by('-created_on')
     return render(request, 'news/article_list', {
-        'articles': articles, # Pass the filtered articles to the template
-    })    
+        'articles': articles,  # Pass the filtered articles to the template
+    })
 
 
 # Decorator: restricts the acces to superusers only
@@ -73,6 +78,4 @@ def create_article(request):
     else:
         form = ArticleCreationForm()
 
-    return render(request, 'news/create_article.html', {'form': form})        
-
-
+    return render(request, 'news/create_article.html', {'form': form})

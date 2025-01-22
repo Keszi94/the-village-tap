@@ -19,9 +19,11 @@ class Article(models.Model):
     Represents a news article posted on the site.
     """
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True) # will be filled out automatically later
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="articles")
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='news')
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name="articles")
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES,
+                                default='news')
     blurb = models.TextField(help_text="A short summary of the article.")
     content = models.TextField()
     sources = models.TextField(
@@ -40,7 +42,6 @@ class Article(models.Model):
         (ARCHIVED, 'Archived'),
     ]
     status = models.IntegerField(choices=STATUS_CHOICES, default=DRAFT)
-
 
     class Meta:
         ordering = ['created_on']
