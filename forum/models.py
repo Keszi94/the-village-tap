@@ -47,10 +47,6 @@ class Comment(models.Model):
     content = models.TextField()
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    # Indicates if a comment has been reported for a review
-    reported = models.BooleanField(default=False)
-    # Allows replies to comments
-    parent = models.ForeignKey('self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['-created_on']
@@ -58,9 +54,6 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment by {self.author.username} on {self.thread.title}"
 
-    # checks if a comment has a parent which would make it a reply
-    def is_reply(self):
-        return self.parent is not None    
 
 
 

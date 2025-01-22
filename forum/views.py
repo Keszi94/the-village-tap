@@ -3,7 +3,7 @@ from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Thread, Comment
-from .forms import ThreadCreationForm
+from .forms import ThreadCreationForm, CommentForm
 
 
 
@@ -40,7 +40,29 @@ def threads_page(request):
 
 def thread_detail(request, slug):
     thread = Thread.objects.get(slug=slug)
-    return render(request, 'forum/thread_detail.html', {'thread': thread})
+    
+    # Fetch all the comments for the thread
+    comments = thread.comment.all()
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            # Associates the comment with the thread it's left on
+            comment.thread = thread
+            # Sets the logged in user as the author
+            comment.author = request.user
+            comment.save()
+            return redirect('thread_detail', slug=slug)
+
+    else:
+        form = CommentForm()        
+    
+    return render(request, 'forum/thread_detail.html', {
+        'thread': thread,
+        'comments': comments,
+        'form': form,
+        })
 
 
 def edit_thread(request, slug):
@@ -74,3 +96,4 @@ def delete_thread(request, slug):
     else:
         return HttpResponseRedirect('/')    
     
+

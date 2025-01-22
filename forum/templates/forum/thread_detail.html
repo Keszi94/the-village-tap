@@ -75,18 +75,12 @@
 </div>
 <div>
     <h3>Comments</h3>
-    {% if thread.comment.all %}
-    {% for comment in thread.comment.all %}
-    <div class="comment">
-        <p><strong>{{ comment.author.username }}</strong> said on {{ comment.created_on|date:"F j, Y, g:i a" }}:</p>
+    {% if comments %}
+    {% for comment in comments %}
+    <div class="comment mb-4">
+        <strong>{{ comment.author.username }}</strong> commented on {{ comment.created_on }}:
         <p>{{ comment.content }}</p>
-        {% if comment.is_reply %}
-        <div class="reply ml-4">
-            <p><em>Reply to:</em> {{ comment.parent.content }}</p>
-        </div>
-        {% endif %}
     </div>
-    <hr>
     {% endfor %}
     {% else %}
     <p>No comments yet. Be the first to comment!</p>
@@ -98,7 +92,7 @@
     <h3>Leave a Comment</h3>
     <form method="post">
         {% csrf_token %}
-        <textarea name="content" class="form-control" rows="3" placeholder="Write your comment here..."></textarea>
+        {{ form.as_p }}
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
     {% else %}
