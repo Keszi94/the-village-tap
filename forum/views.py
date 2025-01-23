@@ -76,6 +76,7 @@ def edit_thread(request, slug):
         thread.description = request.POST.get('description')
         thread.related_article_url = request.POST.get('related_article_url')
         thread.save()
+        messages.success(request, 'Your thread has been updated successfully!' )
         return redirect('thread_detail', slug=slug)
 
     return redirect('thread_detail', slug=slug)
@@ -94,6 +95,7 @@ def delete_thread(request, slug):
         return redirect('threads_page')
 
     else:
+        messages.error(request, 'Invalid request!')
         return HttpResponseRedirect('/')    
 
 
@@ -107,6 +109,7 @@ def comment_edit(request, slug, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your comment has been updated successfully!')
             # After saving the form, redirect back to the thread_detail page
             return redirect('thread_detail', slug=slug)
     else:

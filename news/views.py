@@ -76,6 +76,7 @@ def create_article(request):
             # Set the article status to published
             article.status = Article.PUBLISHED
             article.save()
+            messages.success(request, 'Your article has been posted successfully!')
             # Redirects to home after submission
             return redirect('home')
     else:
