@@ -6,10 +6,23 @@ from .models import Thread, Comment
 from .forms import ThreadCreationForm, CommentForm
 
 
-
 # Create your views here.
 def threads_page(request):
-    threads = Thread.objects.filter(status=Thread.APPROVED).order_by('-created_on')
+    """
+    Display a list of approved :model:`forum.Thread` and
+    handle thread creation.
+
+    **Context**
+    ``threads``
+        A queryset of approved :model:`forum.Thread` objects.
+    ``form``
+        An instance of :form:`forum.ThreadCreationForm`.
+
+    **Template**
+    :template:`forum/threads_page.html`
+    """
+    threads = Thread.objects.filter(
+        status=Thread.APPROVED).order_by('-created_on')
 
     if request.method == 'POST':
         if request.user.is_authenticated:
@@ -17,18 +30,18 @@ def threads_page(request):
             if form.is_valid():
                 thread = form.save(commit=False)
                 # sets the author as the user logged in
-                thread.author = request.user 
+                thread.author = request.user
                 # automatically approve threads created by a superuser
-                if request.user.is_superuser: 
+                if request.user.is_superuser:
                     thread.status = Thread.APPROVED
                 else:
-                        thread.status = Thread.PENDING
+                    thread.status = Thread.PENDING
                 thread.save()
                 # redirects the user to the same page after submission
-                return redirect('threads_page') 
+                return redirect('threads_page')
         else:
             # if user is not logged in, redirect to login page
-            return redirect('login') 
+            return redirect('login')
     else:
         form = ThreadCreationForm()
 
@@ -39,8 +52,22 @@ def threads_page(request):
 
 
 def thread_detail(request, slug):
+    """
+    Display an individual :model:`forum.Thread` and its associated comments.
+
+    **Context**
+
+    ``thread``
+        An instance of :model:`forum.Thread`.
+    ``comments``
+        A queryset of :model:`forum.Comment` associated with the thread.
+    ``form``
+        An instance of :form:`forum.CommentForm` for adding a new comment.
+
+    **Template**
+    :template:`forum/thread_detail.html`
+    """
     thread = Thread.objects.get(slug=slug)
-    
     # Fetch all the comments for the thread
     comments = thread.comment.all()
 
@@ -54,10 +81,9 @@ def thread_detail(request, slug):
             comment.author = request.user
             comment.save()
             return redirect('thread_detail', slug=slug)
-
     else:
-        form = CommentForm()        
-    
+        form = CommentForm()
+
     return render(request, 'forum/thread_detail.html', {
         'thread': thread,
         'comments': comments,
@@ -67,7 +93,18 @@ def thread_detail(request, slug):
 
 def edit_thread(request, slug):
     """
-    View to edit threads
+    Edit an existing :model:`forum.Thread` created by the logged-in user.
+
+    **Permissions**
+    Only accessible by the author of the thread.
+
+    **Parameters**
+    ``slug``
+        A string representing the unique identifier for the thread.
+
+    **Template**
+    Redirects to :template:`forum/thread_detail.html` after a
+    successful update.
     """
     thread = get_object_or_404(Thread, slug=slug, author=request.user)
 
@@ -76,7 +113,7 @@ def edit_thread(request, slug):
         thread.description = request.POST.get('description')
         thread.related_article_url = request.POST.get('related_article_url')
         thread.save()
-        messages.success(request, 'Your thread has been updated successfully!' )
+        messages.success(request, 'Your thread has been updated successfully!')
         return redirect('thread_detail', slug=slug)
 
     return redirect('thread_detail', slug=slug)
@@ -84,7 +121,19 @@ def edit_thread(request, slug):
 
 def delete_thread(request, slug):
     """
-    View to delete threads
+    Delete a :model:`forum.Thread` created by the logged-in user.
+
+    **Permissions**
+    Only accessible by the thread author.
+
+    **Parameters**
+    ``slug``
+        Unique identifier for the thread.
+
+    Deletes the thread on POST and redirects to the threads page.
+
+    **Template**
+    Redirects to :template:`forum/threads_page.html`.
     """
     if request.method == 'POST':
         thread = get_object_or_404(Thread, slug=slug, author=request.user)
@@ -93,13 +142,40 @@ def delete_thread(request, slug):
         messages.success(request, 'Thread has been deleted successfully!')
 
         return redirect('threads_page')
-
     else:
         messages.error(request, 'Invalid request!')
-        return HttpResponseRedirect('/')    
+        return HttpResponseRedirect('/')
 
 
 def comment_edit(request, slug, comment_id):
+    """
+    Edit a :model:`forum.Comment` on a :model:`forum.Thread`.
+
+    **Permissions**
+    Only the comment's author or a superuser can edit the comment.
+
+    **Parameters**
+    ``slug``
+        Unique identifier for the thread.
+    ``comment_id``
+        The ID of the comment being edited.
+
+    **Context**
+    ``thread``
+        The :model:`forum.Thread` the comment belongs to.
+    ``comments``
+        A queryset of all comments for the thread.
+    ``form``
+        An instance of :form:`forum.CommentForm` for editing the comment.
+    ``edit_comment``
+        The comment being edited.
+
+    Handles comment updates on POST and redirects back to
+    the thread detail page.
+
+    **Template**
+    :template:`forum/thread_detail.html`
+    """
     # Get the thread and comment objects
     thread = get_object_or_404(Thread, slug=slug)
     comment = get_object_or_404(Comment, id=comment_id)
@@ -109,13 +185,15 @@ def comment_edit(request, slug, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your comment has been updated successfully!')
+            messages.success(
+                request, 'Your comment has been updated successfully!')
             # After saving the form, redirect back to the thread_detail page
             return redirect('thread_detail', slug=slug)
     else:
         form = CommentForm(instance=comment)
 
-    # If the form is not submitted or is invalid, render the thread_detail page with the form
+    # If the form is not submitted or is invalid,
+    # render the thread_detail page with the form
     return render(request, 'forum/thread_detail.html', {
         'thread': thread,
         'comments': thread.comments.all(),
@@ -125,6 +203,18 @@ def comment_edit(request, slug, comment_id):
 
 
 def delete_comment(request, slug, comment_id):
+    """
+    Delete a :model:`forum.Comment` from a :model:`forum.Thread`.
+
+    **Permissions**
+    Only the comment's author or a superuser can delete the comment.
+
+    **Parameters**
+    ``slug``
+        The unique identifier of the thread.
+    ``comment_id``
+        The ID of the comment to be deleted.
+    """
     # Get the comment by its ID
     comment = get_object_or_404(Comment, id=comment_id)
 
@@ -135,8 +225,8 @@ def delete_comment(request, slug, comment_id):
         messages.success(request, "Your comment was deleted successfully.")
     else:
         # Unauthorized user trying to delete
-        messages.error(request, "You are not authorized to delete this comment.")
+        messages.error(
+            request, "You are not authorized to delete this comment.")
 
     # After deletion, redirect to the thread detail page
-    return redirect('thread_detail', slug=slug)    
-         
+    return redirect('thread_detail', slug=slug)

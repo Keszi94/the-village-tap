@@ -13,9 +13,12 @@ class Thread(models.Model):
     """
     title = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="threads")
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name="threads")
     description = models.TextField()
-    related_article_url = models.URLField(max_length=250, blank=True, null=True, help_text="Optional: Paste the link to a related article.")
+    related_article_url = models.URLField(
+          max_length=250, blank=True, null=True,
+          help_text="Optional: Paste the link to a related article.")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     # Status Field
@@ -36,14 +39,17 @@ class Thread(models.Model):
         return f"{self.title} | created by {self.author}"
 
     def save(self, *args, **kwargs):
-        if not self.slug: # generates the slug if it's not already set
+        if not self.slug:  # generates the slug if it's not already set
             self.slug = slugify(self.title)
-        super().save(*args, **kwargs) # calls on the parent class's safe method    
+        # calls on the parent class's safe method
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
-    thread = models.ForeignKey('forum.Thread', on_delete=models.CASCADE, related_name='comment')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    thread = models.ForeignKey(
+        'forum.Thread', on_delete=models.CASCADE, related_name='comment')
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name='comments')
     content = models.TextField()
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -53,9 +59,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author.username} on {self.thread.title}"
-
-
-
-
-
-        
