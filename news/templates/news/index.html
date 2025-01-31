@@ -3,6 +3,26 @@
 {% block content %}
 
 <!-- index.html content starts here -->
+<header class="header" style="background-image: url('static/images/header.jpg');">
+    <div class="container position-relative">
+        <div class="row justify-content-center align-items-center" style="height: 60vh;">
+            <div class="col-12 text-center">
+                <div class="site-heading">
+                    <h1>The Village Tap</h1>
+                    <span class="subheading">News, Views, and Chats – All from Our Village, for Our Village.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+{% if user.is_authenticated %}
+<p class="text-end m-3">You are logged in as {{ user }}</p>
+{% else %}
+<p class="text-end m-3">You are not logged in</p>
+{% endif %}
+
 <div class="container-fluid">
     <div class="row">
 
