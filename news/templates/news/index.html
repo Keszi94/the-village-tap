@@ -31,14 +31,9 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for article in articles %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ article.author }}</p>
-                                </div>
-                            </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card article-card">
+                        <div class="card-body article-card-body">
                             <a href="{% url 'article_detail' article.slug %}" class="article-link">
                                 <h2 class="card-title">{{ article.title }}</h2>
                             </a>
@@ -49,7 +44,7 @@
                             <hr />
                             <p class="card-text text-muted h6">{{ article.created_on}}
                             </p>
-                            <a type="button" class="btn btn-info" href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
+                            <a type="button" class="btn categories-buttons" href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
                         </div>
                     </div>
                 </div>
