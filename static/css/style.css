@@ -1,4 +1,4 @@
-/*Header Styling */
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.Header Styling */
 .header {
     background-size: cover;
     background-position: center;
@@ -26,7 +26,48 @@
     margin-top: 0.5rem;
 }
 
-/*Responsiveness - Tablet Sizes */
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Navbar Styling */
+.navbar {
+    background-color: rgb(31, 34, 26);
+    box-shadow: 0 11px 20px rgba(255, 251, 251, 0.411); /* Shadow */
+    position: relative;
+    z-index: 10; /* Ensures navbar stays on top */
+}
+
+.navbar-brand {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: rgb(127, 148, 106);
+}
+
+.navbar-nav .nav-link.active, 
+.navbar-nav .nav-link:focus {
+    text-decoration: underline;
+    color: rgb(127, 148, 106);
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item a:hover {
+    color: rgb(127, 148, 106);
+}
+
+.dropdown-menu {
+    background-color: rgb(127, 148, 106);
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    color: rgb(31, 34, 26);
+}
+
+
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Responsiveness - Tablet Sizes */
 @media (max-width: 768px) {
     .header .row {
         height: 50vh;

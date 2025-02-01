@@ -1,14 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>The Snug Forum</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+
+<!-- Header For The Forum Page -->
+    <!-- <header class="forum-header" style="background-image: url(static/images/forum-header.jpg);">
+        <div class="container position-relative">
+            <div class="row justify-content-center align-items-center" style="height: 60vh;">
+                <div class="col-12 text-center">
+                    <div class="site-heading">
+                        <h1>The Snug Forum</h1>
+                        <span class="subheading">Join the Conversation – Share Your Thoughts, Discuss Articles, or Just Catch Up with the Village</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> -->
 
 
 {% if user.is_authenticated %}
@@ -17,46 +26,45 @@
 <p class="text-end m-3">You are not logged in</p>
 {% endif %}
 
-<body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Conversations Happening In The Snug</h1>
 
-        {% if user.is_authenticated %}
-        <!-- List of existing threads -->
-        <div class="mt-4">
-            <h2>All Threads</h2>
-            {% if threads %}
-            <ul class="list-group">
-                {% for thread in threads %}
-                <li class="list-group-item">
-                    <h4><a href="{% url 'thread_detail' thread.slug %}">{{ thread.title }}</a></h4>
-                    <p>Created by {{ thread.author.username }} on {{ thread.created_on|date:"F j, Y" }}</p>
-                    <p>{{ thread.description|truncatewords:20 }}</p>
-                </li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <p>No threads found. Be the first to start a conversation!</p>
-            {% endif %}
-        </div>
+<div class="container mt-5">
+    <h1 class="mb-4">Conversations Happening In The Snug</h1>
 
-        <hr>
-
-        <!-- Form for creating a new thread -->
-        <div class="mb-4">
-            <h2>Create a New Thread</h2>
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Create Thread</button>
-            </form>
-        </div>
+    {% if user.is_authenticated %}
+    <!-- List of existing threads -->
+    <div class="mt-4">
+        <h2>All Threads</h2>
+        {% if threads %}
+        <ul class="list-group">
+            {% for thread in threads %}
+            <li class="list-group-item">
+                <h4><a href="{% url 'thread_detail' thread.slug %}">{{ thread.title }}</a></h4>
+                <p>Created by {{ thread.author.username }} on {{ thread.created_on|date:"F j, Y" }}</p>
+                <p>{{ thread.description|truncatewords:20 }}</p>
+            </li>
+            {% endfor %}
+        </ul>
         {% else %}
-        <!-- Message for unauthenticated users -->
-        <p><a href="{% url 'account_login' %}">Log in</a> to view, create, and comment on threads in the Snug.</p>
+        <p>No threads found. Be the first to start a conversation!</p>
         {% endif %}
     </div>
-</body>
-</html>
+
+    <hr>
+
+    <!-- Form for creating a new thread -->
+    <div class="mb-4">
+        <h2>Create a New Thread</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Create Thread</button>
+        </form>
+    </div>
+    {% else %}
+    <!-- Message for unauthenticated users -->
+    <p><a href="{% url 'account_login' %}">Log in</a> to view, create, and comment on threads in the Snug.</p>
+    {% endif %}
+</div>
+
 
 {% endblock %}
