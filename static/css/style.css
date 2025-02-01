@@ -69,6 +69,21 @@
 }
 
 
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Main section Styling */
+main {
+    background-color: lightgray;
+    flex-grow: 1;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+
+
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */
 .footer {
     position: relative;
@@ -78,6 +93,7 @@
     background-color: rgb(31, 34, 26);
     color: white;
     box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.5);
+    margin-top: auto;
 }
 
 .footer p {
