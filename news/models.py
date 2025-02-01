@@ -32,6 +32,7 @@ class Article(models.Model):
         help_text="Optional: list any and all resources used in the article.")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    image = CloudinaryField('image', blank=True, null=True)
 
     # Status Field
     DRAFT = 1

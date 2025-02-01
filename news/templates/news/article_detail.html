@@ -19,7 +19,11 @@
                 <a type="button" class="btn btn-info" href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+                {% if article.image %}
+                <img src="{{ article.image.url }}" class="scale" alt="{{ article.title }}">
+                {% else %}
+                <img src="{% static 'images/default.webp' %}" class="scale" alt="{{ article.title }}">
+                {% endif %}
             </div>
         </div>
     </div>

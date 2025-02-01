@@ -87,11 +87,11 @@ body {
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Index page */
 .article-card { 
-    background-color: rgb(206, 209, 174); /* Set background color here for the entire card */
+    background-color: rgb(255, 255, 255); 
     border: 1px solid rgb(31, 34, 26);
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.15s ease; /* Make transition quicker */
+    transition: transform 0.15s ease; 
 }
 
 .article-card-body { 
@@ -137,9 +137,10 @@ body {
 /* Article Link Styling */
 .article-link { 
     color: inherit;
-    text-decoration: none; /* Remove underline from link */
+    text-decoration: none; 
 }
 
+/* Hover Effect on the Card Title */
 .article-card .card-title:hover {
     color: rgb(83, 92, 80);
     border-bottom: 2px solid rgb(83, 92, 80);
