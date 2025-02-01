@@ -69,6 +69,49 @@
 }
 
 
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */
+.footer {
+    position: relative;
+    min-height: 120px;
+    padding: 30px 0;
+    text-align: center;
+    background-color: rgb(31, 34, 26);
+    color: white;
+    box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.footer p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer i {
+    font-size: 2rem;
+    margin: 0 10px;
+    /* adds smooth hover effect */
+    transition: transform 0.3s ease; 
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer a:hover i {
+    color: rgb(127, 148, 106);
+}
+
+.footer i:hover {
+    /* enlarge icons on hover */
+    transform: scale(1.2);
+}
+
+
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Responsiveness - Tablet Sizes */
 @media (max-width: 768px) {
     .header .row {
