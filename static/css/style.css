@@ -70,6 +70,7 @@
 
 
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Main section Styling */
+
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ All pages */
 main {
     background-color: white;
@@ -211,6 +212,22 @@ body {
     color: #333;
 }
 
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Login/Logout/Register page */
+.account-access-containers {
+    padding-top: 100px;
+}
+
+.account-access-buttons {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    transition: background-color 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.account-access-buttons:hover {
+    background-color: rgb(83, 92, 80);
+}
 
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */
 .footer {

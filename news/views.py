@@ -102,7 +102,7 @@ def create_article(request):
     :template:`news/create_article.html`
     """
     if request.method == 'POST':
-        form = ArticleCreationForm(request.POST)
+        form = ArticleCreationForm(request.POST, request.FILES)
         if form.is_valid():
             article = form.save(commit=False)
             # Auto-generating the slug

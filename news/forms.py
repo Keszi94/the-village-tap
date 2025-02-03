@@ -20,6 +20,8 @@ class ArticleCreationForm(forms.ModelForm):
             'sources': forms.Textarea(attrs={
                 'class': 'form-control', 'rows': 3}),
             'status': forms.Textarea(attrs={'class': 'form-control'}),
+            'image': forms.ClearableFileInput(attrs={
+                                    'class': 'form-control-file'}),
         }
 
     # Get the logged in superuser's name for the author
