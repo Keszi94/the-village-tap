@@ -47,7 +47,6 @@
 
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:focus {
-    text-decoration: underline;
     color: rgb(127, 148, 106);
 }
 
@@ -73,7 +72,7 @@
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ All pages */
 main {
-    background-color: white;
+    background-color: lightgrey;
     flex-grow: 1;
     margin: 0;
 }
@@ -88,7 +87,7 @@ body {
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Index page */
 .article-card { 
-    background-color: rgb(138, 150, 96); 
+    background-color: white; 
     border: 1px solid rgb(31, 34, 26);
     border-radius: 8px;
     overflow: hidden;
@@ -217,6 +216,7 @@ body {
     padding-top: 100px;
 }
 
+/* All three submit buttons */
 .account-access-buttons {
     background-color: rgb(31, 34, 42);
     color: white;
@@ -227,6 +227,70 @@ body {
 
 .account-access-buttons:hover {
     background-color: rgb(83, 92, 80);
+}
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads page */
+/* Threads list */
+.threads-list {
+    border: 2px solid black; 
+    border-radius: 10px; 
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.3); 
+    padding: 20px;
+    background-color: #fff;
+}
+
+.threads-list h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.threads-list .list-group-item {
+    border: none;
+    margin-bottom: 10px;
+    background-color: rgba(139, 87, 41, 0.486);
+    border-radius: 5px;
+}
+
+.threads-list .list-group-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.threads-list .list-group-item a:hover {
+    text-decoration: underline; /* Underline on hover for links */
+    color: rgb(82, 50, 25);
+}
+
+/* New threads */
+.new-thread {
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+.new-thread .form-control {
+    border-radius: 5px; 
+    padding: 10px;
+    margin-bottom: 15px; 
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.new-thread .form-control:focus {
+    border-color: rgb(194, 122, 63); /* Change border color when focused */
+}
+
+.new-thread button {
+    padding: 10px 20px; 
+    font-size: 1.1rem;
+    background-color: rgb(66, 41, 20);
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease; 
+}
+
+.new-thread button:hover {
+    background-color: rgb(194, 122, 63); 
+    color: black;
 }
 
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */

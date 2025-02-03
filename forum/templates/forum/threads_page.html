@@ -29,10 +29,11 @@
 
 <div class="container mt-5">
     <h1 class="mb-4">Conversations Happening In The Snug</h1>
+    <hr>
 
     {% if user.is_authenticated %}
     <!-- List of existing threads -->
-    <div class="mt-4">
+    <div class="mt-4 threads-list">
         <h2>All Threads</h2>
         {% if threads %}
         <ul class="list-group">
@@ -40,7 +41,7 @@
             <li class="list-group-item">
                 <h4><a href="{% url 'thread_detail' thread.slug %}">{{ thread.title }}</a></h4>
                 <p>Created by {{ thread.author.username }} on {{ thread.created_on|date:"F j, Y" }}</p>
-                <p>{{ thread.description|truncatewords:20 }}</p>
+                <h5>{{ thread.description|truncatewords:20 }}</h5>
             </li>
             {% endfor %}
         </ul>
@@ -52,7 +53,7 @@
     <hr>
 
     <!-- Form for creating a new thread -->
-    <div class="mb-4">
+    <div class="mb-4 new-thread">
         <h2>Create a New Thread</h2>
         <form method="post">
             {% csrf_token %}
