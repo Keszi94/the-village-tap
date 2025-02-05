@@ -118,7 +118,7 @@ body {
 }
 
 .article-card .categories-buttons { 
-    background-color: 	rgb(31, 34, 42);
+    background-color: rgb(31, 34, 42);
     color: white;
     transition: background-color 0.3s ease, border-color 0.3 ease;
 }
@@ -230,7 +230,7 @@ body {
 }
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads page */
-/* Threads list */
+/* ------- Threads list */
 .threads-list {
     border: 2px solid black; 
     border-radius: 10px; 
@@ -257,11 +257,11 @@ body {
 }
 
 .threads-list .list-group-item a:hover {
-    text-decoration: underline; /* Underline on hover for links */
+    text-decoration: underline;
     color: rgb(82, 50, 25);
 }
 
-/* New threads */
+/* ------- New threads */
 .new-thread {
     padding-top: 100px;
     padding-bottom: 40px;
@@ -276,7 +276,7 @@ body {
 }
 
 .new-thread .form-control:focus {
-    border-color: rgb(194, 122, 63); /* Change border color when focused */
+    border-color: rgb(194, 122, 63); /* Change border color when teaxt area is clicked */
 }
 
 .new-thread button {
@@ -292,6 +292,9 @@ body {
     background-color: rgb(194, 122, 63); 
     color: black;
 }
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads detail */
+
 
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */
 .footer {
