@@ -294,7 +294,23 @@ body {
 }
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads detail */
+/* ------- thread detail card */
+.thread-detail-card {
 
+}
+
+.thread-description {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.comments-card {
+    margin-top: 100px;
+}
+
+.comment-auth-date {
+    text-decoration: underline;
+}
 
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */
 .footer {

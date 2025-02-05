@@ -6,24 +6,26 @@
 
 
 <!-- Header For The Forum Page -->
-   <header class="header" style="background-image: url('https://res.cloudinary.com/diz4bvzz9/image/upload/v1738429679/forum-header_ewipky.jpg');">
-        <div class="container position-relative">
-            <div class="row justify-content-center align-items-center" style="height: 60vh;">
-                <div class="col-12 text-center">
-                    <div class="site-heading">
-                        <h1>The Snug Forum</h1>
-                        <span class="subheading">Join the Conversation – Share Your Thoughts, Discuss Articles, or Just Catch Up with the Village</span>
-                    </div>
+<header class="header"
+    style="background-image: url('https://res.cloudinary.com/diz4bvzz9/image/upload/v1738429679/forum-header_ewipky.jpg');">
+    <div class="container position-relative">
+        <div class="row justify-content-center align-items-center" style="height: 60vh;">
+            <div class="col-12 text-center">
+                <div class="site-heading">
+                    <h1>The Snug Forum</h1>
+                    <span class="subheading">Join the Conversation – Share Your Thoughts, Discuss Articles, or Just
+                        Catch Up with the Village</span>
                 </div>
             </div>
         </div>
-    </header> 
+    </div>
+</header>
 
 
 {% if user.is_authenticated %}
-<p class="text-end m-3">You are logged in as {{ user }}</p>
+<p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
 {% else %}
-<p class="text-end m-3">You are not logged in</p>
+<p class="text-end text-muted">You are not logged in</p>
 {% endif %}
 
 

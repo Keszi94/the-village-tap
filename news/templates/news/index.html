@@ -4,7 +4,8 @@
 {% block content %}
 
 <!-- Header for the Home page -->
-<header class="header" style="background-image: url('https://res.cloudinary.com/diz4bvzz9/image/upload/v1738429667/header_zlxvqm.jpg');">
+<header class="header"
+    style="background-image: url('https://res.cloudinary.com/diz4bvzz9/image/upload/v1738429667/header_zlxvqm.jpg');">
     <div class="container position-relative">
         <div class="row justify-content-center align-items-center" style="height: 60vh;">
             <div class="col-12 text-center">
@@ -19,9 +20,9 @@
 
 
 {% if user.is_authenticated %}
-<p class="text-end m-3">You are logged in as {{ user }}</p>
+<p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
 {% else %}
-<p class="text-end m-3">You are not logged in</p>
+<p class="text-end text-muted">You are not logged in</p>
 {% endif %}
 
 <div class="container-fluid">
@@ -44,7 +45,8 @@
                             <hr />
                             <p class="card-text text-muted h6">{{ article.created_on}}
                             </p>
-                            <a type="button" class="btn categories-buttons" href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
+                            <a type="button" class="btn categories-buttons"
+                                href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
                         </div>
                     </div>
                 </div>

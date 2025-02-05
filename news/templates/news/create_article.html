@@ -3,9 +3,9 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<p class="text-end m-3">You are logged in as {{ user }}</p>
+<p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
 {% else %}
-<p class="text-end m-3">You are not logged in</p>
+<p class="text-end text-muted">You are not logged in</p>
 {% endif %}
 
 <div class="container mt-5" enctype="multipart/form-data">
