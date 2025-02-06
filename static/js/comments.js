@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Handling Edit Button 
+    // Handling Edit Button for Comments
     const editButtons = document.getElementsByClassName("comment-edit-btn");
     
     for (let button of editButtons) {
@@ -16,16 +16,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Set the comment content into the textarea for editing
                 commentTextArea.value = commentContent;
 
-                // Display the form 
-                commentEditForm.style.display = "block";
+                // Toggle visibility of the form
+                if (commentEditForm.style.display === "block") {
+                    commentEditForm.style.display = "none"; // Hide the form if it's currently visible
+                } else {
+                    commentEditForm.style.display = "block"; // Show the form if it's hidden
+                }
             } else {
                 console.error("Form or textarea not found for comment ID:", commentId);
             }
         });
     }
 
-
-    // Handling Delete Button 
+    // Handling Delete Button for Comments
     const deleteButtons = document.getElementsByClassName("comment-delete-btn");
     
     for (let button of deleteButtons) {
@@ -47,4 +50,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-

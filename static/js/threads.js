@@ -1,26 +1,28 @@
+// Get all edit buttons and the edit form elements
 const editButtons = document.getElementsByClassName("btn-edit");
 const editForm = document.getElementById("editForm");
 const submitButton = document.getElementById("submitButton");
 
 // Get modal and delete buttons
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+const deleteModal = new bootstrap.Modal(document.getElementById("deleteThreadModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
 /**
- * Initializes edit functionality for the provided edit buttons.
- * For each button in the `editButtons` collection:
- * - Retrieves the associated thread's title and description upon click.
- * - Populates the `editForm` with the thread's content for editing.
- * - Updates the submit button's text to "Update".
- * - Sets the form's action attribute to the `edit_thread/{slug}` endpoint.
+ * Initializes edit functionality for each edit button:
+ * - Retrieves the associated thread's title, description, and related article URL when clicked.
+ * - Fills the edit form with the retrieved values.
+ * - Updates the submit button's text to "Update" (for consistency).
+ * - Toggles the visibility of the edit form.
  */
 for (let button of editButtons) {
     button.addEventListener("click", function (e) {
+        // Retrieve the data attributes
         let threadTitle = e.target.getAttribute("data-title");
         let threadDescription = e.target.getAttribute("data-description");
         let threadRelatedArticle = e.target.getAttribute("data-related");
 
+        // Populate the edit form fields with the thread data
         document.getElementById("id_title").value = threadTitle;
         document.getElementById("id_description").value = threadDescription;
         document.getElementById("id_related_article").value = threadRelatedArticle;
@@ -28,17 +30,26 @@ for (let button of editButtons) {
         // Toggle the visibility of the edit form
         if (editForm.style.display === "none") {
             editForm.style.display = "block";  // Show the form
+            submitButton.textContent = "Update Thread";  // Update button text to "Update"
         } else {
-            editForm.style.display = "none";  // Hide the form again
+            editForm.style.display = "none";  // Hide the form if it was already shown
         }
+
+        // Adjust form action dynamically based on the thread
+        const threadSlug = e.target.getAttribute("data-slug");
+        editForm.setAttribute("action", `/edit_thread/${threadSlug}/`);
     });
 }
 
-// Add event listeners to delete buttons
+/**
+ * Adds event listeners to each delete button.
+ * When a delete button is clicked, the associated thread slug is set
+ * and the modal is shown to confirm the deletion.
+ */
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         const threadSlug = e.target.getAttribute("data-slug");
-        document.getElementById("deleteSlug").value = threadSlug;
+        document.getElementById("deleteSlug").value = threadSlug;  // Set the thread slug to the form input for delete confirmation
         deleteModal.show();  // Show the modal for confirmation
     });
 }
