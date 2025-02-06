@@ -1,0 +1,481 @@
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. index/threads_page.html Header Styling */
+.header {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 0px 50px 50px -20px rgba(0, 0, 0, 0.6);
+}
+
+.site-heading {
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.site-heading h1 {
+    font-size: 3rem; 
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Shadow for visibility */
+}
+
+.site-heading .subheading {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Shadow for visibility */
+    margin-top: 0.5rem;
+}
+
+
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Navbar Styling */
+.navbar {
+    background-color: rgb(31, 34, 26);
+    box-shadow: 0 11px 20px rgba(255, 251, 251, 0.411); /* Shadow */
+    position: relative;
+    z-index: 10; /* Ensures navbar stays on top */
+}
+
+.navbar-brand {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand:hover {
+    color: rgb(127, 148, 106);
+}
+
+.navbar-nav .nav-link.active, 
+.navbar-nav .nav-link:focus {
+    color: rgb(127, 148, 106);
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item a:hover {
+    color: rgb(127, 148, 106);
+}
+
+.dropdown-menu {
+    background-color: rgb(127, 148, 106);
+}
+
+.navbar-nav .dropdown-menu .dropdown-item {
+    color: rgb(31, 34, 26);
+}
+
+
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Main section Styling */
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ All pages */
+main {
+    background-color: lightgrey;
+    flex-grow: 1;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Index page */
+.article-card { 
+    background-color: white; 
+    border: 1px solid rgb(31, 34, 26);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.15s ease; 
+}
+
+.article-card-body { 
+    padding: 20px;
+}
+
+.article-card .card-title { 
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(31, 34, 26);
+    border-bottom: 2px solid transparent;
+    /* Transition for color and border */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.article-card .article-blurb h4 { 
+    font-size: 1rem;
+    color: #555;
+}
+
+.article-card .card-text { 
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.article-card .categories-buttons { 
+    background-color: rgb(31, 34, 42);
+    color: white;
+    transition: background-color 0.3s ease, border-color 0.3 ease;
+}
+
+/* Hover Effect for Button */
+.article-card .categories-buttons:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: 	rgb(31, 34, 42);
+}
+
+/* Hover Effect on the Card */
+.article-card:hover { 
+    transform: translateY(-5px); /* Make the card move up a little */
+}
+
+/* Article Link Styling */
+.article-link { 
+    color: inherit;
+    text-decoration: none; 
+}
+
+/* Hover Effect on the Card Title */
+.article-card .card-title:hover {
+    color: rgb(83, 92, 80);
+    border-bottom: 2px solid rgb(83, 92, 80);
+}
+
+.article-card:hover {
+    transform: translateY(-10px);
+}
+
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Article detail */
+.masthead {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+/* Image Styling */
+.masthead-img {
+    width: 100%; 
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Title and Blurb */
+.post-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Category Button */
+.article-detail-button {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    transition: background-color 0.3s ease, border-color 0.3 ease;
+}
+
+.article-detail-button:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: 	rgb(31, 34, 42);
+    color: white;
+}
+
+/* Article Content Card */
+.article-detail-card {
+    width: 100%;
+    max-width: 80%;
+    margin: 20px auto 60px auto; 
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Article Card Text */
+.article-detail-card-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Login/Logout/Register page */
+.account-access-containers {
+    padding-top: 100px;
+}
+
+/* All three submit buttons */
+.account-access-buttons {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    transition: background-color 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+.account-access-buttons:hover {
+    background-color: rgb(83, 92, 80);
+}
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads page */
+/* ------- Threads list */
+.threads-list {
+    border: 2px solid black; 
+    border-radius: 10px; 
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.3); 
+    padding: 20px;
+    background-color: #fff;
+}
+
+.threads-list h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.threads-list .list-group-item {
+    border: none;
+    margin-bottom: 10px;
+    background-color: rgba(139, 87, 41, 0.486);
+    border-radius: 5px;
+}
+
+.threads-list .list-group-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.threads-list .list-group-item a:hover {
+    text-decoration: underline;
+    color: rgb(82, 50, 25);
+}
+
+/* ------- New threads */
+.new-thread {
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+.new-thread .form-control {
+    border-radius: 5px; 
+    padding: 10px;
+    margin-bottom: 15px; 
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.new-thread .form-control:focus {
+    border-color: rgb(194, 122, 63); /* Change border color when teaxt area is clicked */
+}
+
+.new-thread button {
+    padding: 10px 20px; 
+    font-size: 1.1rem;
+    background-color: rgb(66, 41, 20);
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease; 
+}
+
+.new-thread button:hover {
+    background-color: rgb(194, 122, 63); 
+    color: black;
+}
+
+/* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads detail */
+
+/* ------- thread detail card */
+.thread-detail-card {
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(139, 87, 41, 0.486);
+}
+
+.delete-thread-btn {
+    background-color: rgb(190, 60, 0);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+}
+
+.delete-thread-btn:hover {
+    background-color: rgba(190, 60, 0, 0.63);
+    color: white;
+    border-color: white;
+}
+
+.thread-edit-button {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.thread-edit-button:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: white;
+}
+
+
+/* ------- Comments display */
+.comments-card {
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    background-color: rgba(194, 122, 63, 0.315);
+}
+
+.comment-auth-date {
+    text-decoration: underline;
+}
+
+.posted-comment-card {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.144);
+}
+
+.comment-edit-btn {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.comment-edit-btn:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: black;
+}
+
+.comment-delete-btn {
+    background-color: rgb(190, 60, 0);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3 ease; 
+}
+
+.comment-delete-btn:hover {
+    background-color: rgba(190, 60, 0, 0.63);
+    color: black;
+    border-color: black;
+}
+
+
+/* ------- Add new comments */
+.new-comment-btn {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.new-comment-btn:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: white;
+}
+
+form.CommentForm textarea {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.144);
+    border: 1px solid black;
+}
+
+
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */
+.footer {
+    position: relative;
+    min-height: 120px;
+    padding: 30px 0;
+    text-align: center;
+    background-color: rgb(31, 34, 26);
+    color: white;
+    box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.5);
+    margin-top: 40px;
+}
+
+.footer p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer i {
+    font-size: 2rem;
+    margin: 0 10px;
+    /* adds smooth hover effect */
+    transition: transform 0.3s ease; 
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer a:hover i {
+    color: rgb(127, 148, 106);
+}
+
+.footer i:hover {
+    /* enlarge icons on hover */
+    transform: scale(1.2);
+}
+
+
+/* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Responsiveness - Tablet Sizes */
+@media (max-width: 768px) {
+    /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Header */
+    .header .row {
+        height: 50vh;
+    }
+
+    .site-heading h1 {
+        font-size: 2.5rem;
+    }
+
+    .site-heading .subheading {
+        font-size: 1.2rem; 
+    }
+    /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Article image */
+    .masthead {
+        flex-direction: column;
+        text-align: center;
+    }
+    .masthead-image {
+        width: 100%;
+        margin-left: 0;
+    }
+    .masthead-text {
+        text-align: center;
+    }
+}
+
+
+/*Responsiveness - Mobile Sizes */
+@media (max-width: 576px) {
+    /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Header */
+    .header .row {
+        height: 40vh; 
+    }
+
+    .site-heading h1 {
+        font-size: 2rem;
+    }
+
+    .site-heading .subheading {
+        font-size: 1rem;
+    }
+}
