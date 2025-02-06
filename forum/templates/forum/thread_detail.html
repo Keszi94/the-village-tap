@@ -9,6 +9,8 @@
 <p class="text-end text-muted">You are not logged in</p>
 {% endif %}
 
+<input type="hidden" id="threadSlug" value="{{ thread.slug }}">
+
 <div class="container mt-4">
     <!-- Selected Thread's details -->
     <div class="card mb-4 thread-detail-card">
@@ -26,11 +28,12 @@
 
             {% if user.is_authenticated and thread.author == user %}
             <!-- Edit Thread Button -->
-            <button class="btn btn-primary btn-edit" data-slug="{{ thread.slug }}" data-title="{{ thread.title }}"
+            <button class="btn btn-primary btn-edit thread-edit-button" data-slug="{{ thread.slug }}" data-title="{{ thread.title }}"
                 data-description="{{ thread.description }}" data-related="{{ thread.related_article_url }}">
                 Edit Thread
             </button>
-            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteThreadModal">
+            <!-- Delete Thread Button -->
+            <button class="btn delete-thread-btn" data-bs-toggle="modal" data-bs-target="#deleteThreadModal">
                 Delete Thread
             </button>
             <hr>
@@ -66,7 +69,7 @@
 
             {% if comments %}
             {% for comment in comments %}
-            <div class="card mb-3 pt-4" id="comment-{{ comment.id }}">
+            <div class="card mb-3 pt-4 posted-comment-card" id="comment-{{ comment.id }}">
                 <div class="card-body">
                     <p class="comment-auth-date">
                         <strong>{{ comment.author.username }}</strong> commented on
@@ -78,8 +81,11 @@
                     {% if user.is_authenticated and comment.author == user %}
                     <button class="btn btn-sm btn-primary comment-edit-btn" data-id="{{ comment.id }}"
                         data-content="{{ comment.content }}">Edit</button>
-                    <button class="btn btn-sm btn-danger comment-delete-btn" data-id="{{ comment.id }}"
-                        data-bs-toggle="modal" data-bs-target="#deleteCommentModal">Delete</button>
+                    <button class="btn btn-sm btn-danger comment-delete-btn" 
+                        data-id="{{ comment.id }}"
+                        data-url="{% url 'delete_comment' thread.slug comment.id %}"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#deleteCommentModal">Delete</button>
                     {% endif %}
                 </div>
 
@@ -104,10 +110,10 @@
 
             {% if user.is_authenticated %}
             <h3 class="pt-5">Leave a Comment</h3>
-            <form method="post">
+            <form method="post" class="CommentForm">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                <button type="submit" class="btn btn-primary mt-2 new-comment-btn">Submit</button>
             </form>
             {% else %}
             <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>

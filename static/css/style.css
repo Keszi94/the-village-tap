@@ -294,19 +294,101 @@ body {
 }
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads detail */
+
 /* ------- thread detail card */
+.thread-detail-card {
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(139, 87, 41, 0.486);
+}
+
+.delete-thread-btn {
+    background-color: rgb(190, 60, 0);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+}
+
+.delete-thread-btn:hover {
+    background-color: rgba(190, 60, 0, 0.63);
+    color: white;
+    border-color: white;
+}
+
+.thread-edit-button {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.thread-edit-button:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: white;
+}
 
 
 /* ------- Comments display */
 .comments-card {
+    border: 1px solid black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
+    background-color: rgba(194, 122, 63, 0.315);
 }
 
 .comment-auth-date {
     text-decoration: underline;
 }
 
+.posted-comment-card {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.144);
+}
+
+.comment-edit-btn {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.comment-edit-btn:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: black;
+}
+
+.comment-delete-btn {
+    background-color: rgb(190, 60, 0);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3 ease; 
+}
+
+.comment-delete-btn:hover {
+    background-color: rgba(190, 60, 0, 0.63);
+    color: black;
+    border-color: black;
+}
+
+
 /* ------- Add new comments */
+.new-comment-btn {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.new-comment-btn:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: white;
+}
+
+form.CommentForm textarea {
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.144);
+    border: 1px solid black;
+}
 
 
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Footer Styling */
