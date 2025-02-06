@@ -35,7 +35,7 @@
             </button>
             <hr>
 
-            <!-- Edit Thread Form (same card as the thread) -->
+            <!-- Edit Thread Form -->
             <form id="editForm" method="POST" class="mt-3" style="display: none;"
                 action="{% url 'edit_thread' thread.slug %}">
                 {% csrf_token %}

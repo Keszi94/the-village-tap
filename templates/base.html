@@ -83,6 +83,8 @@
                             href="{% url 'create_article' %}">Add New Article</a>
                     </li>
                     {% endif %}
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
