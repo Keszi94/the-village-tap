@@ -1,6 +1,5 @@
 from .models import Article
 from django import forms
-from django_summernote.widgets import SummernoteWidget
 
 # not using crispy because I prefer not to
 
@@ -15,7 +14,7 @@ class ArticleCreationForm(forms.ModelForm):
             # using 'rows': to control the height of the text areas
             'blurb': forms.Textarea(attrs={
                 'class': 'form-control', 'rows': 4}),
-            'content': SummernoteWidget(attrs={
+            'content': forms.Textarea(attrs={
                 'class': 'form-control', 'rows': 5}),
             'sources': forms.Textarea(attrs={
                 'class': 'form-control', 'rows': 3}),

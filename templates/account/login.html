@@ -11,30 +11,40 @@
         <div class="col-md-4 mt-4">
             <h2 class="text-center">{% trans "Sign In" %}</h2>
             <hr>
-            <p class="text-center">{% blocktrans %}Welcome back to The Village Tap news site. To create a thread or leave a comment, please log in. If
-                you have not created an account yet, then <a href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
-            
+            <p class="text-center">
+                {% blocktrans %}Welcome back to The Village Tap news site. To create a thread or leave a comment, please
+                log in. If
+                you have not created an account yet, then <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans
+                %}
+            </p>
+
+            <!-- Display error messages -->
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                <strong>{% trans "Invalid login credentials. Please try again." %}</strong>
+            </div>
+            {% endif %}
+
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
-                
+
                 <!-- Account Name input -->
                 <div class="mb-3">
                     <label for="id_login" class="form-label">{% trans "Account Name" %}</label>
                     <input type="text" id="id_login" name="login" class="form-control" required />
                 </div>
-                
+
                 <!-- Password input -->
                 <div class="mb-3">
                     <label for="id_password" class="form-label">{% trans "Password" %}</label>
                     <input type="password" id="id_password" name="password" class="form-control" required />
                 </div>
-                
+
                 <!-- Submit button -->
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary account-access-buttons">{% trans "Sign In" %}</button>
                 </div>
-                
+
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
