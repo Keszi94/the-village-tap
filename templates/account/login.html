@@ -11,15 +11,16 @@
         <div class="col-md-4 mt-4">
             <h2 class="text-center">{% trans "Sign In" %}</h2>
             <hr>
+
             <p class="text-center">
-                {% blocktrans %}Welcome back to The Village Tap news site. To create a thread or leave a comment, please
-                log in. If
-                you have not created an account yet, then <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans
-                %}
+                {% trans "Welcome back to The Village Tap news site. To create a thread or leave a comment, please log
+                in. If you have not created an account yet, then" %}
+                <a href="{{ signup_url }}">{% trans "sign up" %}</a>
+                {% trans "first." %}
             </p>
 
             <!-- Display error messages -->
-            {% if form.errors %}
+            {% if form.non_field_errors %}
             <div class="alert alert-danger">
                 <strong>{% trans "Invalid login credentials. Please try again." %}</strong>
             </div>
