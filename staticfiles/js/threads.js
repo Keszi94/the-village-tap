@@ -8,13 +8,6 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteThreadMod
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
-/**
- * Initializes edit functionality for each edit button:
- * - Retrieves the associated thread's title, description, and related article URL when clicked.
- * - Fills the edit form with the retrieved values.
- * - Updates the submit button's text to "Update" (for consistency).
- * - Toggles the visibility of the edit form.
- */
 for (let button of editButtons) {
     button.addEventListener("click", function (e) {
         // Retrieve the data attributes
@@ -27,6 +20,11 @@ for (let button of editButtons) {
         document.getElementById("id_description").value = threadDescription;
         document.getElementById("id_related_article").value = threadRelatedArticle;
 
+        let actionUrl = `/forum/${threadSlug}/edit_thread/`;
+        editForm.setAttribute("action", actionUrl);
+
+        console.log("Form action set to:", actionUrl)
+
         // Toggle the visibility of the edit form
         if (editForm.style.display === "none") {
             editForm.style.display = "block";  // Show the form
@@ -34,10 +32,6 @@ for (let button of editButtons) {
         } else {
             editForm.style.display = "none";  // Hide the form if it was already shown
         }
-
-        // Adjust form action dynamically based on the thread
-        const threadSlug = e.target.getAttribute("data-slug");
-        editForm.setAttribute("action", `/edit_thread/${threadSlug}/`);
     });
 }
 

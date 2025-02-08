@@ -28,8 +28,9 @@
 
             {% if user.is_authenticated and thread.author == user %}
             <!-- Edit Thread Button -->
-            <button class="btn btn-primary btn-edit thread-edit-button" data-slug="{{ thread.slug }}" data-title="{{ thread.title }}"
-                data-description="{{ thread.description }}" data-related="{{ thread.related_article_url }}">
+            <button class="btn btn-primary btn-edit thread-edit-button" data-slug="{{ thread.slug }}"
+                data-title="{{ thread.title }}" data-description="{{ thread.description }}"
+                data-related="{{ thread.related_article_url }}" data-edit-url="{% url 'edit_thread' thread.slug %}">
                 Edit Thread
             </button>
             <!-- Delete Thread Button -->
@@ -39,8 +40,7 @@
             <hr>
 
             <!-- Edit Thread Form -->
-            <form id="editForm" method="POST" class="mt-3" style="display: none;"
-                action="{% url 'edit_thread' thread.slug %}">
+            <form id="editForm" method="POST" class="mt-3" style="display: none;" action="{% url 'edit_thread' thread.slug %}">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="id_title" class="form-label">Title</label>
@@ -81,10 +81,8 @@
                     {% if user.is_authenticated and comment.author == user %}
                     <button class="btn btn-sm btn-primary comment-edit-btn" data-id="{{ comment.id }}"
                         data-content="{{ comment.content }}">Edit</button>
-                    <button class="btn btn-sm btn-danger comment-delete-btn" 
-                        data-id="{{ comment.id }}"
-                        data-url="{% url 'delete_comment' thread.slug comment.id %}"
-                        data-bs-toggle="modal" 
+                    <button class="btn btn-sm btn-danger comment-delete-btn" data-id="{{ comment.id }}"
+                        data-url="{% url 'delete_comment' thread.slug comment.id %}" data-bs-toggle="modal"
                         data-bs-target="#deleteCommentModal">Delete</button>
                     {% endif %}
                 </div>
