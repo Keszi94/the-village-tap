@@ -2,7 +2,7 @@
 
 The village tap is a news site designed for the community of a small, fictional Irish village. 
 
-The site has been designed to allow the imagined community members to get up-to-date news about happenings in the village (traffic updates, wedding announcements, etc.) and to open up discussions about the site's articles, or just to create an open forum to talk about whatever they'd like their neighbours opinions on. 
+The site is designed to provide the imagined community with up-to-date news about village happenings, including traffic updates, wedding announcements, and more. It also serves as a platform for engaging discussions on the site's articles, as well as an open forum for community members to share thoughts and seek opinions on various topics.
 
 [Live link to the site]()
 
@@ -54,13 +54,11 @@ The site has been designed to allow the imagined community members to get up-to-
 
 ## User Experience
 
-This platform provides an intuitive experience for site users to read articles, participate in forum discussions, and comment freely. Administrators can manage and create articles, moderate user content, and ensure safe community environment through the admin dashboard. The interface is responsive and designed for seamless navigation across devices.
+The platform offers an intuitive experience, allowing users to easily read articles, participate in forum discussions, and leave comments. Administrators have the ability to manage and create articles, moderate user content, and maintain a safe community environment through the admin dashboard. The interface is fully responsive, ensuring smooth navigation across all devices.
 
 
 ### UX Design
-
-
-## Planning
+The UX design focuses on providing a seamless and intuitive experience for all users. The layout is clean and easy to navigate, ensuring that users can quickly find and engage with content. Key elements, such as articles and forum discussions, are prominently displayed to enhance accessibility. The design prioritizes responsiveness, adapting effortlessly across devices to ensure a smooth experience on both desktop and mobile. Clear calls to action and thoughtful interaction design guide users through the site, creating a positive and engaging environment.
 
 ### Milestones and User Stories
 
@@ -100,7 +98,38 @@ This platform provides an intuitive experience for site users to read articles, 
 
 
 ## Scope
+Guided by the milestones, goals, and user stories, the following features and functionalities were planned:
 
+* Responsive Design:
+   
+   Ensures full functionality and proper resizing across all devices, starting from 360px width upwards.
+
+* Mobile/Tablet Optimization:
+   
+   Utilizes a toggle-menu and hidden elements (e.g., home page image) to improve site viewing on mobile and tablet devices.
+
+* Public Section (Non-Restricted Access):
+  
+  A dedicated section of the site for general information, accessible by all users:
+   * Village News & Announcements
+   * Event Listings
+   * General Articles
+
+* User Interaction Section (Restricted Access):
+  
+  A space for community members to interact, including CRUD (Create, Read, Update, Delete) functionalities for user accounts and participation:
+   * User Registration/Sign In/Out
+   * Create and Edit Forum Posts
+   * Comment on Articles
+   * Participate in Discussions
+
+* Admin Section (Restricted Access):
+  
+  A secure admin backend to manage site content and user interactions, including CRUD functionalities for site administrators:
+   * Manage Articles (Create, Edit, Delete)
+   * Moderate Comments and User Contributions
+   * View and Manage User Accounts
+   * Ensure Site Safety and Content Quality
 
 ## Structure
 
@@ -267,10 +296,13 @@ git clone <repository-url>
 ### Code Used
 
 ### Content
+I used ChatGPT to create the fictional articles on the website.
 
 ### Media
 
 ### Acknowledgments
+
+I would like to thank my Code Institute mentor, Graeme Taylor, for his continuous guidance and support throughout this project.
 
 
 
