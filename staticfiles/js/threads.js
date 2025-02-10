@@ -20,11 +20,6 @@ for (let button of editButtons) {
         document.getElementById("id_description").value = threadDescription;
         document.getElementById("id_related_article").value = threadRelatedArticle;
 
-        let actionUrl = `/forum/${threadSlug}/edit_thread/`;
-        editForm.setAttribute("action", actionUrl);
-
-        console.log("Form action set to:", actionUrl)
-
         // Toggle the visibility of the edit form
         if (editForm.style.display === "none") {
             editForm.style.display = "block";  // Show the form

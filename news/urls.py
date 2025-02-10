@@ -10,7 +10,6 @@ urlpatterns = [
     path('<slug:slug>/', views.article_detail, name='article_detail'),
     path('category/<str:category>',
          views.article_list, name='articles_by_category'),
-    path('forum/', include('forum.urls')),
 ]
 
 if settings.DEBUG:

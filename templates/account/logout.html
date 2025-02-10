@@ -2,16 +2,16 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}Sign Out{% endblock %}
 
 {% block content %}
 <div class="container account-access-containers">
     <div class="row justify-content-center">
         <div class="col-md-10 mt-4">
-            <h2 class="text-center">{% trans "Sign Out" %}</h2>
+            <h2 class="text-center">Sign Out</h2>
             <hr>
-            <h3 class="text-center">{% trans 'Are you sure you want to sign out?' %}</h3>
-            <p class="text-center">{% trans 'If you proceed, you will no longer be able to view or participate in discussions on The Snug Forum.' %}</p>
+            <h3 class="text-center">Are you sure you want to sign out?</h3>
+            <p class="text-center">If you proceed, you will no longer be able to view or participate in discussions on The Snug Forum.</p>
             
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}

@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}Sign In{% endblock %}
 
 {% block content %}
 <div class="container account-access-containers">
@@ -13,10 +13,9 @@
             <hr>
 
             <p class="text-center">
-                {% trans "Welcome back to The Village Tap news site. To create a thread or leave a comment, please log
-                in. If you have not created an account yet, then" %}
-                <a href="{{ signup_url }}">{% trans "sign up" %}</a>
-                {% trans "first." %}
+                Welcome back to The Village Tap news site. To create a thread or leave a comment, please log
+                in. If you have not created an account yet, then
+                <a href="{{ signup_url }}">sign up</a>
             </p>
 
             <!-- Display error messages -->
