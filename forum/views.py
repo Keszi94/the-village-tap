@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseForbidden, HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Thread, Comment
 from .forms import ThreadCreationForm, CommentForm, ThreadEditForm
@@ -106,7 +105,8 @@ def edit_thread(request, slug):
     Renders :template:`forum/edit_thread.html`.
 
     **Behavior**
-    Sets `related_article_url` to an empty string if `None`. Handles both GET (display form) and POST (save changes).
+    Sets `related_article_url` to an empty string if `None`.
+    Handles both GET (display form) and POST (save changes).
     """
 
     thread = get_object_or_404(Thread, slug=slug)
@@ -124,7 +124,8 @@ def edit_thread(request, slug):
     else:
         form = ThreadEditForm(instance=thread)
 
-    return render(request, 'forum/edit_thread.html', {'form': form, 'thread': thread})
+    return render(request, 'forum/edit_thread.html',
+                  {'form': form, 'thread': thread})
 
 
 def delete_thread(request, slug):
