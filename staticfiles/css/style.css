@@ -67,6 +67,15 @@
     color: rgb(31, 34, 26);
 }
 
+.navbar-toggler i {
+    all: unset;
+    font-family: 'Font Awesome 5 Free', sans-serif;
+    font-weight: 1000;
+    display: inline-block;
+    transform: translateY(0);
+    vertical-align: middle;
+    color: rgb(127, 148, 106);
+}
 
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Main section Styling */
 
@@ -328,17 +337,6 @@ body {
     border-color: white;
 }
 
-.update-thread-btn {
-    background-color: rgb(31, 34, 42);
-    color: white;
-    border: 1px solid transparent;
-    outline: none;
-}
-
-.update-thread-btn:hover {
-    background-color: rgb(83, 92, 80);
-    border-color: white;
-}
 
 /* ------- Comments display */
 .comments-card {
