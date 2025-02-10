@@ -36,3 +36,13 @@ class CommentForm(forms.ModelForm):
         labels = {
             'content': '',
         }
+
+
+class ThreadEditForm(forms.ModelForm):
+    class Meta:
+        model = Thread
+        fields = ['title', 'description', 'related_article_url']
+
+    related_article_url = forms.CharField(
+        required=False, widget=forms.TextInput(attrs={
+            'placeholder': 'Optional'}))

@@ -3,7 +3,7 @@ from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Thread, Comment
-from .forms import ThreadCreationForm, CommentForm
+from .forms import ThreadCreationForm, CommentForm, ThreadEditForm
 
 
 # Create your views here.
@@ -93,30 +93,38 @@ def thread_detail(request, slug):
 
 def edit_thread(request, slug):
     """
-    Edit an existing :model:`forum.Thread` created by the logged-in user.
+    Edit an existing :model:`forum.Thread` by the logged-in user.
 
     **Permissions**
-    Only accessible by the author of the thread.
+    Only the thread author can edit it.
 
     **Parameters**
     ``slug``
-        A string representing the unique identifier for the thread.
+        The unique identifier (slug) of the thread to edit.
 
     **Template**
-    Redirects to :template:`forum/thread_detail.html` after a
-    successful update.
+    Renders :template:`forum/edit_thread.html`.
+
+    **Behavior**
+    Sets `related_article_url` to an empty string if `None`. Handles both GET (display form) and POST (save changes).
     """
-    thread = get_object_or_404(Thread, slug=slug, author=request.user)
+
+    thread = get_object_or_404(Thread, slug=slug)
+
+    if thread.related_article_url is None:
+        thread.related_article_url = ""
 
     if request.method == 'POST':
-        thread.title = request.POST.get('title')
-        thread.description = request.POST.get('description')
-        thread.related_article_url = request.POST.get('related_article_url')
-        thread.save()
-        messages.success(request, 'Your thread has been updated successfully!')
-        return redirect('thread_detail', slug=slug)
+        form = ThreadEditForm(request.POST, instance=thread)
+        if form.is_valid():
+            form.save()
+            return redirect('thread_detail', slug=thread.slug)
+        else:
+            print(form.errors)
+    else:
+        form = ThreadEditForm(instance=thread)
 
-    return redirect('thread_detail', slug=slug)
+    return render(request, 'forum/edit_thread.html', {'form': form, 'thread': thread})
 
 
 def delete_thread(request, slug):

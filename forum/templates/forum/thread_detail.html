@@ -28,37 +28,12 @@
 
             {% if user.is_authenticated and thread.author == user %}
             <!-- Edit Thread Button -->
-            <button class="btn btn-primary btn-edit thread-edit-button" data-slug="{{ thread.slug }}"
-                data-title="{{ thread.title }}" data-description="{{ thread.description }}"
-                data-related="{{ thread.related_article_url }}" data-edit-url="{% url 'edit_thread' thread.slug %}">
-                Edit Thread
-            </button>
+            <a href="{% url 'edit_thread' thread.slug %}" class="btn btn-primary">Edit Thread</a>
             <!-- Delete Thread Button -->
             <button class="btn delete-thread-btn" data-bs-toggle="modal" data-bs-target="#deleteThreadModal">
                 Delete Thread
             </button>
             <hr>
-
-            <!-- Edit Thread Form -->
-            <form id="editForm" method="POST" class="mt-3" style="display: none;"
-                action="/forum/{{ thread.slug }}/edit/">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label for="id_title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="id_title" name="title" value="{{ thread.title }}">
-                </div>
-                <div class="mb-3">
-                    <label for="id_description" class="form-label">Description</label>
-                    <textarea class="form-control" id="id_description"
-                        name="description">{{ thread.description }}</textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="id_related_article" class="form-label">Related Article</label>
-                    <input type="text" class="form-control" id="id_related_article" name="related_article_url"
-                        value="{{ thread.related_article_url }}">
-                </div>
-                <button type="submit" id="submitButton" class="btn btn-success">Save Changes</button>
-            </form>
             {% endif %}
         </div>
     </div>
@@ -171,6 +146,6 @@
 {% endblock %}
 
 {% block extras %}
-<script src="{% static 'js/threads.js' %}"></script>
+<!-- <script src="{% static 'js/threads.js' %}"></script> -->
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

@@ -1,44 +1,15 @@
-// Get all edit buttons and the edit form elements
-const editButtons = document.getElementsByClassName("btn-edit");
-const editForm = document.getElementById("editForm");
-const submitButton = document.getElementById("submitButton");
+// Handle delete thread button click
+document.querySelector('.delete-thread-btn').addEventListener('click', function (e) {
+    e.preventDefault();
 
-// Get modal and delete buttons
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteThreadModal"));
-const deleteButtons = document.getElementsByClassName("btn-delete");
-const deleteConfirm = document.getElementById("deleteConfirm");
+    // Get the thread slug (can be passed via a data attribute)
+    const threadSlug = document.getElementById("threadSlug").value;
 
-for (let button of editButtons) {
-    button.addEventListener("click", function (e) {
-        // Retrieve the data attributes
-        let threadTitle = e.target.getAttribute("data-title");
-        let threadDescription = e.target.getAttribute("data-description");
-        let threadRelatedArticle = e.target.getAttribute("data-related");
+    // Set the form's action to the delete thread URL
+    const deleteForm = document.getElementById('deleteThreadForm');
+    deleteForm.action = `/forum/delete_thread/${threadSlug}/`;  // Adjust this URL pattern according to your Django URL structure
 
-        // Populate the edit form fields with the thread data
-        document.getElementById("id_title").value = threadTitle;
-        document.getElementById("id_description").value = threadDescription;
-        document.getElementById("id_related_article").value = threadRelatedArticle;
-
-        // Toggle the visibility of the edit form
-        if (editForm.style.display === "none") {
-            editForm.style.display = "block";  // Show the form
-            submitButton.textContent = "Update Thread";  // Update button text to "Update"
-        } else {
-            editForm.style.display = "none";  // Hide the form if it was already shown
-        }
-    });
-}
-
-/**
- * Adds event listeners to each delete button.
- * When a delete button is clicked, the associated thread slug is set
- * and the modal is shown to confirm the deletion.
- */
-for (let button of deleteButtons) {
-    button.addEventListener("click", (e) => {
-        const threadSlug = e.target.getAttribute("data-slug");
-        document.getElementById("deleteSlug").value = threadSlug;  // Set the thread slug to the form input for delete confirmation
-        deleteModal.show();  // Show the modal for confirmation
-    });
-}
+    // Show the delete modal
+    const deleteModal = new bootstrap.Modal(document.getElementById("deleteThreadModal"));
+    deleteModal.show();
+});

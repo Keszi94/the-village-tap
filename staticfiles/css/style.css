@@ -328,6 +328,17 @@ body {
     border-color: white;
 }
 
+.update-thread-btn {
+    background-color: rgb(31, 34, 42);
+    color: white;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.update-thread-btn:hover {
+    background-color: rgb(83, 92, 80);
+    border-color: white;
+}
 
 /* ------- Comments display */
 .comments-card {

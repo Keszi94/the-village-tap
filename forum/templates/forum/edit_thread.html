@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Edit Thread</h2>
+        
+        <form method="POST" action="{% url 'edit_thread' thread.slug %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="id_title" name="title" value="{{ form.title.value }}">
+            </div>
+            <div class="mb-3">
+                <label for="id_description" class="form-label">Description</label>
+                <textarea class="form-control" id="id_description" name="description">{{ form.description.value }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="id_related_article" class="form-label">Related Article</label>
+                <input type="text" class="form-control" id="id_related_article" name="related_article_url" value="{{ form.related_article_url.value|default:'' }}">
+            </div>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </form>
+        
+        
+        <a href="{% url 'thread_detail' thread.slug %}" class="btn btn-secondary mt-4">Cancel</a>
+    </div>
+{% endblock %}
