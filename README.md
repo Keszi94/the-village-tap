@@ -6,7 +6,7 @@ The site is designed to provide the imagined community with up-to-date news abou
 
 [Live link to the site]()
 
-![The Village Tap website on different devices]()
+![The Village Tap website responsiveness](docs/images/responsive.gif)
 
 
 ## CONTENTS
@@ -26,14 +26,13 @@ The site is designed to provide the imagined community with up-to-date news abou
    
 * [Structure](#structure)
    
-* [Back-End Design](#back-end-design)
-     * [Database Schema](#database-schema)
-     * [Models](#models)
-     * [Implemented Features](#implemented-features)
-     * [Features To Be Implimented](#features-to-be-implemented)
-
-* [Front-End Design](#front-end-design)
+* [Blueprint](#blueprint)
      * [Wireframe Models](#wireframe-models)
+     * [Database Model](#database-model)
+
+* [UI and Layout](#ui-and-layout)
+     * [Implemented Features](#implemented-features)
+     * [Features to be implemented](#features-to-be-implemented)
      * [Design and Typography](#design-and-typography)
 
 * [Tecnologies and Resources Used](#technologies-and-resources-used)
@@ -133,14 +132,88 @@ Guided by the milestones, goals, and user stories, the following features and fu
 
 ## Structure
 
+With the Strategy and Scope clearly defined, the next step was to structure the site in a way that ensures intuitive navigation and functionality. To achieve this, clear acceptance criteria were established for each feature, ensuring that every componennt aligned with user needs and project goals. This structured approach guided developement and provided a framework for maintaning usability, accessibility and responsiveness across all devices.
 
-## Back-End Design
+The website is organised into three main sections: 
 
-### Database Schema
+* Public Section (Accessible to all users):
+   * Display all available articles eith all their content.
+   * Provides Articles are categorised for easy browsing, which allows users to quickly find the content they are looking for.
+   * Designed to be engaging and useful even for visitors who are not registered.
 
-### Models
+* User Interaction Section (Rgistered users only)
+   * Enables community engagement through participation in forum discussions.
+   * Allows users to create, edit, and delete forum posts and comments, providing an interactive space for community conversations.
+   * A simple and accessible authentication system allows users to register. log in and log out.
+
+* Admin Section (Administrators only)
+   * A secure backend dashboard provides tools to manage site content and user interactions.
+   * Includes CRUD functionalities for news articles and forum posts.
+   * Moderation tools ensure content quality and a safe discussion environment.
+   * A front-end NavLink to the "Create New Article" page is only visible to logged-in admins.
+
+
+## Blueprint
+
+Before development began, wireframes were created to outline the site's layout and user flow. These provided a visual guide for how key features, such as navigation, forum discussions, and news articles, would be structured and presented. In addition, a database schema was designed to define how data would be organized and interconnected within the project. Taking the time to plan both the interface and data flow ensured a more efficient and structured approach to development.
+
+### Wireframe Models
+
+#### Main Site Pages
+
+1. Home
+  
+ * Article detail pages 
+
+![Home page](docs\images\wireframe-index_page.png)
+
+![Article Detail Page](docs\images\wireframe-article_detail.png)
+
+2. The Snug Forum
+ 
+ * Thread detail pages
+
+![The snug forum](docs\images\wireframe-the_snug.png)
+
+![Thread detail page](docs\images\wireframe-thread_detail.png)
+
+
+#### Authorisation Pages
+
+* Register
+* Sign in 
+* Sign out
+
+![Register](docs\images\register.png)
+
+![Sign in](docs\images\login.png)
+
+![Sign out](docs\images\logout.png)
+
+
+#### Create New Article Page (For Administrators only)
+
+![Create New Article Page](docs\images\create_new_article.png)
+
+
+
+### Database Model
+
+The database for this project is built around Django’s built-in User model, which handles authentication. Everything else - articles, forum threads, and comments - connects back to users in a one-to-many relationship. This basically means that one user can write multiple articles, start multiple forum threads, and leave multiple comments, but each article, thread, or comment belongs to just one user.
+
+There’s also a connection between threads and articles, so discussions in the forum can be linked to news posts if needed. This is optional, threads do not have to be tied to an article at all.
+
+The diagram below lays out how everything is connected in the database.
+
+
+![ER Diagram](docs\images\diagram.jpeg)
+
+## UI & Layout
+
+With the wireframes and database structure sorted, the site was put together using Django, HTML, CSS, and JavaScript to bring all the planned features to life. Each page was built to match the original idea while making sure everything was responsive and easy to use. Below are screenshots showing how the final version of the site turned out.
 
 ### Implemented Features
+
 
 #### Navbar
 
@@ -164,10 +237,6 @@ Guided by the milestones, goals, and user stories, the following features and fu
 
 ### Features To Be Implimented
 
-
-## Front-End Design
-
-### Wireframe Models
 
 ### Design and Typography
 
