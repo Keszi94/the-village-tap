@@ -406,7 +406,7 @@ The forum, The Snug, builds on this theme, playing on the idea of pub snugs, whe
 ![Forum page colors](docs/images/forum_page_colors.png)
 ![Forum page header](docs/images/the_snug_header.png)
 
-Both pages share the same light green background, tying everything together while letting the headers define the space.
+Both pages share the same light grey background, tying everything together while letting the headers define the space.
 
 
 ## Tecnologies and Resources Used
