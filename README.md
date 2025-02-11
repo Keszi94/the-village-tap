@@ -165,17 +165,17 @@ Before development began, wireframes were created to outline the site's layout a
   
  * Article detail pages 
 
-![Home page](docs\images\wireframe-index_page.png)
+![Home page](docs/images/wireframe-index_page.png)
 
-![Article Detail Page](docs\images\wireframe-article_detail.png)
+![Article Detail Page](docs/images/wireframe-article_detail.png)
 
 2. The Snug Forum
  
  * Thread detail pages
 
-![The snug forum](docs\images\wireframe-the_snug.png)
+![The snug forum](docs/images/wireframe-the_snug.png)
 
-![Thread detail page](docs\images\wireframe-thread_detail.png)
+![Thread detail page](docs/images/wireframe-thread_detail.png)
 
 
 #### Authorisation Pages
@@ -184,16 +184,16 @@ Before development began, wireframes were created to outline the site's layout a
 * Sign in 
 * Sign out
 
-![Register](docs\images\register.png)
+![Register](docs/images/register.png)
 
-![Sign in](docs\images\login.png)
+![Sign in](docs/images/login.png)
 
-![Sign out](docs\images\logout.png)
+![Sign out](docs/images/logout.png)
 
 
 #### Create New Article Page (For Administrators only)
 
-![Create New Article Page](docs\images\create_new_article.png)
+![Create New Article Page](docs/images/create_new_article.png)
 
 
 
@@ -206,7 +206,7 @@ There’s also a connection between threads and articles, so discussions in the 
 The diagram below lays out how everything is connected in the database.
 
 
-![ER Diagram](docs\images\diagram.jpeg)
+![ER Diagram](docs/images/diagram.jpeg)
 
 ## UI & Layout
 
@@ -214,8 +214,27 @@ With the wireframes and database structure sorted, the site was put together usi
 
 ### Implemented Features
 
+The following features were developed based on the project’s goals and user needs. Each one was designed to enhance functionality and improve user experience, ensuring the site is both practical and engaging. Details for each feature are provided below.
 
-#### Navbar
+#### Navbar and Toggler
+
+* A fixed navbar appears on all pages, making it easy to move around the site without having to scroll back up.
+* Includes links to Home, The Snug (Forum), and Register/Login, giving users quick access to key areas.
+
+![navbar](docs/images/navbar.png)
+
+* A Categories dropdown lets users filter articles by topic, making it simple to find specific news sections.
+
+![navbar categories](docs/images/categories_nav.png)
+
+* The navbar automatically switches to a collapsible toggler menu on smaller screens to keep things looking neat.
+
+![Nav toggler](docs/images/toggle_nav.png)
+
+* If an admin is logged in, a "Create New Article" link appears, allowing them to quickly access the article creation page. Regular users don't see this option.
+
+![Navbar admin](docs/images/navbar_admin.png)
+
 
 #### Footer
 

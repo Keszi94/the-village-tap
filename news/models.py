@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
+
 
 # Create your models here.
 
@@ -20,16 +22,15 @@ class Article(models.Model):
     Represents a news article posted on the site.
     """
     title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE,
-                               related_name="articles")
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES,
-                                default='news')
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="articles")
+    category = models.CharField(
+         max_length=50, choices=CATEGORY_CHOICES, default='news')
     blurb = models.TextField(help_text="A short summary of the article.")
     content = models.TextField()
-    sources = models.TextField(
-        blank=True,
-        help_text="Optional: list any and all resources used in the article.")
+    sources = models.TextField(blank=True, help_text="Optional: list any and"
+                               "all resources used in the article.")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     image = CloudinaryField('image', blank=True, null=True)
@@ -50,3 +51,12 @@ class Article(models.Model):
 
     def __str__(self):
         return f"{self.title} | written by {self.author}"
+
+    def save(self, *args, **kwargs):
+        """
+        Automatically generates a slug from the title if not provided
+        and ensures it's URL-friendly.
+        """
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
