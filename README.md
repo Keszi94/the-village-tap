@@ -601,7 +601,7 @@ git clone <repository-url>
 
 I would like to acknowledge the following people who helped me along the way in completing this project:
 
-* My Code Institute mentor, [Graeme Taylor]((https://github.com/G-Taylor)). Thank you for the continuous guidance and support.
+* My Code Institute mentor, [Graeme Taylor](https://github.com/G-Taylor). Thank you for the continuous guidance and support.
 
 
 
