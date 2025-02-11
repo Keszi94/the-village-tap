@@ -42,10 +42,10 @@
                                 <h4 class="card-blurb">{{ article.blurb }}</h4>
                             </div>
 
-                            <hr />
+                            <hr>
                             <p class="card-text text-muted h6">{{ article.created_on}}
                             </p>
-                            <a type="button" class="btn categories-buttons"
+                            <a class="btn categories-buttons"
                                 href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
                         </div>
                     </div>
@@ -75,5 +75,4 @@
     {% endif %}
 </div>
 
-<!-- index.html content ends here -->
 {% endblock %}

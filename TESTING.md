@@ -40,6 +40,8 @@
 
 ### JSHint
 
+The comments.js file has been passed through [JShint](https://jshint.com/) with one issue raised: "Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (bootstrap)"
+
 
 ## Accessibility and Performance
 
