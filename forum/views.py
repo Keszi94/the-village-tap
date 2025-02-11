@@ -30,11 +30,16 @@ def threads_page(request):
                 thread = form.save(commit=False)
                 # sets the author as the user logged in
                 thread.author = request.user
+
                 # automatically approve threads created by a superuser
                 if request.user.is_superuser:
                     thread.status = Thread.APPROVED
+                    messages.success(request, "Your thread has been posted"
+                                     "successfully!")
                 else:
                     thread.status = Thread.PENDING
+                    messages.warning(request, "Your thread has been submitted"
+                                     "and is pending approval.")
                 thread.save()
                 # redirects the user to the same page after submission
                 return redirect('threads_page')

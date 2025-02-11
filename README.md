@@ -238,6 +238,14 @@ The following features were developed based on the project’s goals and user ne
 
 #### Footer
 
+* Stays at the bottom of every page, making sure users always have quick access.
+* Links to social media (Facebook, Twitter, Instagram, YouTube) so users can stay updated.
+* Uses Font Awesome icons for a clean look instead of plain text links.
+* Dark background for contrast, making it easy to read and stand out.
+* Fully responsive, so it looks good on both big screens and mobiles.
+
+![Footer](docs/images/footer_all_pages.png)
+
 #### Home Page
 
 #### Forum Page
