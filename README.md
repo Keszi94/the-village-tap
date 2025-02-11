@@ -4,7 +4,7 @@ The village tap is a news site designed for the community of a small, fictional 
 
 The site is designed to provide the imagined community with up-to-date news about village happenings, including traffic updates, wedding announcements, and more. It also serves as a platform for engaging discussions on the site's articles, as well as an open forum for community members to share thoughts and seek opinions on various topics.
 
-[Live link to the site]()
+[Live link to the site](https://the-village-tap-74679d8f9977.herokuapp.com/)
 
 ![The Village Tap website responsiveness](docs/images/responsive.gif)
 
@@ -33,7 +33,7 @@ The site is designed to provide the imagined community with up-to-date news abou
 * [UI and Layout](#ui-and-layout)
      * [Implemented Features](#implemented-features)
      * [Features to be implemented](#features-to-be-implemented)
-     * [Design and Typography](#design-and-typography)
+     * [Design](#design)
 
 * [Tecnologies and Resources Used](#technologies-and-resources-used)
 
@@ -366,7 +366,23 @@ The following features were developed based on the project’s goals and user ne
 ### Features To Be Implimented
 
 
-### Design and Typography
+### Design
+
+The design takes inspiration from old, worn wooden surfaces, much like the faded tables of a traditional pub. Since the website name plays on the idea of getting your news at the pub, the visual style reflects that warm, rustic feel.
+
+The forum, The Snug, builds on this theme, playing on the idea of pub snugs, where people gather in cozy corners to share the juiciest gossip in peace. To reinforce this, the site uses two different color palettes:
+
+* Home Page Palette – A cool, deep green tone, giving a classic, slightly moody pub feel:
+
+![Home page colors](docs/images/home_page_colors.png)
+![Home page header](docs/images/home_header.png)
+
+* Forum Palette – A warmer, brownish tone, reflecting the cozy, intimate atmosphere of a snug corner:
+
+![Forum page colors](docs/images/forum_page_colors.png)
+![Forum page header](docs/images/the_snug_header.png)
+
+Both pages share the same light green background, tying everything together while letting the headers define the space.
 
 
 ## Tecnologies and Resources Used
