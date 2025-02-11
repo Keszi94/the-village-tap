@@ -365,6 +365,28 @@ The following features were developed based on the project’s goals and user ne
 
 ### Features To Be Implimented
 
+While the site currently includes a range of features, there are still several planned improvements that were not yet implemented due to time constraints.
+All of these missing features can be found on my [project board](https://github.com/users/Keszi94/projects/6), inside the ignored column.
+
+* Automatically Created Forum Threads for New Articles
+   
+   * When a new article is published, a corresponding thread should be automatically created in "The Snug" forum. This would allow users to discuss the latest news without having to create a thread manually.
+
+* Review & Handle News Suggestions (Admins)
+   
+   * Admins should have a way to review news suggestions submitted by users and decide whether to turn them into articles.
+
+* News Suggestions (Site Users)
+   
+   * Users should be able to suggest news stories by filling out a form on the site. This would allow them to contribute ideas for new articles.
+
+* Add New Categories (Admins)
+  
+   * Admins should be able to add new categories for articles, so the site can cover different topics as needed.
+
+* Article Pagination
+   
+   * The main page currently displays all published articles at once, making it one long list with no limit. A pagination system was planned so users could navigate between pages using "Next" and "Previous" buttons.
 
 ### Design
 
@@ -392,37 +414,50 @@ Both pages share the same light green background, tying everything together whil
 In order to code and design the website, the following technologies were utilised:
 
 * Python Modules:
-  * asgiref==3.8.1
-  * dj-database-url==0.5.0
   * Django==4.2.17
   * django-allauth==0.57.2
+  * django-crispy-forms==2.3
+  * crispy-bootstrap5==0.7
   * django-summernote==0.8.20.0
-  * gunicorn==20.1.0
-  * oauthlib==3.2.2
-  * psycopg2==2.9.10
-  * PyJWT==2.10.1
-  * python3-openid==3.2.0
-  * requests-oauthlib==2.0.0  
+  * dj-database-url==0.5.0
+  * dj3-cloudinary-storage==0.0.6
+  * cloudinary==1.36.0
+  * psycopg2-binary==2.9.10
   * sqlparse==0.5.3
+  * requests-oauthlib==2.0.0
+  * python3-openid==3.2.0
+  * PyJWT==2.10.1
+  * oauthlib==3.2.2
   * whitenoise==5.3.0
+  * gunicorn==20.1.0
+  * django-extensions==3.2.3
+
 
 * Django
+    * The framework used to build the website and manage data.
 
 
 * Heroku
+   * The platform used to deploy and host the site. 
 
 
 * Bootstrap
+   * Used to style the website and make it responsive.
 
 
 * CSS
+   * Adds custom styling to the site’s design. 
 
 
 * JavaScript
+   * Used for handling comment edits and deletions with confirmation popups.
 
 
 * CI Database Maker
+   * Stores and manages the website’s data.
 
+* dj3-cloudinary-storage & cloudinary
+   * Used to store, manage, and serve images for articles and user uploads eficiently.
 
 
 ## Testing
