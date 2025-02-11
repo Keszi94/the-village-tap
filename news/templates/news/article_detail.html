@@ -28,7 +28,7 @@
             <div class="col-12 text-center mt-3">
                 <h1 class="post-title">{{ article.title }}</h1>
                 <p class="post-subtitle text-muted">{{ article.author }} | {{ article.created_on }}</p>
-                <a type="button" class="btn article-detail-button" href="{% url 'articles_by_category' article.category %}">
+                <a class="btn article-detail-button" href="{% url 'articles_by_category' article.category %}">
                     {{ article.category }}
                 </a>
             </div>

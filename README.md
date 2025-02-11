@@ -61,6 +61,8 @@ The UX design focuses on providing a seamless and intuitive experience for all u
 
 ### Milestones and User Stories
 
+The project was structured around five milestones, each focusing on a different stage of devlopment. These milestones were broken down into development goals and user stories, prioritized using the MoSCoW method to ensure essential features were implemented first. More details on the project's progress and priorities can be found on te [@the_village_tap User Stories](https://github.com/users/Keszi94/projects/6) Kanban Board.
+
 #### Milestone 1 - Initial Setup
 - 1: Install and configure Django along with necessary libraries in the IDE to start development
 - 2: Set up project and apps with the required structure and configurations
@@ -544,14 +546,62 @@ git clone <repository-url>
 
 ### Code Used
 
+* During development, I watched several YouTube videos on Django to deepen my understanding:
+   
+   * [Python Django Web Framework - Full Course for Beginners](https://www.youtube.com/watch?v=F5mRW0jo-U4&ab_channel=freeCodeCamp.org)
+   * [Django Mastery : Build 5 Websites in 5 Hours | Beginner to Advanced Tutorial](https://www.youtube.com/watch?v=hWhWdf2gsfQ&ab_channel=ErrorByNight)
+   * [Python Django Full Course for Beginners | Complete All-in-One Tutorial | 3 Hours](https://www.youtube.com/watch?v=Rp5vd34d-z4&ab_channel=DaveGray)
+
+* I have used various bootstrap templates to get the styling of certain elements in my project:
+
+   From [Start Bootstrap](https://startbootstrap.com/) : [Clean Blog](https://startbootstrap.com/theme/clean-blog) | [Agency](https://startbootstrap.com/theme/agency)
+   
+* Throughout development, I have followed the steps of the Code Institute 'Django Blog' walkthrough project as a guide
+
+* I have used the following websites to gather relevant information during my research:
+
+   * [Reddit](https://www.reddit.com/?rdt=51547)
+   * [W3Schools](https://www.w3schools.com/)
+   * [Bootstrap](https://getbootstrap.com/)
+   * [Stack Overflow](https://stackoverflow.com/questions)
+   * [Codu](https://www.codu.co/)
+   * [Django](https://www.djangoproject.com/)
+   * [MDN web docs](https://developer.mozilla.org/en-US/)
+
 ### Content
-I used ChatGPT to create the fictional articles on the website.
+
+* I used [ChatGPT](https://chatgpt.com/) to create the fictional articles on the website.
+* I created my Readme file based on [ndsurgenor's](https://github.com/ndsurgenor) [EastSt.](https://github.com/ndsurgenor/east-street/blob/main/README.md) Readme file.
 
 ### Media
 
+* All of the images used for the articles were downloaded form [Pexels](https://www.pexels.com/hu-hu/):
+  
+   * [Khunkorn Laowisit](https://www.pexels.com/hu-hu/foto/1211793/)
+   * [Bara Cross](https://www.pexels.com/hu-hu/foto/220694/)
+   * [John-Mark Smith](https://www.pexels.com/hu-hu/foto/250716/)
+   * [Erik Scheel](https://www.pexels.com/hu-hu/foto/szemely-aki-gyumolcsot-ad-egy-masiknak-95425/)
+   * [Elle Hughes](https://www.pexels.com/hu-hu/foto/elelmiszer-etel-etterem-ferfi-2696064/)
+   * [Tirachard Kumtanom](https://www.pexels.com/hu-hu/foto/347135/)
+   * [Irina Anastasiu](https://www.pexels.com/hu-hu/foto/54512/)
+   * [ezgi yalçın](https://www.pexels.com/hu-hu/foto/elegans-eskuvoi-portre-rusztikus-dekoracio-alatt-30457602/)
+
+* Wireframes for the Readme were created on [Moqups](https://app.moqups.com/)
+
+* I created the favicons for the website on [favicon.io](https://favicon.io/)
+
+* The ER diagram was created on the [Lucidchart App](https://lucid.app/documents#/home?folder_id=recent) website
+
+* I sourced the home page header image from [pixaby](https://pixabay.com/) and then recolored it for the forum page
+
+* The gif for the Readme was captured using [LICEcap](https://www.cockos.com/licecap/)
+
 ### Acknowledgments
 
-I would like to thank my Code Institute mentor, Graeme Taylor, for his continuous guidance and support throughout this project.
+
+I would like to acknowledge the following people who helped me along the way in completing this project:
+
+* My Code Institute mentor, [Graeme Taylor]((https://github.com/G-Taylor)). Thank you for the continuous guidance and support.
 
 
 
