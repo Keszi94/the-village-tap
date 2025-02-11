@@ -28,7 +28,7 @@
 
             {% if user.is_authenticated and thread.author == user %}
             <!-- Edit Thread Button -->
-            <a href="{% url 'edit_thread' thread.slug %}" class="btn btn-primary">Edit Thread</a>
+            <a href="{% url 'edit_thread' thread.slug %}" class="btn thread-edit-button">Edit Thread</a>
             <!-- Delete Thread Button -->
             <button class="btn delete-thread-btn" data-bs-toggle="modal" data-bs-target="#deleteThreadModal">
                 Delete Thread
@@ -146,6 +146,5 @@
 {% endblock %}
 
 {% block extras %}
-<!-- <script src="{% static 'js/threads.js' %}"></script> -->
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

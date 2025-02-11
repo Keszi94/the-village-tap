@@ -218,7 +218,7 @@ The following features were developed based on the project’s goals and user ne
 
 #### Navbar and Toggler
 
-* A fixed navbar appears on all pages, making it easy to move around the site without having to scroll back up.
+* A clearly visible navbar appears on all pages, making navigation simple and consistent across the site.
 * Includes links to Home, The Snug (Forum), and Register/Login, giving users quick access to key areas.
 
 ![navbar](docs/images/navbar.png)
@@ -235,7 +235,6 @@ The following features were developed based on the project’s goals and user ne
 
 ![Navbar admin](docs/images/navbar_admin.png)
 
-
 #### Footer
 
 * Stays at the bottom of every page, making sure users always have quick access.
@@ -246,20 +245,122 @@ The following features were developed based on the project’s goals and user ne
 
 ![Footer](docs/images/footer_all_pages.png)
 
+
 #### Home Page
 
-#### Forum Page
-##### Thread Creation
-##### Thread list
-* Thread Editing
-* Thread Deletion
-#### Commenting
-* Comment Editing
-* Comment Deletion
+* Features a large header image to set the tone and make the page visually appealing.
+* Brief introduction over the header to let visitoors know what the site is about.
+* Easy navigation with category buttons on each article card, so that the user does not have to choose scroll up to the navbar to choose a category of interest.
 
-#### Sign Up/In/Out
+![Home page](docs/images/full_homepage.png)
+
+
+#### Article Detail Pages
+
+* Displays the full article, including title, author, and publication date at the top.
+* Category buton lets users quickly find more articles from the same category.
+
+![Article page top](docs/images/article_detail_one.png)
+
+* Includes the short summary (blurb) that is seen on the homepage.
+* Full article content is shown, formatted for easy reading.
+* If sources are provided, they appear at the bottom of the article.
+
+![Article page bottom](docs/images/article_detail_two.png)
+
+
+#### The Snug Forum Page
+
+* If the site user is not logged in, they can not view posted threads. 
+
+![Logged out threads page](docs/images/logged_out_forum.png)
+
+* All approved threads are displayed, showing the title, author, and a short description.
+* Threads are sorted by most recent so users see the latet discussions first.
+
+![Posted Threads](docs/images/the_snug_one.png)
+
+* Thread creation:
+  
+   * Users can create a new thread by filling out a form on the bottom of the page.
+
+   ![Create New Thread](docs/images/create_thread.png)
+
+   * Threads created by regular users require admin approval before appearing publicly, which they get a message about on the top of the page.
+   * Admins can post threads immediately without needing approval.
+
+
+#### Thread Details Pages
+
+* Displays the full thread content, including the title, description, and author.
+* Users can participate in discussions by leaving comments.
+
+![Thread details](docs/images/thread_details.png)
+
+1. Thread Editing page
+     
+  * Thread authors can edit thir own threads, making updates or corrections when  needed.
+  * When the user clicks on the edit thread button, it opens a seperate page with an edit form that has prepopulated fields.
+  * If the user clicks on the Cancel button, they will be redirected to the thead detail page.
+
+  ![Thread edit page](docs/images/thread_edit_page.png) 
+
+2. Thread Deletion
+  
+  * Thread authors can delete their own threads if they decide they no longer want them to be on the site.
+  * Admins can remove any thread to moderate discussions through the admin panel.
+  * A confirmation prompt appears before deletion.
+
+  ![thread deletion prompt](docs/images/delete_thread.png)
+     
+3. Comment Editing
+
+  * Users can edit their own comments if they need to fix typos, change what they said.
+  * JavaScript makes editing smoother by letting users edit comments without refreshing the page or going to a seperate page for the form.
+
+    ![comment editing](docs/images/edit_comment.png)
+    
+4. Comment Deletion
+  
+  * Users can delete ther own comments if they want to remove them from a thread.
+  * Admins can delete any comment through the admin panel if needed for moderation.
+  * A confirmation  popup appears with the help of JavaScript, maing sure users don’t accidentally delete a comment.
+
+  ![Delete comment](docs/images/delete_comment.png)
+
+
+#### Register, Sign In/Out
+
+* Users can create an account to access interactive features like commenting and posting in the forum.
+* The Sign In page lets users log in securely, so they can participate in discusions.
+* A Sign Out option is available for users to log out when they're done.
+* Django AllAuth handles authentication, ensuring a smooth and secure login process.
+* Forms are simple and easy to use, keeping the process quick.
+
+![Registeer](docs/images/register_screen.png)
+![sign in](docs/images/sign_in_screen.png)
+![Sign out](docs/images/sign_out_screen.png)
+
 
 #### Admin Panel
+
+* Only accessible to site administrators via /admin (not linked anywhere on the site).
+* Requires login credentials, restricting access to authorized admins only.
+* Admins can manage:
+   * Articles (Create, Edit, Delete, Approve).
+   * Comments (Moderate, Delete).
+   * User accounts (Manage permissions if needed).
+* A simple interface allows easy moderation and content updates without direct database access.
+
+![Admin panel](docs/images/admin_panel_one.png)
+
+* Content is organized for easier management:
+   * Threads can be filtered by: slug, status (pending/approved), and creation date.
+   * Articles are displayed with categories, authors, and publication status.
+   * Comments are listed under their related threads for quick moderation.
+
+  ![Threads admin](docs/images/threads_admin.png)
+  ![Coments admin](docs/images/comments_admin.png)
 
 
 ### Features To Be Implimented
