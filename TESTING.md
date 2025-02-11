@@ -181,26 +181,54 @@ The first image displayed on the lest under each page name is the test result of
 
 ## Bugs and Bug Fixes
 
-* 'The snug' forum page had no url path in the main urls.py file.
+1. 'The snug' forum page had no url path in the main urls.py file. 
 
-* Modify threads_page view so superuser can create and post threads from front-end without needing approval.
+      Added the missing URL path in the main urls.py so the forum page is actually accessible. Before this, it just wasn’t showing up at all.
 
-* Modify the Thread model so the slug field is filled out automatically
+2. Modify  threads_page view so superuser can create and post threads from front-end without needing approval.
 
-* Related article link display in thread.
+      Updated the threads_page view so if an admin posts a thread, it gets automatically approved instead of needing manual approval.
 
-* Restructure threads_page.html so logged out users can't see threads.
+3. Thread model required a manual slug.
 
-* Fix NameError by properly referncing and importing CATEGORY_CHOICES in article_list view.
+      Modified the Thread model so the slug is automatically generated from the title. Now, users don’t have to enter it themselves.
 
-* Fix the pathing issue in news/urls.py - wrong matching order
+4. Related article link wasn’t showing up in threads.
 
-* 'Add New Article' link visible to non superusers - add an {% if %} template tag to base.html
+      Adjusted the template so the related article URL actually displays under the thread. Before this, the data was there, but it wasn’t being shown.
 
-* Edit thread form displays without clicking on 'edit thread' button - html and js code fix.
+5. Logged-out users could stillsee forum threads.
 
-* Display related article URL as an actual clickable link under the thread.
+      Updated threads_page.html to hide threads from logged-out users. Now, logged out users won’t see any forum content.
 
-* Redirect not previously imported in views.py.
+6. Fix NameError by prperly referencing and importing CATEGORY_CHOICES in article_list view.
 
-* Add new decorator to create_article view to redirect non-superusers to login page.
+      The CATEGORY_CHOICES variable wasn’t properly imported, so Django was throwing a NameError. Fixed the import, and now it works as expected. 
+
+7. Incorrect URL matching order in news/urls.py.
+
+      Some URLs were being matched out of order, so Django was routing requests incorrectly. Fixed the sequence so everything points to the right views.
+
+8. 'Add New Article' link was visible to non-admins.
+
+      Added an {% if %} condition in base.html to only show the link to superusers, preventing regular users from seeing it.
+
+9. Edit thread form was displaying automatically insead of waiting for a button click.
+
+      The JavaScript and HTML weren’t properly linked, so the form was showing up by default. Fixed it so the edit form only appears when the edit button is clicked.
+
+10. Related article link was not clickable.
+
+      The link was just being displayed as plain text instead of an actual hyperlink. Wrapped it in an 'a' tag so users can click it properly.
+
+11. Redirect not previously imported in views.py.
+
+      The redirect function was missing from imports, causing an error when trying to redirect users. Simply added from django.shortcuts import redirect, and it worked.
+
+12. Non-admins could access the 'Create Article' page.
+
+      Added a decorator to the create_article view so only superusers can access it. If a regular usser tries, they get redirected to the login page instead.
+
+13. Edited thread submission wasn't working due to a pathing issue.
+
+      The pathing issue was making it impossible to submit an edited thread correctly, I would get a 404 error every time. After trying to fix the broken structure for way too long, I have decided to create a completely separate edit_thread.html form and removed the JavaScript handling. Now, edits are submitted properly without any routng errors.
