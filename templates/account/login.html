@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load account socialaccount %}
+{% load widget_tweaks %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
@@ -29,16 +30,16 @@
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
 
-                <!-- Account Name input -->
+                <!-- Username -->
                 <div class="mb-3">
-                    <label for="id_login" class="form-label">{% trans "Account Name" %}</label>
-                    <input type="text" id="id_login" name="login" class="form-control" required/>
+                    {{ form.login.label_tag }}
+                    {{ form.login|add_class:"form-control" }}
                 </div>
 
-                <!-- Password input -->
+                <!-- Password -->
                 <div class="mb-3">
-                    <label for="id_password" class="form-label">{% trans "Password" %}</label>
-                    <input type="password" id="id_password" name="password" class="form-control" required/>
+                    {{ form.password.label_tag }}
+                    {{ form.password|add_class:"form-control" }}
                 </div>
 
                 <!-- Submit button -->
