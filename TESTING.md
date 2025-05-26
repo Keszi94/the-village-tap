@@ -232,3 +232,10 @@ The first image displayed on the lest under each page name is the test result of
 13. Edited thread submission wasn't working due to a pathing issue.
 
       The pathing issue was making it impossible to submit an edited thread correctly, I would get a 404 error every time. After trying to fix the broken structure for way too long, I have decided to create a completely separate edit_thread.html form and removed the JavaScript handling. Now, edits are submitted properly without any routng errors.
+
+14. Registration form not working correctly
+
+      The original `signup.html` template used hardcoded `<input>` elements with incorrect name attributes that didn't match what Django Allauth expects (username, password1, etc.). This caused the form submissions to  fail without creating a user or showing an error message. I replaced the manual fields with Django’s form rendering (`{{ form.username }}`), which ensured correct field names and validation. I also added inline error display to help users understand why submissions might fail.
+      To avoid writing labels and classes manually I installed the django-widget-tweaks package. This allowed me to apply Bootstrap classes directly in the template using filters like `|add_class:"form-control"`.
+
+      Resource: [django-widget-tweaks doc](https://github.com/jazzband/django-widget-tweaks)
