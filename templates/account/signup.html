@@ -2,8 +2,9 @@
 
 {% load i18n %}
 {% load account socialaccount %}
+{% load widget_tweaks %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
 <div class="container-fluid account-access-containers">
@@ -11,40 +12,58 @@
     <div class="col-md-6 col-lg-2 mt-4">
       <h2 class="text-center">{% trans "Register" %}</h2>
       <hr>
-      <p class="text-center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign
-          in</a>.{% endblocktrans %}</p>
+      <p class="text-center">
+        {% blocktrans %}
+          Already have an account? Then please <a href="{{ login_url }}">sign in</a>.
+        {% endblocktrans %}
+      </p>
 
-      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% if form.errors %}
+        <div class="alert alert-danger">
+          <ul class="mb-0">
+            {% for field in form %}
+              {% for error in field.errors %}
+                <li>{{ error|escape }}</li>
+              {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+              <li>{{ error|escape }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <form method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
 
-        <!-- Account Name input -->
+        <!-- Username -->
         <div class="mb-4">
-          <label for="id_login" class="form-label">{% trans "Account Name" %}</label>
-          <input type="text" id="id_login" name="login" class="form-control" required/>
+          {{ form.username.label_tag }}
+          {{ form.username|add_class:"form-control" }}
         </div>
 
-        <!-- Password input -->
+        <!-- Password -->
         <div class="mb-4">
-          <label for="id_password" class="form-label">Password</label>
-          <input type="password" id="id_password" name="password" class="form-control" required/>
+          {{ form.password1.label_tag }}
+          {{ form.password1|add_class:"form-control" }}
         </div>
 
-        <!-- Password confirmation input -->
+        <!-- Confirm Password -->
         <div class="mb-4">
-          <label for="id_password2" class="form-label">Confirm Password</label>
-          <input type="password" id="id_password2" name="password2" class="form-control" required/>
-        </div>
-
-        <!-- Submit button -->
-        <div class="text-center mt-4">
-          <button type="submit" class="btn btn-primary account-access-buttons">{% trans "Register" %}</button>
+          {{ form.password2.label_tag }}
+          {{ form.password2|add_class:"form-control" }}
         </div>
 
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
+
+        <!-- Submit button -->
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary w-100">{% trans "Register" %}</button>
+        </div>
       </form>
     </div>
   </div>
 </div>
-{% endblock content %}
+{% endblock %}
