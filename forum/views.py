@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseForbidden
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from .models import Thread, Comment
 from .forms import ThreadCreationForm, CommentForm, ThreadEditForm
 
@@ -95,6 +97,7 @@ def thread_detail(request, slug):
         })
 
 
+@login_required
 def edit_thread(request, slug):
     """
     Edit an existing :model:`forum.Thread` by the logged-in user.
@@ -116,6 +119,11 @@ def edit_thread(request, slug):
 
     thread = get_object_or_404(Thread, slug=slug)
 
+    if thread.author != request.user:
+        return HttpResponseForbidden(
+            "You are not allowed to edit this thread!"
+            )
+
     if thread.related_article_url is None:
         thread.related_article_url = ""
 
@@ -123,16 +131,21 @@ def edit_thread(request, slug):
         form = ThreadEditForm(request.POST, instance=thread)
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                "Your thread has been successfully updated!"
+                )
             return redirect('thread_detail', slug=thread.slug)
-        else:
-            print(form.errors)
     else:
         form = ThreadEditForm(instance=thread)
 
-    return render(request, 'forum/edit_thread.html',
-                  {'form': form, 'thread': thread})
+    return render(request, 'forum/edit_thread.html', {
+        'form': form,
+        'thread': thread
+        })
 
 
+@login_required
 def delete_thread(request, slug):
     """
     Delete a :model:`forum.Thread` created by the logged-in user.
@@ -149,18 +162,26 @@ def delete_thread(request, slug):
     **Template**
     Redirects to :template:`forum/threads_page.html`.
     """
-    if request.method == 'POST':
-        thread = get_object_or_404(Thread, slug=slug, author=request.user)
 
+    thread = get_object_or_404(Thread, slug=slug)
+
+    if thread.author != request.user and not request.user.is_superuser:
+        messages.error(
+            request,
+            'You are not authorized to delete this thread!'
+            )
+        return redirect('thread_detail', slug=slug)
+
+    if request.method == 'POST':
         thread.delete()
         messages.success(request, 'Thread has been deleted successfully!')
-
         return redirect('threads_page')
     else:
         messages.error(request, 'Invalid request!')
-        return HttpResponseRedirect('/')
+        return redirect('thread_detail', slug=slug)
 
 
+@login_required
 def comment_edit(request, slug, comment_id):
     """
     Edit a :model:`forum.Comment` on a :model:`forum.Thread`.
@@ -194,6 +215,10 @@ def comment_edit(request, slug, comment_id):
     thread = get_object_or_404(Thread, slug=slug)
     comment = get_object_or_404(Comment, id=comment_id)
 
+    if request.user != comment.author:
+        messages.error(request, 'You are not authorized to edit this comment!')
+        return redirect('thread_detail', slug=slug)
+
     # Handles the form submission
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
@@ -216,6 +241,7 @@ def comment_edit(request, slug, comment_id):
     })
 
 
+@login_required
 def delete_comment(request, slug, comment_id):
     """
     Delete a :model:`forum.Comment` from a :model:`forum.Thread`.
@@ -233,10 +259,10 @@ def delete_comment(request, slug, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
 
     # Check if the user is authorized to delete this comment (owner or admin)
-    if request.user == comment.author or request.user.is_staff:
+    if request.user == comment.author or request.user.is_superuser:
         # Delete the comment
         comment.delete()
-        messages.success(request, "Your comment was deleted successfully.")
+        messages.success(request, "The comment was deleted successfully.")
     else:
         # Unauthorized user trying to delete
         messages.error(

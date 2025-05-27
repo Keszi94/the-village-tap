@@ -4,9 +4,9 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
+    <p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
 {% else %}
-<p class="text-end text-muted">You are not logged in</p>
+    <p class="text-end text-muted">You are not logged in</p>
 {% endif %}
 
 <input type="hidden" id="threadSlug" value="{{ thread.slug }}">
@@ -22,19 +22,25 @@
             <h5 class="card-text pt-5 pb-5">{{ thread.description }}</h5>
 
             {% if thread.related_article_url and thread.related_article_url != "None" %}
-            <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank"
-                    rel="noopener noreferrer">{{ thread.related_article_url }}</a></p>
+                <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank"
+                        rel="noopener noreferrer">{{ thread.related_article_url }}</a></p>
             {% endif %}
 
-            {% if user.is_authenticated and thread.author == user %}
             <!-- Edit Thread Button -->
-            <a href="{% url 'edit_thread' thread.slug %}" class="btn thread-edit-button">Edit Thread</a>
-            <!-- Delete Thread Button -->
-            <button class="btn delete-thread-btn" data-bs-toggle="modal" data-bs-target="#deleteThreadModal">
-                Delete Thread
-            </button>
-            <hr>
+            {% if user.is_authenticated and thread.author == user %}
+                <a href="{% url 'edit_thread' thread.slug %}" class="btn thread-edit-button">Edit Thread</a>
             {% endif %}
+            <!-- Delete Thread Button -->
+             {% if user.is_authenticated and thread.author == user %}
+                <button class="btn delete-thread-btn" data-bs-toggle="modal" data-bs-target="#deleteThreadModal">
+                Delete Thread
+                </button>
+             {% elif user.is_authenticated and user.is_superuser %}
+                <button class="btn delete-thread-btn" data-bs-toggle="modal" data-bs-target="#deleteThreadModal">
+                    Delete Thread
+                </button>
+            {% endif %}
+            <hr>
         </div>
     </div>
 
@@ -44,53 +50,57 @@
             <h3>Comments</h3>
 
             {% if comments %}
-            {% for comment in comments %}
-            <div class="card mb-3 pt-4 posted-comment-card" id="comment-{{ comment.id }}">
-                <div class="card-body">
-                    <p class="comment-auth-date">
-                        <strong>{{ comment.author.username }}</strong> commented on
-                        {{ comment.created_on|date:"F j, Y, g:i a" }}
-                    </p>
-                    <p id="comment{{ comment.id }}">{{ comment.content }}</p>
-                    <hr>
+                {% for comment in comments %}
+                    <div class="card mb-3 pt-4 posted-comment-card" id="comment-{{ comment.id }}">
+                        <div class="card-body">
+                            <p class="comment-auth-date">
+                                <strong>{{ comment.author.username }}</strong> commented on
+                                {{ comment.created_on|date:"F j, Y, g:i a" }}
+                            </p>
+                            <p id="comment{{ comment.id }}">{{ comment.content }}</p>
+                            <hr>
 
-                    {% if user.is_authenticated and comment.author == user %}
-                    <button class="btn btn-sm btn-primary comment-edit-btn" data-id="{{ comment.id }}"
-                        data-content="{{ comment.content }}">Edit</button>
-                    <button class="btn btn-sm btn-danger comment-delete-btn" data-id="{{ comment.id }}"
-                        data-url="{% url 'delete_comment' thread.slug comment.id %}" data-bs-toggle="modal"
-                        data-bs-target="#deleteCommentModal">Delete</button>
-                    {% endif %}
-                </div>
+                            {% if user.is_authenticated and comment.author == user %}
+                                <button class="btn btn-sm btn-primary comment-edit-btn" data-id="{{ comment.id }}"
+                                    data-content="{{ comment.content }}">Edit</button>
+                                <button class="btn btn-sm btn-danger comment-delete-btn" data-id="{{ comment.id }}"
+                                    data-url="{% url 'delete_comment' thread.slug comment.id %}" data-bs-toggle="modal"
+                                    data-bs-target="#deleteCommentModal">Delete</button>
+                            {% elif user.is_authenticated and user.is_superuser %}
+                                <button class="btn btn-sm btn-danger comment-delete-btn" data-id="{{ comment.id }}"
+                                    data-url="{% url 'delete_comment' thread.slug comment.id %}" data-bs-toggle="modal"
+                                    data-bs-target="#deleteCommentModal">Delete</button>
+                            {% endif %}
+                        </div>
 
-                <!-- Comment Edit Form -->
-                <form id="comment-edit-form-{{ comment.id }}" method="POST" style="display: none;"
-                    action="{% url 'comment_edit' thread.slug comment.id %}">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="comment-id_content-{{ comment.id }}" class="form-label">Edit Comment</label>
-                        <textarea name="content" id="comment-id_content-{{ comment.id }}" class="form-control"
-                            rows="3">{{ comment.content }}</textarea>
+                        <!-- Comment Edit Form -->
+                        <form id="comment-edit-form-{{ comment.id }}" method="POST" style="display: none;"
+                            action="{% url 'comment_edit' thread.slug comment.id %}">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="comment-id_content-{{ comment.id }}" class="form-label">Edit Comment</label>
+                                <textarea name="content" id="comment-id_content-{{ comment.id }}" class="form-control"
+                                    rows="3">{{ comment.content }}</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-success">Save Changes</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-sm btn-success">Save Changes</button>
-                </form>
-            </div>
-            {% endfor %}
+                {% endfor %}
             {% else %}
-            <p class="pt-4">No comments yet. Be the first to comment!</p>
+                <p class="pt-4">No comments yet. Be the first to comment!</p>
             {% endif %}
 
             <hr>
 
             {% if user.is_authenticated %}
-            <h3 class="pt-5">Leave a Comment</h3>
-            <form method="post" class="CommentForm">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary mt-2 new-comment-btn">Submit</button>
-            </form>
+                <h3 class="pt-5">Leave a Comment</h3>
+                <form method="post" class="CommentForm">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary mt-2 new-comment-btn">Submit</button>
+                </form>
             {% else %}
-            <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
+                <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
             {% endif %}
         </div>
     </div>
@@ -105,7 +115,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to delete this thread? This action cannot be undone.
+                    Are you sure you want to delete this thread? All comments associated with it will also be deleted. This action cannot be undone.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -146,5 +156,5 @@
 {% endblock %}
 
 {% block extras %}
-<script src="{% static 'js/comments.js' %}"></script>
+    <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
