@@ -239,3 +239,8 @@ The first image displayed on the lest under each page name is the test result of
       To avoid writing labels and classes manually I installed the django-widget-tweaks package. This allowed me to apply Bootstrap classes directly in the template using filters like `|add_class:"form-control"`.
 
       Resource: [django-widget-tweaks doc](https://github.com/jazzband/django-widget-tweaks)
+
+15.  Image upload failed due to misplaced enctype
+
+      Article image uploads were broken because I applied the `enctype="multipart/form-data"` attribute to a `<div>` instead of the `<form>` element itself.
+      As a result, image files were never submitted with the form, and only the default image showed. The backend and Cloudinary configuration were correct, the problem was entirely front-end. After noticing the misplaced enctype I moved it to the correct element. The image uploads now work as expected.
