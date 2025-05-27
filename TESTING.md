@@ -233,6 +233,8 @@ The first image displayed on the lest under each page name is the test result of
 
       The pathing issue was making it impossible to submit an edited thread correctly, I would get a 404 error every time. After trying to fix the broken structure for way too long, I have decided to create a completely separate edit_thread.html form and removed the JavaScript handling. Now, edits are submitted properly without any routng errors.
 
+---
+
 14. Registration form not working correctly
 
       The original `signup.html` template used hardcoded `<input>` elements with incorrect name attributes that didn't match what Django Allauth expects (username, password1, etc.). This caused the form submissions to  fail without creating a user or showing an error message. I replaced the manual fields with Django’s form rendering (`{{ form.username }}`), which ensured correct field names and validation. I also added inline error display to help users understand why submissions might fail.
@@ -244,3 +246,7 @@ The first image displayed on the lest under each page name is the test result of
 
       Article image uploads were broken because I applied the `enctype="multipart/form-data"` attribute to a `<div>` instead of the `<form>` element itself.
       As a result, image files were never submitted with the form, and only the default image showed. The backend and Cloudinary configuration were correct, the problem was entirely front-end. After noticing the misplaced enctype I moved it to the correct element. The image uploads now work as expected.
+
+16.  Users could edit or delete threads and comments they did not create
+
+      The issue was that any logged-in user could edit or delete threads or comments that was not theirs by accessing the URLs directly. This was a clear security issue and violated user data protection. I added permission checks in the views to ensure only the author can edit content and that only the author or a superuser can delete it. I also updated the front-end templates to show the edit/delete buttons only to the appropriate users. These changes now fully protect the content created by the users from unauthorized access.
