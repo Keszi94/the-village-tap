@@ -41,6 +41,7 @@ The site is designed to provide the imagined community with up-to-date news abou
 
 * [Deployment & Local Development](#deployment--local-development)
      * [Heroku Deployment](#heroku-deployment)
+     * [Local Development](#local-development)
      * [How to Fork](#how-to-fork)
      * [How to Clone](#how-to-clone)
 
@@ -472,57 +473,136 @@ All documentation regarding the testing on this project can be viewed in this se
 
 This site is deployed to and currently hosted on the Heroku platform. The steps for deploying to Heroku with a custom PostgreSQL database setup are as follows:
 
-1. PostgreSQL Database Setup
+---
+
+#### 1. PostgreSQL Database Setup
  * Navigate to [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/).
  * Enter your student email address in the input field provided.
- * Click Submit.
+ * Click **Submit**.
  * Wait while the database is created.
  * Once the database is successfully created, check your student email inbox for further details.
 
-2. Django Project Settings
+#### 2. Django Project Settings
 
 * In the project workspace, navigate to/create a file named Procfile (remember the capital 'P'). Add the following code (replace <myapp> with your actual app name) and save the file:
   ```makefile
   web: gunicorn <myapp>.wsgi
    ```
-* Now, create a file named env.py and add the following code, replacing <myurl> with your database URL and <mykey> with a secret key string. Save the file:
+
+* Make sure gunicorn is added to your requirements.txt file:
+  ```makefile
+  pip install gunicorn
+  pip freeze > requirements.txt
+  ```
+* Create a file called env.py (not tracked by Git). Replace `<...>` with your actual url/secret key:
   ```python
   import os
 
-  os.environ["DATABASE_URL"] = <myurl>
-  os.environ["SECRET_KEY"] = <mykey>
+  os.environ["DATABASE_URL"] = <my_database_url>
+  os.environ["SECRET_KEY"] = <my_secret_key>
   ```
-* Open settings.py and add the following imports near the top of the file:
-  ```python
-  import os
-  import dj_database_url
-  if os.path.isfile('env.py'):
-    import env
-  ```
-* Replace the SECRET_KEY and DATABASES variables with the following:
-  ```python
-  SECRET_KEY = os.environ.get('SECRET_KEY')
 
-  DATABASES = {
-      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-  }
-  ```
-* Save the file, then run ```python manage.py migrate``` in the terminal to apply any database migrations.
+* Add ``env.py`` to ``.gitignore`` to keep it private.
 
-3. Push Changes to Repository
+* Update your settings.py with:
+    ```python
+      import os
+      import dj_database_url
+
+      if os.path.isfile('env.py'):
+        import env
+      
+      SECRET_KEY = os.environ.get("SECRET_KEY")
+      DEBUG = False
+
+      DATABASES = {
+         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+      }
+
+      ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
+  ```
+
+* If using static files (CSS/JS), add this to settings.py:
+
+   ```python
+   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+   ```
+
+* Save the file, then run migrations in the terminal: 
+
+   ```makefile
+   python manage.py makemigrations --dry-run
+   python manage.py makemigrations
+   python manage.py migrate --plan
+   python manage.py migrate
+   ```
+
+* Collect static files:
+  
+  ```makefile
+  python manage.py collectstatic
+  ```
+
+#### 1. Push Changes to GitHub
+ 
  * Commit and push these changes to the repository to update your project.
+   
+   ```bash
+   git add .
+   git commit -m "<Your commit message here>"
+   git push
+   ```
 
-4.  Heroku Setup
+#### 2.  Heroku Setup
+
 * Navigate to Heroku and log in or create an account.
-* Click "New" in the top right and select "Create New App."
-* Enter a unique app name, choose a region, then click "Create app."
-* Go to the "Settings" tab and click "Reveal Config Vars." Add the following:
-     * ```DATABASE_URL```: Your database URL from the previous setup.
-     * ```SECRET_KEY```: Your secret key.
+* Click **"New"** in the top right and select **"Create New App"**.
+* Enter a unique app name, choose a region, then click **"Create app"**.
+* Go to the **"Settings"** tab and click **"Reveal Config Vars"** and add the following:
+     * ```DATABASE_URL```: Your PostgreSQL URL
+     * ```SECRET_KEY```: Your Django secret key
      * ```PORT```: 8000 (default port for Heroku apps).
-* Go to the "Deploy" tab, select "GitHub" under "Deployment method," and connect your repository.
-* Scroll down and click "Deploy Branch" to complete the deployment process.
+* Go to the **"Deploy"** tab, select **"GitHub"** under **"Deployment method"** and connect your repository.
+* Scroll down and click **"Deploy Branch"** to complete the deployment process.
 
+### Local Development
+
+To run the project locally:
+
+---
+
+#### 1. Clone the repository:
+   
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo>.git
+   cd <your-repo>
+   ```
+
+#### 2. Create and activate a virtual environment:
+
+   ```bash
+   python -m venv venv
+   source venv\Scripts\activate
+   ```
+
+#### 3. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+#### 4. Set up your `.env.py` file with secret keys and database info
+#### 5. Run migrations:
+
+   ```bash
+   python manage.py migrate
+   ```
+
+#### 6. Start the development server:
+   
+   ```bash
+   python manage.py runserver
+   ```
 
 ### How to Fork
 
@@ -538,9 +618,10 @@ This site is deployed to and currently hosted on the Heroku platform. The steps 
 3. Click on the "Code" button and ensure "HTTPS" is selected.
 4. Copy the repository URL.
 5. Open your terminal/command line, navigate to the folder where you want to clone the project, and run:
-```python
-git clone <repository-url>
-```
+
+   ```python
+   git clone <repository-url>
+   ```
 
 ## Credits
 
