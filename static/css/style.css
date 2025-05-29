@@ -129,7 +129,6 @@ body {
 .article-card .categories-buttons { 
     background-color: rgb(31, 34, 42);
     color: white;
-    transition: background-color 0.3s ease, border-color 0.3 ease;
 }
 
 /* Hover Effect for Button */
@@ -193,7 +192,6 @@ body {
 .article-detail-button {
     background-color: rgb(31, 34, 42);
     color: white;
-    transition: background-color 0.3s ease, border-color 0.3 ease;
 }
 
 .article-detail-button:hover {
@@ -373,7 +371,6 @@ body {
     color: white;
     border: 1px solid transparent;
     outline: none;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3 ease; 
 }
 
 .comment-delete-btn:hover {
