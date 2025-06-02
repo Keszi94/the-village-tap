@@ -40,7 +40,7 @@ def threads_page(request):
                 else:
                     thread.status = Thread.PENDING
                     messages.warning(request, "Your thread has been submitted"
-                                     "and is pending approval.")
+                                     " and is pending approval.")
                 thread.save()
                 # redirects the user to the same page after submission
                 return redirect('threads_page')
@@ -72,6 +72,10 @@ def thread_detail(request, slug):
     **Template**
     :template:`forum/thread_detail.html`
     """
+    if not request.user.is_authenticated:
+        messages.warning(request, "Please log in or register to view threads.")
+        return redirect('threads_page')
+
     thread = Thread.objects.get(slug=slug)
     # Fetch all the comments for the thread
     comments = thread.comment.all()

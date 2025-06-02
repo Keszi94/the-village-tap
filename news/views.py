@@ -102,7 +102,7 @@ def create_article(request):
     :template:`news/create_article.html`
     """
     if not request.user.is_superuser:
-        messages.error(request, "Only admions can create articles.")
+        messages.error(request, "Only site admins can create articles.")
         return redirect('home')
 
     if request.method == 'POST':
