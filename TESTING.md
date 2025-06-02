@@ -245,18 +245,23 @@ The first image displayed on the lest under each page name is the test result of
 ---
 _**Note**: The issues below were addressed following the initial assessment feedback._
 
-1.  Registration form not working correctly
+14. Registration form not working correctly
 
       The original `signup.html` template used hardcoded `<input>` elements with incorrect name attributes that didn't match what Django Allauth expects (username, password1, etc.). This caused the form submissions to  fail without creating a user or showing an error message. I replaced the manual fields with Django’s form rendering (`{{ form.username }}`), which ensured correct field names and validation. I also added inline error display to help users understand why submissions might fail.
       To avoid writing labels and classes manually I installed the django-widget-tweaks package. This allowed me to apply Bootstrap classes directly in the template using filters like `|add_class:"form-control"`.
 
       Resource: [django-widget-tweaks doc](https://github.com/jazzband/django-widget-tweaks)
 
-2.   Image upload failed due to misplaced enctype
+15. Image upload failed due to misplaced enctype
 
       Article image uploads were broken because I applied the `enctype="multipart/form-data"` attribute to a `<div>` instead of the `<form>` element itself.
       As a result, image files were never submitted with the form, and only the default image showed. The backend and Cloudinary configuration were correct, the problem was entirely front-end. After noticing the misplaced enctype I moved it to the correct element. The image uploads now work as expected.
 
-3.   Users could edit or delete threads and comments they did not create
+16. Users could edit or delete threads and comments they did not create
 
       The issue was that any logged-in user could edit or delete threads or comments that was not theirs by accessing the URLs directly. This was a clear security issue and violated user data protection. I added permission checks in the views to ensure only the author can edit content and that only the author or a superuser can delete it. I also updated the front-end templates to show the edit/delete buttons only to the appropriate users. These changes now fully protect the content created by the users from unauthorized access.
+
+17. Unauthenticated users caused server error on thread detail view
+
+      When trying to access a thread detail page as an anonim user directly via URL, it caused a 500 server error. This happened because the view attempted to render the page and process forms without checking if the user was logged in. I added a check at the start of the view that redirects any unauthenticated users back to the main forum page with a message.
+
