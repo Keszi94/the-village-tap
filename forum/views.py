@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseForbidden
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -120,9 +119,8 @@ def edit_thread(request, slug):
     thread = get_object_or_404(Thread, slug=slug)
 
     if thread.author != request.user:
-        return HttpResponseForbidden(
-            "You are not allowed to edit this thread!"
-            )
+        messages.error(request, "You are not allowed to edit this thread!")
+        return redirect('threads_page')
 
     if thread.related_article_url is None:
         thread.related_article_url = ""
