@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+
 from .models import Article
 from .models import CATEGORY_CHOICES
 from .forms import ArticleCreationForm
-from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
 
@@ -84,7 +85,7 @@ def is_superuser(user):
     return user.is_superuser
 
 
-@user_passes_test(is_superuser, login_url='/accounts/login/')
+@login_required
 def create_article(request):
     """
     Allow superusers to create a new :model:`news.Article`.
@@ -100,6 +101,10 @@ def create_article(request):
     **Template**
     :template:`news/create_article.html`
     """
+    if not request.user.is_superuser:
+        messages.error(request, "Only admions can create articles.")
+        return redirect('home')
+
     if request.method == 'POST':
         form = ArticleCreationForm(request.POST, request.FILES)
         if form.is_valid():
