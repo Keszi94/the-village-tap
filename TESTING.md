@@ -65,6 +65,7 @@ Forum thread descriptions do not get cut off|View forum thread descriptions and 
 
 
 ### Authentication
+_**Note**: Additional tests were added to this section following the initial assessment feedback._
 
 **Test**|**Steps**|**Expected**|**Result**
 -----|-----|-----|:-----:
@@ -76,6 +77,12 @@ Invalid login (wrong credentials) shows error message|Enter incorrect credential
 Admin-only pages are blocked for regular users|Log in as a regular user and try accessing '/admin/'|Access is denied|Pass
 Logged-out users are told log in when trying to access restricted pages|Log out and try accessing a restricted page (Forum page)|page content does not display, messaging shows prompting login|Pass
 Clicking 'Sign Out on sign out confirmation page logs user out and redirects to home|Click 'Sign Out' on the sign out page|User is logged out and redirected|Pass
+Non-author user trying to edit a thread via direct URL|Log in as non-author, access `/forum/<slug>/edit/`|Redirected with error message|Pass
+Logged out user trying to edit a thread via direct URL|Log out and access `/forum/<slug>/edit/`|Redirected to login page|Pass
+Thread delete by superuser|Log in as admin and delete someone else’s thread|Thread is deleted, success message displys|Pass
+Comment delete by superuser|Log in as admin and delete someone else’s comment|Comment is deleted, success message displays|Pass
+Access article creation using direct URL by non-superuser|Log in as regular user and visit `/create/`|Redirect with error message|Pass
+Access article creation using direct URL by logged-out user|Log out and visit `/create/`|Redirect to login page|Pass
 
 
 ### CRUD Functionality
