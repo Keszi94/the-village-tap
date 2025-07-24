@@ -3,12 +3,6 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
-    <p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
-{% else %}
-    <p class="text-end text-muted">You are not logged in</p>
-{% endif %}
-
 <input type="hidden" id="threadSlug" value="{{ thread.slug }}">
 
 <div class="container mt-4">

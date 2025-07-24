@@ -103,6 +103,10 @@
         </div>
     </nav>
 
+    {% block header %}
+    <!-- headers go in here -->
+    {% endblock header %}
+
     <main class="flex-shrink-0 main-bg">
         <!-- Display Django messages -->
         <div class="container">
@@ -117,6 +121,14 @@
                 </div>
             </div>
         </div>
+
+        {% block login_status %}
+            {% if user.is_authenticated %}
+            <p class="text-end pe-2 me-2 mt-2">You are logged in as <strong>{{ user }}</strong></p>
+            {% else %}
+            <p class="text-end pe-2 me-2 mt-2">You are not logged in</p>
+            {% endif %}
+        {% endblock login_status %}
 
         {% block content %}
         <!-- Content Goes here -->

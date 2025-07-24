@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-
+{% block header %}
 <!-- Header for the Home page -->
 <header class="header"
     style="background-image: url('https://res.cloudinary.com/diz4bvzz9/image/upload/v1738429667/header_zlxvqm.jpg');">
@@ -17,13 +16,10 @@
         </div>
     </div>
 </header>
+{% endblock header %}
 
 
-{% if user.is_authenticated %}
-<p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
-{% else %}
-<p class="text-end text-muted">You are not logged in</p>
-{% endif %}
+{% block content %}
 
 <div class="container-fluid">
     <div class="row">
