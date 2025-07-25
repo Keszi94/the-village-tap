@@ -4,7 +4,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    box-shadow: 0px 50px 50px -20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.6);
 }
 
 .site-heading {
@@ -31,7 +31,7 @@
 /* ~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~.~. Navbar Styling */
 .navbar {
     background-color: rgb(31, 34, 26);
-    box-shadow: 0 11px 20px rgba(255, 251, 251, 0.411); /* Shadow */
+    box-shadow: none; /* Shadow */
     position: relative;
     z-index: 10; /* Ensures navbar stays on top */
 }
@@ -81,7 +81,7 @@
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ All pages */
 main {
-    background-color: lightgrey;
+    background-color: #DCE2DC;
     flex-grow: 1;
     margin: 0;
 }
@@ -127,14 +127,14 @@ body {
 }
 
 .article-card .categories-buttons { 
-    background-color: rgb(31, 34, 42);
+    background-color: #324833;
     color: white;
 }
 
 /* Hover Effect for Button */
 .article-card .categories-buttons:hover {
-    background-color: rgb(83, 92, 80);
-    border-color: 	rgb(31, 34, 42);
+    background-color: #324833bf;
+    border: black 1px solid;
 }
 
 /* Hover Effect on the Card */
@@ -254,7 +254,7 @@ body {
 .threads-list .list-group-item {
     border: none;
     margin-bottom: 10px;
-    background-color: rgba(139, 87, 41, 0.486);
+    background-color: #E7D7C1;
     border-radius: 5px;
 }
 
@@ -264,8 +264,7 @@ body {
 }
 
 .threads-list .list-group-item a:hover {
-    text-decoration: underline;
-    color: rgb(82, 50, 25);
+    color: #9B3C00;
 }
 
 /* ------- New threads */
@@ -304,13 +303,12 @@ body {
 
 /* ------- thread detail card */
 .thread-detail-card {
-    border: 1px solid black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: rgba(139, 87, 41, 0.486);
+    background-color: #E7D7C1;
 }
 
 .delete-thread-btn {
-    background-color: rgb(190, 60, 0);
+    background-color: #9B3C00;
     color: white;
     border: 1px solid transparent;
     outline: none;
@@ -318,9 +316,9 @@ body {
 }
 
 .delete-thread-btn:hover {
-    background-color: rgba(190, 60, 0, 0.63);
+    background-color: rgb(200, 79, 3);
     color: white;
-    border-color: white;
+    border-color: black;
 }
 
 .thread-edit-button {
@@ -340,10 +338,9 @@ body {
 
 /* ------- Comments display */
 .comments-card {
-    border: 1px solid black;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
-    background-color: rgba(194, 122, 63, 0.315);
+    background-color: #E7D7C1;
 }
 
 .comment-auth-date {
@@ -367,15 +364,14 @@ body {
 }
 
 .comment-delete-btn {
-    background-color: rgb(190, 60, 0);
+    background-color: #9B3C00;
     color: white;
     border: 1px solid transparent;
     outline: none;
 }
 
 .comment-delete-btn:hover {
-    background-color: rgba(190, 60, 0, 0.63);
-    color: black;
+    background-color: rgb(200, 79, 3);
     border-color: black;
 }
 
@@ -395,7 +391,7 @@ body {
 
 form.CommentForm textarea {
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.144);
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 
@@ -407,7 +403,7 @@ form.CommentForm textarea {
     text-align: center;
     background-color: rgb(31, 34, 26);
     color: white;
-    box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px -7px 10px rgba(0, 0, 0, 0.5);
     margin-top: 40px;
 }
 

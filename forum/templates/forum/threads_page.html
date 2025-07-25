@@ -34,8 +34,11 @@
             {% for thread in threads %}
             <li class="list-group-item">
                 <h4><a href="{% url 'thread_detail' thread.slug %}">{{ thread.title }}</a></h4>
-                <p>Created by {{ thread.author.username }} on {{ thread.created_on|date:"F j, Y" }}</p>
-                <h5>{{ thread.description|truncatewords:20 }}</h5>
+                <p>{{ thread.description|truncatewords:20 }}</p>
+                <hr>
+                <p>Created by 
+                    <strong>{{ thread.author.username }}</strong> on <strong>{{ thread.created_on|date:"F j, Y" }}</strong>
+                </p>
             </li>
             {% endfor %}
         </ul>

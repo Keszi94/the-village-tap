@@ -90,6 +90,10 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
+# Disable Whitenoise in development, when DEBUG=True
+if DEBUG:
+    MIDDLEWARE.remove('whitenoise.middleware.WhiteNoiseMiddleware')
+
 ROOT_URLCONF = 'village_tap.urls'
 
 TEMPLATES = [

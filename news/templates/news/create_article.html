@@ -2,12 +2,6 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
-<p class="text-end text-muted">You are logged in as <strong>{{ user }}</strong></p>
-{% else %}
-<p class="text-end text-muted">You are not logged in</p>
-{% endif %}
-
 <div class="container mt-5 mb-5">
     <h1>Create New Article</h1>
     <form method="post" enctype="multipart/form-data">
