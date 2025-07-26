@@ -16,6 +16,11 @@ CATEGORY_CHOICES = [
     ('achievements', 'Village Achievements'),
 ]
 
+DEFAULT_IMAGE_URL = (
+    "https://res.cloudinary.com/diz4bvzz9/image/upload/"
+    "v1739203594/default_lqlg2e.webp"
+)
+
 
 class Article(models.Model):
     """
@@ -59,4 +64,9 @@ class Article(models.Model):
         """
         if not self.slug:
             self.slug = slugify(self.title)
+
+        # Apply default image if missing
+        if not self.image:
+            self.image = DEFAULT_IMAGE_URL
+
         super().save(*args, **kwargs)
