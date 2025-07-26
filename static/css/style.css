@@ -97,14 +97,18 @@ body {
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Index page */
 .article-card { 
     background-color: white; 
-    border: 1px solid rgb(31, 34, 26);
-    border-radius: 8px;
     overflow: hidden;
     transition: transform 0.15s ease; 
 }
 
 .article-card-body { 
     padding: 20px;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
 }
 
 .article-card .card-title { 
@@ -168,11 +172,12 @@ body {
 
 /* Image Styling */
 .masthead-img {
-    width: 100%; 
-    max-width: 80%;
-    height: auto;
+    width: auto;
+    max-width: 100%;
+    height: 400px;
     object-fit: contain;
-    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Title and Blurb */
