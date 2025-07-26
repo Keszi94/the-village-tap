@@ -399,13 +399,13 @@ The forum, The Snug, builds on this theme, playing on the idea of pub snugs, whe
 
 * Home Page Palette – A cool, deep green tone, giving a classic, slightly moody pub feel:
 
-![Home page colors](docs/images/home_page_colors.png)
-![Home page header](docs/images/home_header.png)
+![Home page colors](docs/images/the_village_tap_index_palette.jpg)
+![Home page header](docs/images/index_header.jpg)
 
 * Forum Palette – A warmer, brownish tone, reflecting the cozy, intimate atmosphere of a snug corner:
 
-![Forum page colors](docs/images/forum_page_colors.png)
-![Forum page header](docs/images/the_snug_header.png)
+![Forum page colors](docs/images/the_village_tap_forum_palette.jpg)
+![Forum page header](docs/images/forum_header.jpg)
 
 Both pages share the same light grey background, tying everything together while letting the headers define the space.
 
@@ -656,16 +656,31 @@ To run the project locally:
 
 ### Media
 
-* All of the images used for the articles were downloaded form [Pexels](https://www.pexels.com/hu-hu/):
+* Article Images downloaded from [Pexels](https://www.pexels.com/hu-hu/):
   
    * [Khunkorn Laowisit](https://www.pexels.com/hu-hu/foto/1211793/)
-   * [Bara Cross](https://www.pexels.com/hu-hu/foto/220694/)
    * [John-Mark Smith](https://www.pexels.com/hu-hu/foto/250716/)
    * [Erik Scheel](https://www.pexels.com/hu-hu/foto/szemely-aki-gyumolcsot-ad-egy-masiknak-95425/)
    * [Elle Hughes](https://www.pexels.com/hu-hu/foto/elelmiszer-etel-etterem-ferfi-2696064/)
-   * [Tirachard Kumtanom](https://www.pexels.com/hu-hu/foto/347135/)
    * [Irina Anastasiu](https://www.pexels.com/hu-hu/foto/54512/)
    * [ezgi yalçın](https://www.pexels.com/hu-hu/foto/elegans-eskuvoi-portre-rusztikus-dekoracio-alatt-30457602/)
+
+* Article images downloaded from [Unsplash](https://unsplash.com/)
+  
+  * [image](https://unsplash.com/photos/a-road-closed-sign-sitting-on-the-side-of-a-road-xYpzRcwcdUI) by [John Melara](https://unsplash.com/@melara)
+  * [image](https://unsplash.com/photos/a-black-and-white-photo-of-a-bar-in-a-building-aymzmBAJGJM) by [Museums of History New South Wales](https://unsplash.com/@mhnsw)
+  * [image](https://unsplash.com/photos/bride-and-groom-kissing-under-brown-tree-3ohtX7GyqZI) by [Wedding Dreamz](https://unsplash.com/@wedding_dreamz)
+  * [image](https://unsplash.com/photos/volunteers-are-sorting-through-trash-on-the-beach-bJuEPtIwfCk) by [Kim Ampie](https://unsplash.com/@kampie)
+  * [image](https://unsplash.com/photos/brown-wooden-book-shelf-with-books-BEEyeib-am8) by [Trnava University](https://unsplash.com/@trnavskauni)
+  * [image](https://unsplash.com/photos/girl-wearing-black-headphones-je240KkJIuA) by [Ben Mullins](https://unsplash.com/@benmullins)
+  * [image](https://unsplash.com/photos/an-old-stone-building-with-two-towers-on-top-of-it--xqKut6a6w8) by [Kat Kelley](https://unsplash.com/@katkelley)
+  * [image](https://unsplash.com/photos/a-windmill-in-a-field-RVOAnHbaPiM) by [Amandine BATAILLE](https://unsplash.com/@amandine_bataille_photo)
+  * [image](https://unsplash.com/photos/red-and-black-traffic-sign-UreG3TJEpiQ) by [Miguel Teirlinck](https://unsplash.com/@miguelteirlinck)
+  * [image](https://unsplash.com/photos/assorted-color-signage-lot-on-road-during-daytime-dQLgop4tnsc) by [Jamie Street](https://unsplash.com/@jamie452)
+  * [image](https://unsplash.com/photos/brown-wooden-welcome-signage-on-green-plants-eL4ADAsiOR8) by [David Clode](https://unsplash.com/@davidclode)
+  * [image](https://unsplash.com/photos/people-are-playing-tug-of-war-on-a-grassy-hillside-ndc-YQ6Pd_I) by [Rob Wingate](https://unsplash.com/@robwingate)
+  * [image](https://unsplash.com/photos/an-artist-paints-a-seascape-by-the-ocean-kuyDWol3GmY) by [Tommaso Delton](https://unsplash.com/@tommasodelton)
+  * [image](https://unsplash.com/photos/father-and-daughter-enjoy-reading-a-book-together-l1kNahpUl1E) by [Judy Beth Morris](https://unsplash.com/@judy_beth_morris_idaho)
 
 * Wireframes for the Readme were created on [Moqups](https://app.moqups.com/)
 
