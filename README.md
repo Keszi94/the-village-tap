@@ -6,7 +6,7 @@ The site is designed to provide the imagined community with up-to-date news abou
 
 [Live link to the site](https://the-village-tap-74679d8f9977.herokuapp.com/)
 
-![The Village Tap website responsiveness](docs/images/responsive.gif)
+![The Village Tap website responsiveness](docs/images/am_i_responsive.png)
 
 
 ## CONTENTS
