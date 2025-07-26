@@ -60,7 +60,7 @@
 }
 
 .dropdown-menu {
-    background-color: rgb(127, 148, 106);
+    background-color: #dce3dc;
 }
 
 .navbar-nav .dropdown-menu .dropdown-item {
@@ -162,6 +162,28 @@ body {
     transform: translateY(-10px);
 }
 
+.pagination-wrapper {
+    margin-bottom: 2rem;
+}
+
+/* Active page style */
+.pagination .page-item.active .page-link {
+    background-color: #1f221a;
+    border-color: #1f221a;
+    color: #fff;
+}
+
+/* Page link hover */
+.pagination .page-link {
+    color: #1f221a;
+    border: 1px solid #ddd;
+    margin: 0 2px;
+}
+
+.pagination .page-link:hover {
+    background-color: #7f946a;
+    color: #fff;
+}
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Article detail */
 .masthead {

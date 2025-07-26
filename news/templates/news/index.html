@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cloudinary_extras %}
 
 {% block header %}
 <!-- Header for the Home page -->
@@ -27,10 +28,12 @@
         <!-- Articles Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for article in articles %}
+                {% for article in page_obj %}
                     <div class="col-12 col-sm-6 col-lg-3 mb-4">
                         <div class="card article-card h-100 shadow-sm">
-                            <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
+                            <a href="{% url 'article_detail' article.slug %}" class="article-link">
+                                <img src="{{ article.image.url|cloudinary_small }}" class="card-img-top" alt="{{ article.title }}" loading="lazy">
+                            </a>
                             <div class="card-body article-card-body">
                                 <a href="{% url 'article_detail' article.slug %}" class="article-link">
                                     <h2 class="card-title">{{ article.title }}</h2>
@@ -51,16 +54,33 @@
             </div>
         </div>
     </div>
+
+    <!-- Pagination -->
     {% if is_paginated %}
-    <nav aria-label="Page navigation">
+    <nav aria-label="Page navigation" class="pagination-wrapper">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li>
+            <li class="page-item">
                 <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
             </li>
             {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ num }}</span>
+                    </li>
+                {% else %}
+                    <li class="pag-item">
+                        <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a>
+            </li>
             {% endif %}
         </ul>
     </nav>

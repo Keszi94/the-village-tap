@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 from .models import Article
 from .models import CATEGORY_CHOICES
@@ -11,7 +12,8 @@ from .forms import ArticleCreationForm
 
 def article_list(request, category=None):
     """
-    Display a list of :model:`news.Article` filtered by category if provided.
+    Display a list of :model:`news.Article` filtered by category if provided,
+    with paginator support.
 
     **Context**
     ``articles``
@@ -20,6 +22,10 @@ def article_list(request, category=None):
     ``category``
         A string representing the category title or
         `None` if no category is specified.
+    ``page_obj``
+        Paginator object for template pagination controls
+    ``is_paginated``
+        Boolean for showing pagination controls
 
     **Template**
     :template:`news/index.html`
@@ -36,8 +42,15 @@ def article_list(request, category=None):
         articles = Article.objects.filter(status=2).order_by('-created_on')
         category_title = None
 
+    # Paginator - 8 articles per page
+    paginator = Paginator(articles, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     return render(request, 'news/index.html', {
      'articles': articles,
+     'page_obj': page_obj,
+     'is_paginated': page_obj.has_other_pages(),
      'category': category_title,
     })
 
