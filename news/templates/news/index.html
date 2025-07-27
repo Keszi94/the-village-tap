@@ -48,10 +48,10 @@
                                 </div>
 
                                 <hr>
-                                <p class="card-text text-muted h6">{{ article.created_on}}
+                                <p class="card-text text-muted h6">Published on {{ article.created_on|date:"M j, Y"}} | Author: {{ article.author }}
                                 </p>
                                 <a class="btn categories-buttons"
-                                    href="{% url 'articles_by_category' article.category %}">{{ article.category }}</a>
+                                    href="{% url 'articles_by_category' article.category %}">{{ article.get_category_display }}</a>
                             </div>
                         </div>
                     </div>
