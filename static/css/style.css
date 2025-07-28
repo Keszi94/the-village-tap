@@ -147,7 +147,8 @@ body {
 
 /* Hover Effect on the Card */
 .article-card:hover { 
-    transform: translateY(-5px); /* Make the card move up a little */
+    /* transform: translateY(-5px);  */
+    /* Make the card move up a little */
 }
 
 /* Article Link Styling */
@@ -163,7 +164,7 @@ body {
 }
 
 .article-card:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
 }
 
 .pagination-wrapper {
@@ -269,14 +270,6 @@ body {
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads page */
 /* ------- Threads list */
-.threads-list {
-    border: 2px solid black; 
-    border-radius: 10px; 
-    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.3); 
-    padding: 20px;
-    background-color: #fff;
-}
-
 .threads-list h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
@@ -289,13 +282,17 @@ body {
     border-radius: 5px;
 }
 
-.threads-list .list-group-item a {
+.thread-card h4 a {
     text-decoration: none;
-    color: black;
+    color: #442715;
 }
 
-.threads-list .list-group-item a:hover {
+.thread-card h4 a:hover {
     color: #9B3C00;
+}
+
+.thread-created-by {
+    color: #9b3b00b2;
 }
 
 /* ------- New threads */

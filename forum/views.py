@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 from .models import Thread, Comment
 from .forms import ThreadCreationForm, CommentForm, ThreadEditForm
@@ -21,8 +22,13 @@ def threads_page(request):
     **Template**
     :template:`forum/threads_page.html`
     """
-    threads = Thread.objects.filter(
+    threads_list = Thread.objects.filter(
         status=Thread.APPROVED).order_by('-created_on')
+
+    # Add Pagination
+    paginator = Paginator(threads_list, 4)
+    page_numer = request.GET.get('page')
+    page_obj = paginator.get_page(page_numer)
 
     if request.method == 'POST':
         if request.user.is_authenticated:
@@ -51,7 +57,9 @@ def threads_page(request):
         form = ThreadCreationForm()
 
     return render(request, 'forum/threads_page.html', {
-        'threads': threads,
+        'threads': page_obj,
+        'page_obj': page_obj,
+        'is_paginated': page_obj.has_other_pages(),
         'form': form,
     })
 

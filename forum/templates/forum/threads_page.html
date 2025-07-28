@@ -21,33 +21,61 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <h1 class="mb-4">Conversations Happening In The Snug</h1>
-    <hr>
+<!-- <h1 class="mb-4">Conversations Happening In The Snug</h1>
+<hr> -->
 
+<div class="container mt-5">
     {% if user.is_authenticated %}
     <!-- List of existing threads -->
-    <div class="mt-4 threads-list">
-        <h2>All Threads</h2>
-        {% if threads %}
-        <ul class="list-group">
-            {% for thread in threads %}
-            <li class="list-group-item">
-                <h4><a href="{% url 'thread_detail' thread.slug %}">{{ thread.title }}</a></h4>
-                <p>{{ thread.description|truncatewords:20 }}</p>
-                <hr>
-                <p>Created by 
-                    <strong>{{ thread.author.username }}</strong> on <strong>{{ thread.created_on|date:"F j, Y" }}</strong>
-                </p>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p>No threads found. Be the first to start a conversation!</p>
-        {% endif %}
-    </div>
-
+    <h2>All Threads</h2>
+    {% if threads %}
     <hr>
+    <ul class="list-group">
+        {% for thread in page_obj %}
+        <li class="list-group-item bg-white shadow-sm rounded-3 mb-3 thread-card">
+            <h4><a href="{% url 'thread_detail' thread.slug %}">{{ thread.title }}</a></h4>
+            <p>{{ thread.description|truncatewords:20 }}</p>
+            <hr>
+            <p class="thread-created-by">Created by 
+                <strong>{{ thread.author.username }}</strong> on <strong>{{ thread.created_on|date:"F j, Y" }}</strong>
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% if is_paginated %}
+    <nav aria-label="Thread pagination" class="mt-3">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ num }}</span>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+    
+    {% else %}
+    <p>No threads found. Be the first to start a conversation!</p>
+    {% endif %}
+
 
     <!-- Form for creating a new thread -->
     <div class="mb-4 new-thread">
