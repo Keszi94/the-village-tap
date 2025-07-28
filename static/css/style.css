@@ -316,15 +316,15 @@ body {
 .new-thread button {
     padding: 10px 20px; 
     font-size: 1.1rem;
-    background-color: rgb(66, 41, 20);
+    background-color: #9B3C00;
     border: none;
     outline: none;
     transition: background-color 0.3s ease; 
 }
 
 .new-thread button:hover {
-    background-color: rgb(194, 122, 63); 
-    color: black;
+    background-color: rgb(200, 79, 3); 
+    color: white;
 }
 
 /* #_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_ Threads detail */
@@ -332,11 +332,11 @@ body {
 /* ------- thread detail card */
 .thread-detail-card {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #E7D7C1;
+    background-color: white;
 }
 
 .delete-thread-btn {
-    background-color: #9B3C00;
+    background-color: #ab1903cc;
     color: white;
     border: 1px solid transparent;
     outline: none;
@@ -344,7 +344,7 @@ body {
 }
 
 .delete-thread-btn:hover {
-    background-color: rgb(200, 79, 3);
+    background-color: #ab1903;
     color: white;
     border-color: black;
 }
@@ -368,7 +368,7 @@ body {
 .comments-card {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
-    background-color: #E7D7C1;
+    background-color: #E6D7C0;
 }
 
 .comment-auth-date {
@@ -377,6 +377,15 @@ body {
 
 .posted-comment-card {
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.144);
+}
+
+.related_article_link {
+    text-decoration: none;
+    color: #782f02;
+}
+
+.related_article_link:hover {
+    color: #9B3C00;
 }
 
 .comment-edit-btn {
@@ -392,14 +401,14 @@ body {
 }
 
 .comment-delete-btn {
-    background-color: #9B3C00;
+    background-color: #ab1903cc;
     color: white;
     border: 1px solid transparent;
     outline: none;
 }
 
 .comment-delete-btn:hover {
-    background-color: rgb(200, 79, 3);
+    background-color: #ab1903;
     border-color: black;
 }
 

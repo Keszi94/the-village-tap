@@ -16,7 +16,7 @@
             <h5 class="card-text pt-5 pb-5">{{ thread.description }}</h5>
 
             {% if thread.related_article_url and thread.related_article_url != "None" %}
-                <p><strong>Related Article:</strong> <a href="{{ thread.related_article_url }}" target="_blank"
+                <p><strong>Related Article:</strong> <a class="related_article_link" href="{{ thread.related_article_url }}" target="_blank"
                         rel="noopener noreferrer">{{ thread.related_article_url }}</a></p>
             {% endif %}
 
